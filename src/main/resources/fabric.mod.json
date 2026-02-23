@@ -15,10 +15,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"meepoffaith.hextra.HextraPatterns"
+			"com.meepoffaith.hextra.HextraPatterns"
 		],
 		"client": [
-			"meepoffaith.hextra.HextraPatternsClient"
+			"com.meepoffaith.hextra.HextraPatternsClient"
 		]
 	},
 	"mixins": [

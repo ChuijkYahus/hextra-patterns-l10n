@@ -1,4 +1,4 @@
-package meepoffaith.hextra;
+package com.meepoffaith.hextra;
 
 import net.fabricmc.api.ModInitializer;
 

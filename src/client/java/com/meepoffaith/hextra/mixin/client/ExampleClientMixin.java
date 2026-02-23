@@ -1,4 +1,4 @@
-package meepoffaith.hextra.mixin.client;
+package com.meepoffaith.hextra.mixin.client;
 
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;

@@ -1,6 +1,6 @@
 {
 	"required": true,
-	"package": "meepoffaith.hextra.mixin",
+	"package": "com.meepoffaith.hextra.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 		"ExampleMixin"
