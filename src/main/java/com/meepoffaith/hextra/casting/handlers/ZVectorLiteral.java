@@ -3,7 +3,6 @@ package com.meepoffaith.hextra.casting.handlers;
 import at.petrak.hexcasting.api.casting.castables.Action;
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler;
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
-import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
@@ -16,16 +15,16 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class XVectorLiteral implements SpecialHandler{
-    double x;
+public class ZVectorLiteral implements SpecialHandler{
+    double z;
 
-    public XVectorLiteral(double x){
-        this.x = x;
+    public ZVectorLiteral(double z){
+        this.z = z;
     }
 
     @Override
     public Action act(){
-        return new InnerAction(x);
+        return new InnerAction(z);
     }
 
     @Override
@@ -35,26 +34,26 @@ public class XVectorLiteral implements SpecialHandler{
 
     private class InnerAction extends ConstMediaActionBase{
         public int argc = 0;
-        double x;
+        double z;
 
-        public InnerAction(double x){
-            this.x = x;
+        public InnerAction(double z){
+            this.z = z;
         }
 
         @Override
         public List<? extends Iota> execute(HexIotaStack stack, CastingEnvironment ctx){
-            return asActionResult(new Vec3Iota(new Vec3d(x, 0, 0)));
+            return asActionResult(new Vec3Iota(new Vec3d(0, 0, z)));
         }
     }
 
-    public static class XVectorLiteralFactory implements Factory<XVectorLiteral> {
+    public static class ZVectorLiteralFactory implements Factory<ZVectorLiteral> {
         @Override
-        public @Nullable XVectorLiteral tryMatch(HexPattern pattern, CastingEnvironment env){
+        public @Nullable ZVectorLiteral tryMatch(HexPattern pattern, CastingEnvironment env){
             String sig = pattern.anglesSignature();
-            if(sig.startsWith("aeqqqqqaw") || sig.startsWith("aqeeeeedw")){
+            if(sig.startsWith("deqqqqqaw") || sig.startsWith("dqeeeeedw")){
                 double val = HextraUtils.numericalReflection(sig.substring(9)) *
-                    (sig.startsWith("aqeeeeedw") ? -1.0 : 1.0);
-                return new XVectorLiteral(val);
+                    (sig.startsWith("dqeeeeedw") ? -1.0 : 1.0);
+                return new ZVectorLiteral(val);
             }else{
                 return null;
             }
