@@ -15,8 +15,6 @@ import com.meepoffaith.hextra.HextraPatterns;
 
 public class Patterns{
     public static void init(){
-        register("math_min", "awddee", HexDir.SOUTH_EAST, new MathMin());
-        register("math_max", "awddae", HexDir.SOUTH_EAST, new MathMax());
     }
 
     private static void register(
