@@ -3,13 +3,12 @@
 	"id": "hextra-patterns",
 	"version": "${version}",
 	"name": "Hextra Patterns",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Adds some small utility patterns meant to shorten groups of patterns into a single one.",
 	"authors": [
-		"Me!"
+		"MEEP of Faith"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/MEEPofFaith/hextra-patterns"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/hextra-patterns/icon.png",
@@ -23,16 +22,13 @@
 		]
 	},
 	"mixins": [
-		"hextra-patterns.mixins.json",
-		{
-			"config": "hextra-patterns.client.mixins.json",
-			"environment": "client"
-		}
+		"hextra-patterns.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.18.4",
-		"minecraft": "~1.20.1",
+		"fabric-language-kotlin": ">=1.13.4+kotlin.2.2.0",
+		"hexcasting": ">=0.11.3",
 		"java": ">=17",
-		"fabric-api": "*"
+		"minecraft": "~1.20.1"
 	}
 }
