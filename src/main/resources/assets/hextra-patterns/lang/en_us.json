@@ -7,8 +7,12 @@
   "hextra.page.vectors.greater": "If the first vector is longer than the second, return True. Otherwise, return False.",
   "hextra.page.vectors.less": "If the first vector is shorter than the second, return True. Otherwise, return False.",
   "hextra.page.vectors.greater_eq": "If the first vector is longer or the same length as the second, return True. Otherwise, return False.",
-  "hextra.page.vectors.less_eq": "If the first vector is shorter or the same length the second, return True. Otherwise, return False."
   "hextra.page.vectors.less_eq": "If the first vector is shorter or the same length the second, return True. Otherwise, return False.",
+
+  "pages.hextra.hextra_vec_literals.title": "Vector Literals",
+  "hexcasting.action.book.hextra:scaled_vec_x": "Vector Rfln. +X/-X II",
+  "hextra.page.vec_literals.1": "Oh god",
+
   "hexcasting.special.hextra:scaled_vec_x": "Vector Reflection: (%s, 0, 0)",
   "hexcasting.special.hextra:scaled_vec_y": "Vector Reflection: (0, %s, 0)",
   "hexcasting.special.hextra:scaled_vec_z": "Vector Reflection: (0, 0, %s)",
