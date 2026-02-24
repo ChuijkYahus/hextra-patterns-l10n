@@ -1,38 +1,18 @@
 {
-  "name": "pages.hextra.hextra_vectors.title",
+  "name": "pages.hextra.hextra_logic.title",
   "category": "hexcasting:patterns",
-  "icon": "minecraft:end_rod",
-  "sortnum": 3,
+  "icon": "minecraft:redstone_lamp",
+  "sortnum": 5,
   "advancement": "hexcasting:root",
   "read_by_default": true,
   "pages": [
-    {
-      "type": "hexcasting:manual_pattern",
-      "op_id": "hextra:haha_ha_one",
-      "anchor": "hextra:haha_ha_one",
-      "input": "",
-      "output": "vector",
-      "text": "hextra.page.vectors.one",
-      "patterns": [
-        {
-          "startdir": "NORTH_WEST",
-          "signature": "qqqqqeq",
-          "q": -1,
-          "r": -1
-        }, {
-          "startdir": "NORTH_EAST",
-          "signature": "eeeeeqq",
-          "r": 1
-        }
-      ]
-    },
     {
       "type": "hexcasting:pattern",
       "op_id": "hexcasting:greater",
       "anchor": "hexcasting:greater",
       "input": "vector, vector",
       "output": "bool",
-      "text": "hextra.page.vectors.greater"
+      "text": "hextra.page.logic.greater"
     },
     {
       "type": "hexcasting:pattern",
@@ -40,7 +20,7 @@
       "anchor": "hexcasting:less",
       "input": "vector, vector",
       "output": "bool",
-      "text": "hextra.page.vectors.less"
+      "text": "hextra.page.logic.less"
     },
     {
       "type": "hexcasting:pattern",
@@ -48,7 +28,7 @@
       "anchor": "hexcasting:greater_eq",
       "input": "vector, vector",
       "output": "bool",
-      "text": "hextra.page.vectors.greater_eq"
+      "text": "hextra.page.logic.greater_eq"
     },
     {
       "type": "hexcasting:pattern",
@@ -56,7 +36,7 @@
       "anchor": "hexcasting:less_eq",
       "input": "vector, vector",
       "output": "bool",
-      "text": "hextra.page.vectors.greater"
+      "text": "hextra.page.logic.less_eq"
     }
   ]
 }
