@@ -1,12 +1,14 @@
 package com.meepoffaith.hextra.init;
 
 import at.petrak.hexcasting.api.casting.ActionRegistryEntry;
+import at.petrak.hexcasting.api.casting.arithmetic.Arithmetic;
 import at.petrak.hexcasting.api.casting.castables.Action;
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler;
 import at.petrak.hexcasting.api.casting.math.HexDir;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.common.lib.hex.HexActions;
 
+import at.petrak.hexcasting.common.lib.hex.HexArithmetics;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
 
 import com.meepoffaith.hextra.HextraPatterns;
@@ -15,6 +17,7 @@ import com.meepoffaith.hextra.casting.actions.MathActions.RadDeg;
 import com.meepoffaith.hextra.casting.actions.VecActions.Normalize;
 import com.meepoffaith.hextra.casting.actions.VecActions.VecNegOne;
 import com.meepoffaith.hextra.casting.actions.VecActions.VecOne;
+import com.meepoffaith.hextra.casting.arithmetic.Vec3BoolArithmetic;
 import com.meepoffaith.hextra.casting.handlers.AllVectorLiteral.AllVectorLiteralFactory;
 import com.meepoffaith.hextra.casting.handlers.XVectorLiteral.XVectorLiteralFactory;
 import com.meepoffaith.hextra.casting.handlers.YVectorLiteral.YVectorLiteralFactory;
@@ -25,6 +28,8 @@ import net.minecraft.util.Identifier;
 
 public class Patterns{
     public static void init(){
+        registerArithmetic("vec3bools", new Vec3BoolArithmetic());
+
         register("deg_to_rad", "qqqqqdwdq", HexDir.WEST, new DegRad());
         register("rad_to_deg", "qdwdqqqqq", HexDir.NORTH_EAST, new RadDeg());
 
@@ -54,5 +59,12 @@ public class Patterns{
         SpecialHandler.Factory<?> handler
     ) {
         Registry.register(IXplatAbstractions.INSTANCE.getSpecialHandlerRegistry(), new Identifier(HextraPatterns.MOD_ID, name), handler);
+    }
+
+    private static void registerArithmetic(
+        String name,
+        Arithmetic a
+    ){
+        Registry.register(HexArithmetics.REGISTRY,  new Identifier(HextraPatterns.MOD_ID, name), a);
     }
 }
