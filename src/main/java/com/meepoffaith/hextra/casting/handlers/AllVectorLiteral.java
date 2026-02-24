@@ -15,16 +15,16 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class YVectorLiteral implements SpecialHandler{
-    double y;
+public class AllVectorLiteral implements SpecialHandler{
+    double x;
 
-    public YVectorLiteral(double y){
-        this.y = y;
+    public AllVectorLiteral(double x){
+        this.x = x;
     }
 
     @Override
     public Action act(){
-        return new InnerAction(y);
+        return new InnerAction(x);
     }
 
     @Override
@@ -34,26 +34,26 @@ public class YVectorLiteral implements SpecialHandler{
 
     private static class InnerAction extends ConstMediaActionBase{
         public int argc = 0;
-        double y;
+        double x;
 
-        public InnerAction(double y){
-            this.y = y;
+        public InnerAction(double x){
+            this.x = x;
         }
 
         @Override
         public List<? extends Iota> execute(HexIotaStack stack, CastingEnvironment ctx){
-            return asActionResult(new Vec3Iota(new Vec3d(0, y, 0)));
+            return asActionResult(new Vec3Iota(new Vec3d(x, x, x)));
         }
     }
 
-    public static class YVectorLiteralFactory implements Factory<YVectorLiteral> {
+    public static class AllVectorLiteralFactory implements Factory<AllVectorLiteral> {
         @Override
-        public @Nullable YVectorLiteral tryMatch(HexPattern pattern, CastingEnvironment env){
+        public @Nullable AllVectorLiteral tryMatch(HexPattern pattern, CastingEnvironment env){
             String sig = pattern.anglesSignature();
-            if(sig.startsWith("weqqqqqaw") || sig.startsWith("wqeeeeedw")){
+            if(sig.startsWith("qeqqqqqaw") || sig.startsWith("qqeeeeedw")){
                 double val = HextraUtils.numericalReflection(sig.substring(9)) *
-                    (sig.startsWith("wqeeeeedw") ? -1.0 : 1.0);
-                return new YVectorLiteral(val);
+                    (sig.startsWith("qqeeeeedw") ? -1.0 : 1.0);
+                return new AllVectorLiteral(val);
             }else{
                 return null;
             }

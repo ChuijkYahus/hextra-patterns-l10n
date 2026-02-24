@@ -33,7 +33,7 @@ public class XVectorLiteral implements SpecialHandler{
         return null;
     }
 
-    private class InnerAction extends ConstMediaActionBase{
+    private static class InnerAction extends ConstMediaActionBase{
         public int argc = 0;
         double x;
 
