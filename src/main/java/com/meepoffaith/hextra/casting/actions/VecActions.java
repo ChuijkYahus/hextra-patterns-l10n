@@ -24,4 +24,12 @@ public class VecActions{
             return asActionResult(new Vec3Iota(new Vec3d(-1, -1, -1)));
         }
     }
+
+    public static class Normalize extends ConstMediaActionBase{
+        @Override
+        public List<? extends Iota> execute(HexIotaStack stack, CastingEnvironment ctx){
+            Vec3d vec = stack.getVec3(0);
+            return asActionResult(new Vec3Iota(vec.normalize()));
+        }
+    }
 }

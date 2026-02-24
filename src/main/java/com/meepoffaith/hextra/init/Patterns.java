@@ -8,19 +8,20 @@ import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.common.lib.hex.HexActions;
 
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
-import com.meepoffaith.hextra.casting.actions.MathActions;
+
+import com.meepoffaith.hextra.HextraPatterns;
 import com.meepoffaith.hextra.casting.actions.MathActions.DegRad;
 import com.meepoffaith.hextra.casting.actions.MathActions.RadDeg;
+import com.meepoffaith.hextra.casting.actions.VecActions.Normalize;
 import com.meepoffaith.hextra.casting.actions.VecActions.VecNegOne;
 import com.meepoffaith.hextra.casting.actions.VecActions.VecOne;
 import com.meepoffaith.hextra.casting.handlers.AllVectorLiteral.AllVectorLiteralFactory;
 import com.meepoffaith.hextra.casting.handlers.XVectorLiteral.XVectorLiteralFactory;
 import com.meepoffaith.hextra.casting.handlers.YVectorLiteral.YVectorLiteralFactory;
 import com.meepoffaith.hextra.casting.handlers.ZVectorLiteral.ZVectorLiteralFactory;
+
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-
-import com.meepoffaith.hextra.HextraPatterns;
 
 public class Patterns{
     public static void init(){
@@ -35,6 +36,8 @@ public class Patterns{
         registerSpecialHandler("scaled_vec_y", new YVectorLiteralFactory());
         registerSpecialHandler("scaled_vec_z", new ZVectorLiteralFactory());
         registerSpecialHandler("scaled_vec_all", new AllVectorLiteralFactory());
+
+        register("normalize", "eeeeedww", HexDir.SOUTH_WEST, new Normalize());
     }
 
     private static void register(
