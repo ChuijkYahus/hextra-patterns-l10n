@@ -14,44 +14,39 @@ import com.meepoffaith.hextra.casting.actions.VecActions.VecOne;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import static com.meepoffaith.hextra.init.Arithmetics.*;
 
 public class Patterns{
-    private static final Map<Identifier, ActionRegistryEntry> PATTERNS = new LinkedHashMap<>();
-
-    public static final HexPattern DEG_TO_RAD = make("deg_to_rad", "qqqqqdwdq", HexDir.WEST, new DegRad());
-    public static final HexPattern RAD_TO_DEG = make("rad_to_deg", "qdwdqqqqq", HexDir.NORTH_EAST, new RadDeg());
-
-    //Come on, Elise!
-    public static final HexPattern VEC_ONE = make("haha_ha_one", "qqqqqeq", HexDir.NORTH_WEST, new VecOne());
-    public static final HexPattern VEC_NEGONE = make("eno_ah_ahah", "eeeeeqq", HexDir.SOUTH_WEST, new VecNegOne());
-
-    public static HexPattern ROT_ABOUT_X = make("rot_about_x", "aaqqqqqea", HexDir.SOUTH_WEST);
-    public static HexPattern ROT_ABOUT_Y = make("rot_about_y", "aaqqqqqew", HexDir.SOUTH_WEST);
-    public static HexPattern ROT_ABOUT_Z = make("rot_about_z", "aaqqqqqed", HexDir.SOUTH_WEST);
-    public static HexPattern CONSTRUCT_ABOUT_X = make("cons_about_x", "daqqqqqea", HexDir.NORTH_WEST);
-    public static HexPattern CONSTRUCT_ABOUT_Y = make("cons_about_y", "daqqqqqew", HexDir.NORTH_WEST);
-    public static HexPattern CONSTRUCT_ABOUT_Z = make("cons_about_z", "daqqqqqed", HexDir.NORTH_WEST);
-    public static HexPattern NORMALIZE = make("normalize", "eeeeedww", HexDir.SOUTH_WEST);
-
     public static void init(){
-        for(Map.Entry<Identifier, ActionRegistryEntry> entry : PATTERNS.entrySet()){
-            Registry.register(HexActions.REGISTRY, entry.getKey(), entry.getValue());
-        }
+        register("deg_to_rad", "qqqqqdwdq", HexDir.WEST, new DegRad());
+        register("rad_to_deg", "qdwdqqqqq", HexDir.NORTH_EAST, new RadDeg());
+
+        //Come on, Elise!
+        register("haha_ha_one", "qqqqqeq", HexDir.NORTH_WEST, new VecOne());
+        register("eno_ah_ahah", "eeeeeqq", HexDir.SOUTH_WEST, new VecNegOne());
+
+        register("rot_about_x", ROT_ABOUT_X);
+        register("rot_about_y", ROT_ABOUT_Y);
+        register("rot_about_z", ROT_ABOUT_Z);
+        register("cons_about_x", CONSTRUCT_ABOUT_X);
+        register("cons_about_y", CONSTRUCT_ABOUT_Y);
+        register("cons_about_z", CONSTRUCT_ABOUT_Z);
+        register("normalize", NORMALIZE);
     }
 
-    private static HexPattern make(String name, String sig, HexDir dir, Action act){
-        HexPattern pattern = HexPattern.fromAngles(sig, dir);
-        PATTERNS.put(new Identifier(HextraPatterns.MOD_ID, name), new ActionRegistryEntry(pattern, act));
-        return pattern;
+    private static void register(
+        String name,
+        String signature,
+        HexDir startDir,
+        Action action
+    ) {
+        Registry.register(HexActions.REGISTRY, new Identifier(HextraPatterns.MOD_ID, name), new ActionRegistryEntry(HexPattern.fromAngles(signature, startDir), action));
     }
 
-    private static HexPattern make(String name, String sig, HexDir dir){
-        HexPattern pattern = HexPattern.fromAngles(sig, dir);
-        PATTERNS.put(new Identifier(HextraPatterns.MOD_ID, name), new ActionRegistryEntry(pattern, new OperationAction(pattern)));
-        return pattern;
+    private static void register(
+        String name,
+        HexPattern pattern
+    ) {
+        Registry.register(HexActions.REGISTRY, new Identifier(HextraPatterns.MOD_ID, name), new ActionRegistryEntry(pattern, new OperationAction(pattern)));
     }
 }
