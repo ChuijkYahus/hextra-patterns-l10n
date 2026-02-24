@@ -8,7 +8,7 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "header": "pages.hextra.hextra_vec_literals.title",
+      "title": "pages.hextra.hextra_vec_literals.title",
       "text": "hextra.page.vec_literals.1"
     },
     {
