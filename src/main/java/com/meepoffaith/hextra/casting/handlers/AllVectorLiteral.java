@@ -1,14 +1,19 @@
 package com.meepoffaith.hextra.casting.handlers;
 
+import at.petrak.hexcasting.api.HexAPI;
 import at.petrak.hexcasting.api.casting.castables.Action;
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler;
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
+import at.petrak.hexcasting.api.utils.HexUtils;
+import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import com.meepoffaith.hextra.casting.bases.ConstMediaActionBase;
 import com.meepoffaith.hextra.casting.bases.HexIotaStack;
+import com.meepoffaith.hextra.init.SpecialHandlers;
 import com.meepoffaith.hextra.util.HextraUtils;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
@@ -29,7 +34,8 @@ public class AllVectorLiteral implements SpecialHandler{
 
     @Override
     public Text getName(){
-        return null;
+        String val = Action.Companion.getDOUBLE_FORMATTER().format(x);
+        return HextraUtils.specialHandlerLang(SpecialHandlers.SCALED_VEC_ALL, val, val, val);
     }
 
     private static class InnerAction extends ConstMediaActionBase{

@@ -8,6 +8,7 @@ import at.petrak.hexcasting.api.casting.iota.Vec3Iota;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import com.meepoffaith.hextra.casting.bases.ConstMediaActionBase;
 import com.meepoffaith.hextra.casting.bases.HexIotaStack;
+import com.meepoffaith.hextra.init.SpecialHandlers;
 import com.meepoffaith.hextra.util.HextraUtils;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
@@ -29,7 +30,10 @@ public class YVectorLiteral implements SpecialHandler{
 
     @Override
     public Text getName(){
-        return null;
+        return HextraUtils.specialHandlerLang(
+            SpecialHandlers.SCALED_VEC_Y,
+            Action.Companion.getDOUBLE_FORMATTER().format(y)
+        );
     }
 
     private static class InnerAction extends ConstMediaActionBase{

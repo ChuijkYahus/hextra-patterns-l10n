@@ -1,5 +1,12 @@
 package com.meepoffaith.hextra.util;
 
+import at.petrak.hexcasting.api.HexAPI;
+import at.petrak.hexcasting.api.casting.castables.SpecialHandler.Factory;
+import at.petrak.hexcasting.api.utils.HexUtils;
+import at.petrak.hexcasting.xplat.IXplatAbstractions;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.text.Text;
+
 public class HextraUtils{
     /** Simulates the accumulation process of Numerical Reflection */
     public static double numericalReflection(String s){
@@ -16,5 +23,14 @@ public class HextraUtils{
             }
         }
         return accumulator;
+    }
+
+    public static Text specialHandlerLang(Factory<?> handler, Object... args){
+        RegistryKey<Factory<?>> key = IXplatAbstractions.INSTANCE.getSpecialHandlerRegistry().getKey(handler).get();
+        return HexUtils.getLightPurple(
+            HexUtils.asTranslatedComponent(
+                HexAPI.instance().getSpecialHandlerI18nKey(key), args
+            )
+        );
     }
 }
