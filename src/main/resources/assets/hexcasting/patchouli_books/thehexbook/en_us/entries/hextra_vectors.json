@@ -2,7 +2,7 @@
     "name": "pages.hextra.hextra_vectors.title",
     "category": "hexcasting:patterns",
     "icon": "minecraft:arrow",
-    "sortnum": 3.1,
+    "sortnum": 3,
     "advancement": "hexcasting:root",
     "read_by_default": true,
     "pages": [
