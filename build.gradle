@@ -37,6 +37,7 @@ loom {
 		}
 	}
 
+    runs.client.programArgs '--username', 'MEEPofFaith'
 }
 
 dependencies {
