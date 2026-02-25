@@ -34,5 +34,25 @@
   "hexcasting.special.hextra:scaled_vec_x": "Vector Reflection: (%s, 0, 0)",
   "hexcasting.special.hextra:scaled_vec_y": "Vector Reflection: (0, %s, 0)",
   "hexcasting.special.hextra:scaled_vec_z": "Vector Reflection: (0, 0, %s)",
-  "hexcasting.special.hextra:scaled_vec_all": "Vector Reflection: (%s, %s, %s)"
+  "hexcasting.special.hextra:scaled_vec_all": "Vector Reflection: (%s, %s, %s)",
+
+  "pages.hextra.hextra_math.title": "Hextra Math",
+  "hexcasting.action.hextra:deg_to_rad": "Radian Purification",
+  "hextra.page.math.deg_to_rad": "Converts an angle in degrees to an angle in radians. Essentially multiplies by $(l:patterns/consts#hexcasting:const/double/pi)$(action)pi/$ then divides by 180.",
+  "hexcasting.action.hextra:rad_to_deg": "Degree Purification",
+  "hextra.page.math.rad_to_deg": "Converts an angle in radians to an angle in degrees. Essentially multiplies by 180 then divides by $(l:patterns/consts#hexcasting:const/double/pi)$(action)pi/$.",
+  "hexcasting.action.hextra:normalize": "Norm Purification",
+  "hextra.page.math.normalize": "Sets the length of the vector to one.",
+  "hexcasting.action.hextra:rot_about_x": "Pitch Distillation",
+  "hextra.page.math.rot_about_x": "Rotates the vector by the given angle in radians around the X axis.",
+  "hexcasting.action.hextra:rot_about_y": "Yaw Distillation",
+  "hextra.page.math.rot_about_y": "Rotates the vector by the given angle in radians around the Y axis.",
+  "hexcasting.action.hextra:rot_about_z": "Roll Distillation",
+  "hextra.page.math.rot_about_z": "Rotates the vector by the given angle in radians around the Z axis.",
+  "hexcasting.action.hextra:cons_about_x": "Pitch Purification",
+  "hextra.page.math.cons_about_x": "Converts an angle in radians to a unit vector where X=0. +Z at 0 radians and +Y at pi/4 radians.",
+  "hexcasting.action.hextra:cons_about_y": "Yaw Purification",
+  "hextra.page.math.cons_about_y": "Converts an angle in radians to a unit vector where Y=0. +Z at 0 radians and -X at pi/4 radians. Some texts have mentioned something called $(thing)F3/$, but I haven't been able to tell what that means.",
+  "hexcasting.action.hextra:cons_about_z": "Roll Purification",
+  "hextra.page.math.cons_about_z": "Converts an angle in radians to a unit vector where Z=0. -X at 0 radians and +Y at pi/4 radians."
 }

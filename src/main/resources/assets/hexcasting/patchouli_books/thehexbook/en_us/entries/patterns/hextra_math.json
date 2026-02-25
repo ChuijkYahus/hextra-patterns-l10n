@@ -1,0 +1,82 @@
+{
+  "name": "pages.hextra.hextra_math.title",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:popped_chorus_fruit",
+  "sortnum": 2,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextra:deg_to_rad",
+      "anchor": "hextra:deg_to_rad",
+      "input": "number",
+      "output": "number",
+      "text": "hextra.page.math.deg_to_rad"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextra:rad_to_deg",
+      "anchor": "hextra:rad_to_deg",
+      "input": "number",
+      "output": "number",
+      "text": "hextra.page.math.rad_to_deg"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextra:normalize",
+      "anchor": "hextra:normalize",
+      "input": "vector",
+      "output": "vector",
+      "text": "hextra.page.math.normalize"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextra:rot_about_x",
+      "anchor": "hextra:rot_about_x",
+      "input": "vector, number",
+      "output": "vector",
+      "text": "hextra.page.math.rot_about_x"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextra:rot_about_y",
+      "anchor": "hextra:rot_about_y",
+      "input": "vector, number",
+      "output": "vector",
+      "text": "hextra.page.math.rot_about_y"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextra:rot_about_z",
+      "anchor": "hextra:rot_about_z",
+      "input": "vector, number",
+      "output": "vector",
+      "text": "hextra.page.math.rot_about_z"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextra:cons_about_x",
+      "anchor": "hextra:cons_about_x",
+      "input": "number",
+      "output": "vector",
+      "text": "hextra.page.math.cons_about_x"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextra:cons_about_y",
+      "anchor": "hextra:cons_about_y",
+      "input": "number",
+      "output": "vector",
+      "text": "hextra.page.math.cons_about_y"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextra:cons_about_z",
+      "anchor": "hextra:cons_about_z",
+      "input": "number",
+      "output": "vector",
+      "text": "hextra.page.math.cons_about_z"
+    }
+  ]
+}
