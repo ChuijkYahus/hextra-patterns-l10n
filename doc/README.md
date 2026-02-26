@@ -1,4 +1,4 @@
-# hexdoc-hextra-patterns
+# hexdoc-hextra
 
 Python web book docgen and [hexdoc](https://pypi.org/project/hexdoc) plugin for Hextra Patterns.
 

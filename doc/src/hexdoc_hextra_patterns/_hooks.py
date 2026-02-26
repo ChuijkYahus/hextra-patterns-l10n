@@ -9,7 +9,7 @@ from hexdoc.plugin import (
     hookimpl,
 )
 
-import hexdoc_hextra_patterns
+import hexdoc_hextra
 
 from .__gradle_version__ import FULL_VERSION, GRADLE_VERSION
 from .__version__ import PY_VERSION
@@ -26,7 +26,7 @@ class HextrapatternsModPlugin(ModPluginWithBook):
     @property
     @override
     def modid(self) -> str:
-        return "hextra_patterns"
+        return "hextra"
 
     @property
     @override
@@ -54,4 +54,4 @@ class HextrapatternsModPlugin(ModPluginWithBook):
     
     @override
     def jinja_template_root(self) -> tuple[Package, str]:
-        return hexdoc_hextra_patterns, "_templates"
+        return hexdoc_hextra, "_templates"

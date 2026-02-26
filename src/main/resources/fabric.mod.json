@@ -8,10 +8,10 @@
 		"MEEP of Faith"
 	],
 	"contact": {
-		"sources": "https://github.com/MEEPofFaith/hextra-patterns"
+		"sources": "https://github.com/MEEPofFaith/hextra"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/hextra-patterns/icon.png",
+	"icon": "assets/hextra/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
