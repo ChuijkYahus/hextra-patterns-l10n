@@ -15,4 +15,4 @@ mod_description: Random pattern ideas that come to my head. Mostly utility.
 mod_display_name: Hextra Patterns
 modid: hextrapats
 multiloader: false
-pattern_registry_path: main/com/meepoffaith/hextrapats/init/Patterns.java
+pattern_registry_path: main/java/com/meepoffaith/hextrapats/init/Patterns.java

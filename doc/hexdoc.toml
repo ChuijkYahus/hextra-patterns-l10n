@@ -31,7 +31,7 @@ show_landing_text = false
 _pattern_regex = { "!Raw" = 'register\("(?P<name>[^"]+)"?,\s"(?P<signature>[qweasd]+)",\sHexDir\.(?P<startdir>\w+)' }
 
 [[extra.hexcasting.pattern_stubs]]
-path = "{$_project.src}/main/com/meepoffaith/hextrapats/init/Patterns.java"
+path = "{$_project.src}/main/java/com/meepoffaith/hextrapats/init/Patterns.java"
 regex = "{^_pattern_regex}"
 
 # source paths
