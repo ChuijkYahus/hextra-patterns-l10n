@@ -19,15 +19,15 @@ requires-python = ">=3.12"
 dynamic = ["version", "dependencies", "optional-dependencies"]
 
 [project.urls]
-Homepage = "https://meepoffaith.github.io/hextra_patterns"
-Source = "https://github.com/MEEPofFaith/hextra_patterns"
+Homepage = "https://meepoffaith.github.io/hextra-patterns"
+Source = "https://github.com/MEEPofFaith/hextra-patterns"
 
 # project version
 
 [tool.hatch.version]
 scheme = "gradle"
 source = "gradle-properties"
-py-path = "doc/src/hexdoc_hextra_patterns/__version__.py"
+py-path = "doc/src/hexdoc_hextrapats/__version__.py"
 key = "mod_version"
 
 # Python dependencies
@@ -62,7 +62,7 @@ sources = ["doc/src"]
 # hexdoc entry points
 
 [project.entry-points.hexdoc]
-hextra_patterns = "hexdoc_hextrapats._hooks:HextrapatsPlugin"
+hextrapats = "hexdoc_hextrapats._hooks:HextrapatsPlugin"
 
 # linting
 

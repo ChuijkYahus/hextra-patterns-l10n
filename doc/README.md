@@ -1,4 +1,4 @@
-# hexdoc-hextra
+# hexdoc-hextrapats
 
 Python web book docgen and [hexdoc](https://pypi.org/project/hexdoc) plugin for Hextra Patterns.
 
@@ -31,9 +31,9 @@ source .venv/bin/activate  # everything else
 
 For local testing, create a file called `.env` in the repo root following this template:
 ```sh
-GITHUB_REPOSITORY=MEEPofFaith/hextra_patterns
+GITHUB_REPOSITORY=MEEPofFaith/hextra-patterns
 GITHUB_SHA=main
-GITHUB_PAGES_URL=https://meepoffaith.github.io/hextra_patterns
+GITHUB_PAGES_URL=https://meepoffaith.github.io/hextra-patterns
 ```
 
 Useful commands:
