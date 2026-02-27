@@ -8,7 +8,7 @@ build-backend = "hatchling.build"
 # project metadata
 
 [project]
-name = "hexdoc-hextra-patterns"
+name = "hexdoc-hextrapats"
 description = "Random pattern ideas that come to my head. Mostly utility."
 readme = "doc/README.md"
 authors = [
