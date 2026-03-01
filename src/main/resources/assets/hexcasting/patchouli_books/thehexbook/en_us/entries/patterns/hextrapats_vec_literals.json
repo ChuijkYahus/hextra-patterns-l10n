@@ -1,5 +1,5 @@
 {
-  "name": "pages.hextra.hextra_vec_literals.title",
+  "name": "pages.hextrapats.hextrapats_vec_literals.title",
   "category": "hexcasting:patterns",
   "icon": "minecraft:arrow",
   "sortnum": 1,
@@ -8,16 +8,16 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "title": "pages.hextra.hextra_vec_literals.title",
-      "text": "hextra.page.vec_literals.1"
+      "title": "pages.hextrapats.hextrapats_vec_literals.title",
+      "text": "hextrapats.page.vec_literals.1"
     },
     {
       "type": "hexcasting:manual_pattern",
-      "op_id": "hextrapatsscaled_vec_x",
-      "anchor": "hextrapatsscaled_vec_x",
+      "op_id": "hextrapats:scaled_vec_x",
+      "anchor": "hextrapats:scaled_vec_x",
       "input": "",
       "output": "vector",
-      "text": "hextra.page.vec_literals.2",
+      "text": "hextrapats.page.vec_literals.2",
       "patterns": [
         {
           "startdir": "SOUTH_WEST",
@@ -33,11 +33,11 @@
     },
     {
       "type": "hexcasting:manual_pattern",
-      "op_id": "hextrapatsscaled_vec_y",
-      "anchor": "hextrapatsscaled_vec_y",
+      "op_id": "hextrapats:scaled_vec_y",
+      "anchor": "hextrapats:scaled_vec_y",
       "input": "",
       "output": "vector",
-      "text": "hextra.page.vec_literals.3",
+      "text": "hextrapats.page.vec_literals.3",
       "patterns": [
         {
           "startdir": "EAST",
@@ -53,11 +53,11 @@
     },
     {
       "type": "hexcasting:manual_pattern",
-      "op_id": "hextrapatsscaled_vec_z",
-      "anchor": "hextrapatsscaled_vec_z",
+      "op_id": "hextrapats:scaled_vec_z",
+      "anchor": "hextrapats:scaled_vec_z",
       "input": "",
       "output": "vector",
-      "text": "hextra.page.vec_literals.4",
+      "text": "hextrapats.page.vec_literals.4",
       "patterns": [
         {
           "startdir": "NORTH_WEST",
@@ -73,11 +73,11 @@
     },
     {
       "type": "hexcasting:manual_pattern",
-      "op_id": "hextrapatsscaled_vec_all",
-      "anchor": "hextrapatsscaled_vec_all",
+      "op_id": "hextrapats:scaled_vec_all",
+      "anchor": "hextrapats:scaled_vec_all",
       "input": "",
       "output": "vector",
-      "text": "hextra.page.vec_literals.5",
+      "text": "hextrapats.page.vec_literals.5",
       "patterns": [
         {
           "startdir": "SOUTH_EAST",
@@ -93,12 +93,12 @@
     },
     {
       "type": "patchouli:text",
-      "text": "hextra.page.vec_literals.6"
+      "text": "hextrapats.page.vec_literals.6"
     },
     {
       "type": "hexcasting:manual_pattern_nosig",
-      "header": "hextra.page.vec_literals.example.x10.header",
-      "text": "hextra.page.vec_literals.example.x10",
+      "header": "hextrapats.page.vec_literals.example.x10.header",
+      "text": "hextrapats.page.vec_literals.example.x10",
       "patterns": {
         "startdir": "SOUTH_WEST",
         "signature": "aeqqqqqawe"
@@ -106,8 +106,8 @@
     },
     {
       "type": "hexcasting:manual_pattern_nosig",
-      "header": "hextra.page.vec_literals.example.y7.header",
-      "text": "hextra.page.vec_literals.example.y7",
+      "header": "hextrapats.page.vec_literals.example.y7.header",
+      "text": "hextrapats.page.vec_literals.example.y7",
       "patterns": {
         "startdir": "EAST",
         "signature": "weqqqqqawqww"
@@ -115,8 +115,8 @@
     },
     {
       "type": "hexcasting:manual_pattern_nosig",
-      "header": "hextra.page.vec_literals.example.z-32.header",
-      "text": "hextra.page.vec_literals.example.z-32",
+      "header": "hextrapats.page.vec_literals.example.z-32.header",
+      "text": "hextrapats.page.vec_literals.example.z-32",
       "patterns": {
         "startdir": "NORTH_WEST",
         "signature": "dqeeeeedwwqea"
@@ -124,8 +124,8 @@
     },
     {
       "type": "hexcasting:manual_pattern_nosig",
-      "header": "hextra.page.vec_literals.example.a4.5.header",
-      "text": "hextra.page.vec_literals.example.a4.5",
+      "header": "hextrapats.page.vec_literals.example.a4.5.header",
+      "text": "hextrapats.page.vec_literals.example.a4.5",
       "patterns": {
         "startdir": "SOUTH_EAST",
         "signature": "qeqqqqqawqdww"
