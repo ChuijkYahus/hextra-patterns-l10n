@@ -9,7 +9,7 @@
     {
       "type": "patchouli:text",
       "title": "pages.hextrapats.hextrapats_vec_literals.title",
-      "text": "hextrapats.page.vec_literals.1"
+      "text": "hextrapats.page.vec_literals.intro"
     },
     {
       "type": "hexcasting:manual_pattern",
@@ -17,7 +17,7 @@
       "anchor": "hextrapats:scaled_vec_x",
       "input": "",
       "output": "vector",
-      "text": "hextrapats.page.vec_literals.2",
+      "text": "hextrapats.page.vec_literals.x",
       "patterns": [
         {
           "startdir": "SOUTH_WEST",
@@ -37,7 +37,7 @@
       "anchor": "hextrapats:scaled_vec_y",
       "input": "",
       "output": "vector",
-      "text": "hextrapats.page.vec_literals.3",
+      "text": "hextrapats.page.vec_literals.y",
       "patterns": [
         {
           "startdir": "EAST",
@@ -57,7 +57,7 @@
       "anchor": "hextrapats:scaled_vec_z",
       "input": "",
       "output": "vector",
-      "text": "hextrapats.page.vec_literals.4",
+      "text": "hextrapats.page.vec_literals.z",
       "patterns": [
         {
           "startdir": "NORTH_WEST",
@@ -77,7 +77,7 @@
       "anchor": "hextrapats:scaled_vec_all",
       "input": "",
       "output": "vector",
-      "text": "hextrapats.page.vec_literals.5",
+      "text": "hextrapats.page.vec_literals.1",
       "patterns": [
         {
           "startdir": "SOUTH_EAST",
@@ -93,7 +93,7 @@
     },
     {
       "type": "patchouli:text",
-      "text": "hextrapats.page.vec_literals.6"
+      "text": "hextrapats.page.vec_literals.detail"
     },
     {
       "type": "hexcasting:manual_pattern_nosig",

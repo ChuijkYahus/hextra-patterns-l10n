@@ -6,5 +6,6 @@ pluginManagement {
 		}
 		mavenCentral()
 		gradlePluginPortal()
+		maven { url = uri("https://maven.blamejared.com/") }
 	}
 }
