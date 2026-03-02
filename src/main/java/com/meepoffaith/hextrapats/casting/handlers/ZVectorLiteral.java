@@ -55,9 +55,9 @@ public class ZVectorLiteral implements SpecialHandler{
         @Override
         public @Nullable ZVectorLiteral tryMatch(HexPattern pattern, CastingEnvironment env){
             String sig = pattern.anglesSignature();
-            if(sig.startsWith("deqqqqqaw") || sig.startsWith("dqeeeeedw")){
+            if(sig.startsWith("deaqaa") || sig.startsWith("dqdedd")){
                 double val = HextraUtils.numericalReflection(sig.substring(9)) *
-                    (sig.startsWith("dqeeeeedw") ? -1.0 : 1.0);
+                    (sig.startsWith("dqdedd") ? -1.0 : 1.0);
                 return new ZVectorLiteral(val);
             }else{
                 return null;

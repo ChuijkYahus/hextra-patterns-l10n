@@ -55,9 +55,9 @@ public class YVectorLiteral implements SpecialHandler{
         @Override
         public @Nullable YVectorLiteral tryMatch(HexPattern pattern, CastingEnvironment env){
             String sig = pattern.anglesSignature();
-            if(sig.startsWith("weqqqqqaw") || sig.startsWith("wqeeeeedw")){
+            if(sig.startsWith("weaqaa") || sig.startsWith("wqdedd")){
                 double val = HextraUtils.numericalReflection(sig.substring(9)) *
-                    (sig.startsWith("wqeeeeedw") ? -1.0 : 1.0);
+                    (sig.startsWith("wqdedd") ? -1.0 : 1.0);
                 return new YVectorLiteral(val);
             }else{
                 return null;
