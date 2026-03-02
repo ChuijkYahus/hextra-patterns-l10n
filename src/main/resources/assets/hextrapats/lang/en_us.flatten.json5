@@ -1,11 +1,9 @@
 {
-  pages: {
-    hextrapats:{
-      "hextrapats_consts.title": "Hextra Constants",
-      "hextrapats_logic.title": "Hextra Logic",
-      "hextrapats_vec_literals.title": "Vector Literals",
-      "hextrapats_math.title": "Hextra Math"
-    }
+  "pages.hextrapats":{
+    "hextrapats_consts.title": "Hextra Constants",
+    "hextrapats_logic.title": "Hextra Logic",
+    "hextrapats_vec_literals.title": "Vector Literals",
+    "hextrapats_math.title": "Hextra Math"
   },
   hextrapats: {
     page: {
@@ -30,11 +28,11 @@
 
         example: {
           "x10.header": "Example 1",
-          "x10": "This pattern pushes (10, 0, 0)."
+          "x10": "This pattern pushes (10, 0, 0).",
           "y7.header": "Example 2",
-          "y7": "This pattern pushes (0, 7, 0): 5 + 1 + 1."
+          "y7": "This pattern pushes (0, 7, 0): 5 + 1 + 1.",
           "z-32.header": "Example 3",
-          "z-32": "This pattern pushes (0, 0, -32): negate 1 + 5 + 10 * 2."
+          "z-32": "This pattern pushes (0, 0, -32): negate 1 + 5 + 10 * 2.",
           "a4.5.header": "Example 4",
           "a4.5": "This pattern pushes (4.5, 4.5, 4.5): 5 / 2 + 1 + 1."
         }
@@ -79,8 +77,10 @@
 
       "book.hextrapats:": {
         haha_ha_one:  "Vector Rfln. +1/-1",
+
         len_eq: "Length Equality Dstl.",
         len_neq: "Length Inequality Dstl.",
+
         scaled_vec_x: "Vector Rfln. +X/-X II",
         scaled_vec_y: "Vector Rfln. +Y/-Y II",
         scaled_vec_z: "Vector Rfln. +Z/-Z II",
