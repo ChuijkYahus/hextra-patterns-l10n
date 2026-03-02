@@ -54,7 +54,7 @@ public class AllVectorLiteral implements SpecialHandler{
         public @Nullable AllVectorLiteral tryMatch(HexPattern pattern, CastingEnvironment env){
             String sig = pattern.anglesSignature();
             if(sig.startsWith("qeaqaa") || sig.startsWith("qqdedd")){
-                double val = HextraUtils.numericalReflection(sig.substring(9)) *
+                double val = HextraUtils.numericalReflection(sig.substring(6)) *
                     (sig.startsWith("qqdedd") ? -1.0 : 1.0);
                 return new AllVectorLiteral(val);
             }else{
