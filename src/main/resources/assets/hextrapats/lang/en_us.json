@@ -22,7 +22,7 @@
   "hexcasting.action.book.hextrapats:scaled_vec_y": "Vector Rfln. +Y/-Y II",
   "hexcasting.action.book.hextrapats:scaled_vec_z": "Vector Rfln. +Z/-Z II",
   "hexcasting.action.book.hextrapats:scaled_vec_all": "Vector Rfln. +1/-1 II",
-  "hextrapats.page.vec_literals.1": "Interestingly, flipping any Vector Reflection horizontally allows it to be subject to the same rules as $(l:patterns/numbers)$(action)Number Reflection/$. The direction of the head determines the direction, much like the tail of Vector Reflection.",
+  "hextrapats.page.vec_literals.1": "Interestingly, attaching the tail of any Vector Reflection to the start of $(l:patterns/numbers)$(action)Number Reflection/$ makes it return a vector.",
   "hextrapats.page.vec_literals.2": "A head that sharply bends to the left will output a vector along the $(l:patterns/consts#hexcasting:const/vec/x)$(action)X axis/$.",
   "hextrapats.page.vec_literals.3": "A head that doesn't bend will output a vector along the $(l:patterns/consts#hexcasting:const/vec/y)$(action)Y axis/$.",
   "hextrapats.page.vec_literals.4": "A head that sharply bends to the right will output a vector along the $(l:patterns/consts#hexcasting:const/vec/z)$(action)Z axis/$.",
