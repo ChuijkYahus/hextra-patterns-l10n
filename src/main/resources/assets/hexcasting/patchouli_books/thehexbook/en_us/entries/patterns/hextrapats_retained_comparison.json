@@ -13,7 +13,7 @@
     {
       "type": "patchouli:text",
       "title": "hexcasting.action.hextrapats:retained_comparison",
-      "anchor": "hexcasting.action.hextrapats:retained_comparison",
+      "anchor": "hextrapats:retained_comparison",
       "text": "hextrapats.page.retained_comparison.detail"
     },
     {
