@@ -20,7 +20,7 @@
         len_neq: "If the two vectors are not the same length (outside small tolerance), return True. Otherwise, return False."
       },
       retained_comparison: {
-        intro: "Sometimes, I want operate on two iotas after comparing them, but it gets rather annoying to have to execute $(l:patterns/stack#hexcasting:2dup)$(action)Dioscuri Gambit/$ every time I do.",
+        intro: "Sometimes, I want operate on two iotas after comparing them, but it gets rather annoying to have to execute $(l:patterns/stackmanip#hexcasting:2dup)$(action)Dioscuri Gambit/$ every time I do.",
         detail: "With some experimentation, I have found that prepending a comparison with a clockwise triangle will cause the two inputs to not be consumed.",
         greater: "Comp. Gambit: Maximus",
         less: "Comp. Gambit: Minimus",
