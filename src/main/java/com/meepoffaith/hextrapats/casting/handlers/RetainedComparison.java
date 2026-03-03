@@ -72,7 +72,7 @@ public class RetainedComparison implements SpecialHandler{
             List<Iota> opStack = act.operate(env, image2, cont).getNewImage().getStack();
             List<Iota> newStack = new ArrayList<>(stack);
             newStack.add(opStack.get(opStack.size() - 1));
-            return new OperationResult(HextraUtils.copyImage(image, newStack), List.of(), cont, HexEvalSounds.NOTHING);
+            return new OperationResult(HextraUtils.copyImage(image, newStack), List.of(), cont, HexEvalSounds.NORMAL_EXECUTE);
         }
     }
 
