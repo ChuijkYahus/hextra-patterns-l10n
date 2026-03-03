@@ -68,10 +68,9 @@ public class RetainedBools implements SpecialHandler{
         public OperationResult exec(CastingEnvironment env, CastingImage image, SpellContinuation cont){
             SpellList toCast = new LList(0, asActionResult(new PatternIota(op)));
             FrameEvaluate frame = new FrameEvaluate(toCast, false);
-            CastingImage image2 = image.withUsedOps(0);
-            List<Iota> stack = image2.getStack();
+            List<Iota> stack = image.getStack();
             stack.addAll(stack.subList(stack.size() - argc, stack.size()));
-            return new OperationResult(image2, List.of(), cont.pushFrame(frame), HexEvalSounds.NORMAL_EXECUTE);
+            return new OperationResult(image, List.of(), cont.pushFrame(frame), HexEvalSounds.NORMAL_EXECUTE);
         }
     }
 
