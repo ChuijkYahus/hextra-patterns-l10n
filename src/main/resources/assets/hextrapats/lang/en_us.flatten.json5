@@ -17,7 +17,7 @@
         less_eq: "If the first vector is shorter or the same length as the second, return True. Otherwise, return False.",
         len_eq: "If the two vectors are the same length (within small tolerance), return True. Otherwise, return False.",
         len_neq: "If the two vectors are not the same length (outside small tolerance), return True. Otherwise, return False.",
-        retained_comparison: "Prepending a comparison with a counterclockwise triangle causes the two inputs to not get consumed."
+        retained_comparison: "Prepending a comparison with a clockwise triangle causes the two inputs to not be consumed."
       },
       vec_literals: {
         intro: "Interestingly, attaching the tail of any Vector Reflection to the start of $(l:patterns/numbers)$(action)Number Reflection/$ makes it return a vector.",
