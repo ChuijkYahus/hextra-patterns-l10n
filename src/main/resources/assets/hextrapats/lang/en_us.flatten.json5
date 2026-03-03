@@ -2,8 +2,9 @@
   "pages.hextrapats":{
     "hextrapats_consts.title": "Hextra Constants",
     "hextrapats_logic.title": "Hextra Logic",
+    "hextrapats_retained_comparison.title": "Retaining Comparisons",
     "hextrapats_vec_literals.title": "Vector Literals",
-    "hextrapats_math.title": "Hextra Math"
+    "hextrapats_math.title": "Hextra Math",
   },
   hextrapats: {
     page: {
@@ -16,8 +17,19 @@
         greater_eq: "If the first vector is longer or the same length as the second, return True. Otherwise, return False.",
         less_eq: "If the first vector is shorter or the same length as the second, return True. Otherwise, return False.",
         len_eq: "If the two vectors are the same length (within small tolerance), return True. Otherwise, return False.",
-        len_neq: "If the two vectors are not the same length (outside small tolerance), return True. Otherwise, return False.",
-        retained_comparison: "Prepending a comparison with a clockwise triangle causes the two inputs to not be consumed."
+        len_neq: "If the two vectors are not the same length (outside small tolerance), return True. Otherwise, return False."
+      },
+      retained_comparison: {
+        intro: "Sometimes, I want operate on two iotas after comparing them, but it gets rather annoying to have to execute $(l:patters/stack#hextcasting:2dup)$(action)Dioscuri Gambit/$ every time I do.",
+        detail: "With some experimentation, I have found that prepending a comparison with a clockwise triangle will cause the two inputs to not be consumed.",
+        greater: "Comp. Gambit: Maximus",
+        less: "Comp. Gambit: Minimus",
+        greater_eq: "Comp. Gambit: Maximus II",
+        less_eq: "Comp. Gambit: Minimus II",
+        equals: "Comp. Gambit: Equality",
+        not_equals: "Comp. Gambit: Inequality",
+        len_eq: "Comp. Gambit: Len. Eq.",
+        len_neq: "Comp. Gambit: Len. Ineq."
       },
       vec_literals: {
         intro: "Interestingly, attaching the tail of any Vector Reflection to the start of $(l:patterns/numbers)$(action)Number Reflection/$ makes it return a vector.",

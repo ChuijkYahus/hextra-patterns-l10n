@@ -53,50 +53,6 @@
       "input": "vector, vector",
       "output": "bool",
       "text": "hextrapats.page.logic.len_neq"
-    },
-    {
-      "type": "hexcasting:manual_pattern",
-      "op_id": "hextrapats:retained_comparison",
-      "anchor": "hextrapats:retained_comparison",
-      "input": "A, B",
-      "output": "A, B, bool",
-      "text": "hextrapats.page.logic.retained_comparison",
-      "patterns": [
-        {
-          "startdir": "WEST",
-          "signature": "ddwe",
-          "q": -1,
-          "r": -1
-        },
-        {
-          "startdir": "WEST",
-          "signature": "ddeq",
-          "r": -1
-        },
-        {
-          "startdir": "WEST",
-          "signature": "ddqad",
-          "q": 1,
-          "r": -1
-        },
-        {
-          "startdir": "WEST",
-          "signature": "ddwee",
-          "q": -1,
-          "r": 1
-        },
-        {
-          "startdir": "WEST",
-          "signature": "ddeqq",
-          "r": 1
-        },
-        {
-          "startdir": "WEST",
-          "signature": "ddqda",
-          "q": 1,
-          "r": 1
-        }
-      ]
     }
   ]
 }
