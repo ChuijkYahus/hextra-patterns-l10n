@@ -16,7 +16,8 @@
         greater_eq: "If the first vector is longer or the same length as the second, return True. Otherwise, return False.",
         less_eq: "If the first vector is shorter or the same length as the second, return True. Otherwise, return False.",
         len_eq: "If the two vectors are the same length (within small tolerance), return True. Otherwise, return False.",
-        len_neq: "If the two vectors are not the same length (outside small tolerance), return True. Otherwise, return False."
+        len_neq: "If the two vectors are not the same length (outside small tolerance), return True. Otherwise, return False.",
+        retained_comparison: "Prepending a comparison with a counterclockwise triangle causes the two inputs to not get consumed."
       },
       vec_literals: {
         intro: "Interestingly, attaching the tail of any Vector Reflection to the start of $(l:patterns/numbers)$(action)Number Reflection/$ makes it return a vector.",
@@ -72,7 +73,9 @@
         rot_about_z: "Roll Distillation",
         cons_about_x: "Pitch Purification",
         cons_about_y: "Yaw Purification",
-        cons_about_z: "Roll Purification"
+        cons_about_z: "Roll Purification",
+
+        retained_comparison: "Comparison Gambit"
       },
 
       "book.hextrapats:": {
