@@ -26,8 +26,8 @@ public class Patterns{
     public static HexPattern CONSTRUCT_ABOUT_Y = register("cons_about_y", "daqqqqqew", HexDir.NORTH_WEST);
     public static HexPattern CONSTRUCT_ABOUT_Z = register("cons_about_z", "daqqqqqed", HexDir.NORTH_WEST);
     public static HexPattern NORMALIZE = register("normalize", "eeeeedww", HexDir.SOUTH_WEST);
-    public static HexPattern LEN_EQ = register("len_eq", "adqqaqw", HexDir.EAST);
-    public static HexPattern LEN_NEQ = register("len_neq", "daeedew", HexDir.EAST);
+    public static ActionRegistryEntry LEN_EQ = registerEntry("len_eq", "adqqaqw", HexDir.EAST);
+    public static ActionRegistryEntry LEN_NEQ = registerEntry("len_neq", "daeedew", HexDir.EAST);
 
     public static void init(){
         register("deg_to_rad", "qqqqqdwdq", HexDir.WEST, new DegRad());
@@ -61,6 +61,17 @@ public class Patterns{
         HexPattern pattern = HexPattern.fromAngles(signature, startDir);
         Registry.register(HexActions.REGISTRY, new Identifier(HextraPatterns.MOD_ID, name), new ActionRegistryEntry(pattern, new OperationAction(pattern)));
         return pattern;
+    }
+
+    private static ActionRegistryEntry registerEntry(
+        String name,
+        String signature,
+        HexDir startDir
+    ) {
+        HexPattern pattern = HexPattern.fromAngles(signature, startDir);
+        ActionRegistryEntry entry = new ActionRegistryEntry(pattern, new OperationAction(pattern));
+        Registry.register(HexActions.REGISTRY, new Identifier(HextraPatterns.MOD_ID, name), entry);
+        return entry;
     }
 
     private static void registerSpecialHandler(

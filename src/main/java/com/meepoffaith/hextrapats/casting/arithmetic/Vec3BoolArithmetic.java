@@ -24,8 +24,8 @@ public class Vec3BoolArithmetic implements Arithmetic{
         LESS,
         GREATER_EQ,
         LESS_EQ,
-        LEN_EQ,
-        LEN_NEQ
+        LEN_EQ.prototype(),
+        LEN_NEQ.prototype()
     );
 
     @Override
@@ -56,9 +56,9 @@ public class Vec3BoolArithmetic implements Arithmetic{
                 double lb = b.length();
                 return DoubleIota.tolerates(la, lb) || la <= lb;
             });
-        }else if(pattern.equals(LEN_EQ)){
+        }else if(pattern.equals(LEN_EQ.prototype())){
             return makeComp((a, b) -> DoubleIota.tolerates(a.length(), b.length()));
-        }else if(pattern.equals(LEN_NEQ)){
+        }else if(pattern.equals(LEN_NEQ.prototype())){
             return makeComp((a, b) -> !DoubleIota.tolerates(a.length(), b.length()));
         }else{
             throw new InvalidOperatorException(pattern + " is not a valid operator in Vec3 Bool Arithmetic " + this);
