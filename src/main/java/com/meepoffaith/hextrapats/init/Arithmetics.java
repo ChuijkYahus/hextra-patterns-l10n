@@ -4,6 +4,7 @@ import at.petrak.hexcasting.api.casting.arithmetic.Arithmetic;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.common.lib.hex.HexArithmetics;
 import com.meepoffaith.hextrapats.HextraPatterns;
+import com.meepoffaith.hextrapats.casting.arithmetic.BoolArithmetic;
 import com.meepoffaith.hextrapats.casting.arithmetic.Vec3Arithmetic;
 import com.meepoffaith.hextrapats.casting.arithmetic.Vec3BoolArithmetic;
 import net.minecraft.registry.Registry;
@@ -16,6 +17,7 @@ public class Arithmetics{
     public static HexPattern OUT_RANGE = Patterns.OUT_RANGE.prototype();
 
     public static void init(){
+        registerArithmetic("bool", new BoolArithmetic());
         registerArithmetic("vec3bool", new Vec3BoolArithmetic());
         registerArithmetic("vec3math", new Vec3Arithmetic());
     }
