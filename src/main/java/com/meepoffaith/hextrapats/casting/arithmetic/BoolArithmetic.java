@@ -8,6 +8,7 @@ import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.iota.BooleanIota;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.OperatorQuadary;
+import com.meepoffaith.hextrapats.util.HextraUtils;
 import com.meepoffaith.hextrapats.util.generics.Func4to1;
 
 import java.util.List;
@@ -35,33 +36,33 @@ public class BoolArithmetic implements Arithmetic{
     @Override
     public Operator getOperator(HexPattern pattern){
         if(pattern.equals(IN_RANGE)){
-            return makeRange((len, a, b, op) -> {
+            return makeRange((val, a, b, op) -> {
                 double min = Math.min(a, b);
                 double max = Math.max(a, b);
                 if(op == 0){
-                    return min < len && len < max;
+                    return min < val && val < max;
                 }else if(op == 1){
-                    return min <= len && len < max;
+                    return HextraUtils.lessEq(min, val) && val < max;
                 }else if(op == 2){
-                    return min < len && len <= max;
+                    return min < val && HextraUtils.lessEq(val, max);
                 }else if(op == 3){
-                    return min <= len && len <= max;
+                    return HextraUtils.lessEq(min, val) && HextraUtils.lessEq(val, max);
                 }else{
                     throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation");
                 }
             });
         }else if(pattern.equals(OUT_RANGE)){
-            return makeRange((len, a, b, op) -> {
+            return makeRange((val, a, b, op) -> {
                 double min = Math.min(a, b);
                 double max = Math.max(a, b);
                 if(op == 0){
-                    return len < min || len > max;
+                    return val < min || max < val;
                 }else if(op == 1){
-                    return len <= min || len > max;
+                    return HextraUtils.lessEq(val, min) || max < val;
                 }else if(op == 2){
-                    return len < min || len >= max;
+                    return val < min || HextraUtils.lessEq(max, val);
                 }else if(op == 3){
-                    return len <= min || len >= max;
+                    return HextraUtils.lessEq(val, min) || HextraUtils.lessEq(max, val);
                 }else{
                     throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation II");
                 }

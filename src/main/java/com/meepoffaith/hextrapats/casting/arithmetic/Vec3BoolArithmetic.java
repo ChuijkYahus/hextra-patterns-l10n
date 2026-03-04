@@ -10,6 +10,7 @@ import at.petrak.hexcasting.api.casting.iota.BooleanIota;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.OperatorQuadary;
+import com.meepoffaith.hextrapats.util.HextraUtils;
 import com.meepoffaith.hextrapats.util.QuadIotaPredicte;
 import com.meepoffaith.hextrapats.util.generics.Func2to1;
 import com.meepoffaith.hextrapats.util.generics.Func4to1;
@@ -50,17 +51,9 @@ public class Vec3BoolArithmetic implements Arithmetic{
         }else if(pattern.equals(LESS)){
             return makeComp((a, b) -> a.length() < b.length());
         }else if(pattern.equals(GREATER_EQ)){
-            return makeComp((a, b) -> {
-                double la = a.length();
-                double lb = b.length();
-                return DoubleIota.tolerates(la, lb) || la >= lb;
-            });
+            return makeComp((a, b) -> HextraUtils.greaterEq(a.length(), b.length()));
         }else if(pattern.equals(LESS_EQ)){
-            return makeComp((a, b) -> {
-                double la = a.length();
-                double lb = b.length();
-                return DoubleIota.tolerates(la, lb) || la <= lb;
-            });
+            return makeComp((a, b) -> HextraUtils.lessEq(a.length(), b.length()));
         }else if(pattern.equals(LEN_EQ)){
             return makeComp((a, b) -> DoubleIota.tolerates(a.length(), b.length()));
         }else if(pattern.equals(LEN_NEQ)){
@@ -73,11 +66,11 @@ public class Vec3BoolArithmetic implements Arithmetic{
                 if(op == 0){
                     return min < len && len < max;
                 }else if(op == 1){
-                    return min <= len && len < max;
+                    return HextraUtils.lessEq(min, len) && len < max;
                 }else if(op == 2){
-                    return min < len && len <= max;
+                    return min < len && HextraUtils.lessEq(len, max);
                 }else if(op == 3){
-                    return min <= len && len <= max;
+                    return HextraUtils.lessEq(min, len) && HextraUtils.lessEq(len, max);
                 }else{
                     throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation");
                 }
@@ -88,13 +81,13 @@ public class Vec3BoolArithmetic implements Arithmetic{
                 double min = Math.min(a, b);
                 double max = Math.max(a, b);
                 if(op == 0){
-                    return len < min || len > max;
+                    return len < min || max < len;
                 }else if(op == 1){
-                    return len <= min || len > max;
+                    return HextraUtils.lessEq(len, min) || max < len;
                 }else if(op == 2){
-                    return len < min || len >= max;
+                    return len < min || HextraUtils.lessEq(max, len);
                 }else if(op == 3){
-                    return len <= min || len >= max;
+                    return HextraUtils.lessEq(len, min) || HextraUtils.lessEq(max, len);
                 }else{
                     throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation II");
                 }

@@ -3,6 +3,7 @@ package com.meepoffaith.hextrapats.util;
 import at.petrak.hexcasting.api.HexAPI;
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler.Factory;
 import at.petrak.hexcasting.api.casting.eval.vm.CastingImage;
+import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.utils.HexUtils;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
@@ -49,5 +50,13 @@ public class HextraUtils{
 
     public static CastingImage copyImage(CastingImage image, List<Iota> stack){
         return image.copy(stack, image.getParenCount(), image.getParenthesized(), image.getEscapeNext(), image.getOpsConsumed(), image.getUserData());
+    }
+
+    public static boolean greaterEq(double a, double b){
+        return a >= b || DoubleIota.tolerates(a, b);
+    }
+
+    public static boolean lessEq(double a, double b){
+        return a <= b || DoubleIota.tolerates(a, b);
     }
 }
