@@ -12,6 +12,8 @@ import net.minecraft.util.Identifier;
 public class Arithmetics{
     public static HexPattern LEN_EQ = Patterns.LEN_EQ.prototype();
     public static HexPattern LEN_NEQ = Patterns.LEN_NEQ.prototype();
+    public static HexPattern IN_RANGE = Patterns.IN_RANGE.prototype();
+    public static HexPattern OUT_RANGE = Patterns.OUT_RANGE.prototype();
 
     public static void init(){
         registerArithmetic("vec3bool", new Vec3BoolArithmetic());
