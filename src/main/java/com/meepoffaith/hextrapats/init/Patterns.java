@@ -44,6 +44,7 @@ public class Patterns{
         registerSpecialHandler("scaled_vec_z", SCALED_VEC_Z);
         registerSpecialHandler("scaled_vec_all", SCALED_VEC_ALL);
         registerSpecialHandler("retained_comparison", RETAINED_COMPARISON);
+        registerSpecialHandler("scientific_exp", SCIENTIFIC_EXPONENT);
     }
 
     private static void register(
