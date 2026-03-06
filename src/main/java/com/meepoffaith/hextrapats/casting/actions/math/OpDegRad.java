@@ -1,4 +1,4 @@
-package com.meepoffaith.hextrapats.casting.actions;
+package com.meepoffaith.hextrapats.casting.actions.math;
 
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;

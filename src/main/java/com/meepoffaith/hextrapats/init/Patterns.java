@@ -10,9 +10,10 @@ import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.common.lib.hex.HexActions;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import com.meepoffaith.hextrapats.HextraPatterns;
-import com.meepoffaith.hextrapats.casting.actions.OpDegRad;
-import com.meepoffaith.hextrapats.casting.actions.OpRadDeg;
-import com.meepoffaith.hextrapats.casting.actions.OpSplitList;
+import com.meepoffaith.hextrapats.casting.actions.lists.OpListSwindle;
+import com.meepoffaith.hextrapats.casting.actions.lists.OpSplitList;
+import com.meepoffaith.hextrapats.casting.actions.math.OpDegRad;
+import com.meepoffaith.hextrapats.casting.actions.math.OpRadDeg;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
@@ -41,6 +42,7 @@ public class Patterns{
         register("eno_ah_ahah", "eeeeeqq", HexDir.SOUTH_WEST, Action.makeConstantOp(new Vec3Iota(new Vec3d(-1.0, -1.0, -1.0))));
 
         register("split_list", "wdedqqa", HexDir.EAST, new OpSplitList());
+        register("swindle_list", "dqdeqaawddea", HexDir.WEST, new OpListSwindle());
 
         registerSpecialHandler("scaled_vec_x", SCALED_VEC_X);
         registerSpecialHandler("scaled_vec_y", SCALED_VEC_Y);
