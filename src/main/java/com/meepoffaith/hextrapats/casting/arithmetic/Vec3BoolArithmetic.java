@@ -63,34 +63,26 @@ public class Vec3BoolArithmetic implements Arithmetic{
                 double len = v.length();
                 double min = Math.min(a, b);
                 double max = Math.max(a, b);
-                if(DoubleIota.tolerates(op, 0)){
-                    return min < len && len < max;
-                }else if(DoubleIota.tolerates(op, 1)){
-                    return HextraUtils.lessEq(min, len) && len < max;
-                }else if(DoubleIota.tolerates(op, 2)){
-                    return min < len && HextraUtils.lessEq(len, max);
-                }else if(DoubleIota.tolerates(op, 3)){
-                    return HextraUtils.lessEq(min, len) && HextraUtils.lessEq(len, max);
-                }else{
-                    throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation");
-                }
+                return switch(op){
+                    case 0 -> min < len && len < max;
+                    case 1 -> HextraUtils.lessEq(min, len) && len < max;
+                    case 2 -> min < len && HextraUtils.lessEq(len, max);
+                    case 3 -> HextraUtils.lessEq(min, len) && HextraUtils.lessEq(len, max);
+                    default -> throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation");
+                };
             });
         }else if(pattern.equals(OUT_RANGE)){
             return makeRange((v, a, b, op) -> {
                 double len = v.length();
                 double min = Math.min(a, b);
                 double max = Math.max(a, b);
-                if(DoubleIota.tolerates(op, 0)){
-                    return len < min || max < len;
-                }else if(DoubleIota.tolerates(op, 1)){
-                    return HextraUtils.lessEq(len, min) || max < len;
-                }else if(DoubleIota.tolerates(op, 2)){
-                    return len < min || HextraUtils.lessEq(max, len);
-                }else if(DoubleIota.tolerates(op, 3)){
-                    return HextraUtils.lessEq(len, min) || HextraUtils.lessEq(max, len);
-                }else{
-                    throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation II");
-                }
+                return switch(op){
+                    case 0 -> len < min || max < len;
+                    case 1 -> HextraUtils.lessEq(len, min) || max < len;
+                    case 2 -> len < min || HextraUtils.lessEq(max, len);
+                    case 3 -> HextraUtils.lessEq(len, min) || HextraUtils.lessEq(max, len);
+                    default -> throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation II");
+                };
             });
         }else{
             throw new InvalidOperatorException(pattern + " is not a valid operator in Vec3 Bool Arithmetic " + this);
@@ -103,9 +95,14 @@ public class Vec3BoolArithmetic implements Arithmetic{
         );
     }
 
-    private OperatorQuadary makeRange(Func4to1<Vec3d, Double, Double, Double, Boolean> op){
+    private OperatorQuadary makeRange(Func4to1<Vec3d, Double, Double, Integer, Boolean> op){
         return new OperatorQuadary(new QuadIotaPredicte(IotaPredicate.ofType(VEC3), IotaPredicate.ofType(DOUBLE), IotaPredicate.ofType(DOUBLE), IotaPredicate.ofType(DOUBLE)),
-            (i, j, k, l) -> new BooleanIota(op.apply(Operator.downcast(i, VEC3).getVec3(), Operator.downcast(j, DOUBLE).getDouble(), Operator.downcast(k, DOUBLE).getDouble(), Operator.downcast(l, DOUBLE).getDouble()))
+            (i, j, k, l) -> new BooleanIota(op.apply(
+                Operator.downcast(i, VEC3).getVec3(),
+                Operator.downcast(j, DOUBLE).getDouble(),
+                Operator.downcast(k, DOUBLE).getDouble(),
+                HextraUtils.getInt(l, 4)
+            ))
         );
     }
 }

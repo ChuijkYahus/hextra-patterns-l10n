@@ -22,7 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static at.petrak.hexcasting.common.lib.hex.HexActions.*;
-import static com.meepoffaith.hextrapats.init.Patterns.*;
+import static com.meepoffaith.hextrapats.init.Patterns.LEN_EQ;
+import static com.meepoffaith.hextrapats.init.Patterns.LEN_NEQ;
 
 public class RetainedComparison implements SpecialHandler{
     public static final List<ActionRegistryEntry> OPS = List.of(

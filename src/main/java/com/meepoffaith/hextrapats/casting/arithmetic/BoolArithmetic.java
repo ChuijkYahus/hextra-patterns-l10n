@@ -6,7 +6,6 @@ import at.petrak.hexcasting.api.casting.arithmetic.operator.Operator;
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate;
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.iota.BooleanIota;
-import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.OperatorQuadary;
 import com.meepoffaith.hextrapats.util.HextraUtils;
@@ -40,42 +39,39 @@ public class BoolArithmetic implements Arithmetic{
             return makeRange((val, a, b, op) -> {
                 double min = Math.min(a, b);
                 double max = Math.max(a, b);
-                if(DoubleIota.tolerates(op, 0)){
-                    return min < val && val < max;
-                }else if(DoubleIota.tolerates(op, 1)){
-                    return HextraUtils.lessEq(min, val) && val < max;
-                }else if(DoubleIota.tolerates(op, 2)){
-                    return min < val && HextraUtils.lessEq(val, max);
-                }else if(DoubleIota.tolerates(op, 3)){
-                    return HextraUtils.lessEq(min, val) && HextraUtils.lessEq(val, max);
-                }else{
-                    throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation");
-                }
+                return switch(op){
+                    case 0 -> min < val && val < max;
+                    case 1 -> HextraUtils.lessEq(min, val) && val < max;
+                    case 2 -> min < val && HextraUtils.lessEq(val, max);
+                    case 3 -> HextraUtils.lessEq(min, val) && HextraUtils.lessEq(val, max);
+                    default -> throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation");
+                };
             });
         }else if(pattern.equals(OUT_RANGE)){
             return makeRange((val, a, b, op) -> {
                 double min = Math.min(a, b);
                 double max = Math.max(a, b);
-                if(DoubleIota.tolerates(op, 0)){
-                    return val < min || max < val;
-                }else if(DoubleIota.tolerates(op, 1)){
-                    return HextraUtils.lessEq(val, min) || max < val;
-                }else if(DoubleIota.tolerates(op, 2)){
-                    return val < min || HextraUtils.lessEq(max, val);
-                }else if(DoubleIota.tolerates(op, 3)){
-                    return HextraUtils.lessEq(val, min) || HextraUtils.lessEq(max, val);
-                }else{
-                    throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation II");
-                }
+                return switch(op){
+                    case 0 -> val < min || max < val;
+                    case 1 -> HextraUtils.lessEq(val, min) || max < val;
+                    case 2 -> val < min || HextraUtils.lessEq(max, val);
+                    case 3 -> HextraUtils.lessEq(val, min) || HextraUtils.lessEq(max, val);
+                    default -> throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation II");
+                };
             });
         }else{
             throw new InvalidOperatorException(pattern + " is not a valid operator in Bool Arithmetic " + this);
         }
     }
 
-    private OperatorQuadary makeRange(Func4to1<Double, Double, Double, Double, Boolean> op){
+    private OperatorQuadary makeRange(Func4to1<Double, Double, Double, Integer, Boolean> op){
         return new OperatorQuadary(IotaMultiPredicate.all(IotaPredicate.ofType(DOUBLE)),
-            (i, j, k, l) -> new BooleanIota(op.apply(Operator.downcast(i, DOUBLE).getDouble(), Operator.downcast(j, DOUBLE).getDouble(), Operator.downcast(k, DOUBLE).getDouble(), Operator.downcast(l, DOUBLE).getDouble()))
+            (i, j, k, l) -> new BooleanIota(op.apply(
+                Operator.downcast(i, DOUBLE).getDouble(),
+                Operator.downcast(j, DOUBLE).getDouble(),
+                Operator.downcast(k, DOUBLE).getDouble(),
+                HextraUtils.getInt(l, 4)
+            ))
         );
     }
 }
