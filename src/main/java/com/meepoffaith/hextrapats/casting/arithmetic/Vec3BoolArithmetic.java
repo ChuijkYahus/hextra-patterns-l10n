@@ -8,12 +8,15 @@ import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.iota.BooleanIota;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
+import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
+import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.OperatorQuadary;
 import com.meepoffaith.hextrapats.util.HextraUtils;
 import com.meepoffaith.hextrapats.util.QuadIotaPredicte;
 import com.meepoffaith.hextrapats.util.generics.Func2to1;
 import com.meepoffaith.hextrapats.util.generics.Func4to1;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.List;
@@ -59,29 +62,31 @@ public class Vec3BoolArithmetic implements Arithmetic{
         }else if(pattern.equals(LEN_NEQ)){
             return makeComp((a, b) -> !DoubleIota.tolerates(a.length(), b.length()));
         }else if(pattern.equals(IN_RANGE)){
-            return makeRange((v, a, b, op) -> {
+            return makeRange((v, a, b, opI) -> {
                 double len = v.length();
                 double min = Math.min(a, b);
                 double max = Math.max(a, b);
+                int op = HextraUtils.getInt(opI, 3);
                 return switch(op){
                     case 0 -> min < len && len < max;
                     case 1 -> HextraUtils.lessEq(min, len) && len < max;
                     case 2 -> min < len && HextraUtils.lessEq(len, max);
                     case 3 -> HextraUtils.lessEq(min, len) && HextraUtils.lessEq(len, max);
-                    default -> throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation");
+                    default -> throw new MishapInvalidIota(opI, 0, Text.of("int from 0 to 3"));
                 };
             });
         }else if(pattern.equals(OUT_RANGE)){
-            return makeRange((v, a, b, op) -> {
+            return makeRange((v, a, b, opI) -> {
                 double len = v.length();
                 double min = Math.min(a, b);
                 double max = Math.max(a, b);
+                int op = HextraUtils.getInt(opI, 3);
                 return switch(op){
                     case 0 -> len < min || max < len;
                     case 1 -> HextraUtils.lessEq(len, min) || max < len;
                     case 2 -> len < min || HextraUtils.lessEq(max, len);
                     case 3 -> HextraUtils.lessEq(len, min) || HextraUtils.lessEq(max, len);
-                    default -> throw new InvalidOperatorException(op + " is not a valid op for Range Exaltation II");
+                    default -> throw new MishapInvalidIota(opI, 0, Text.of("int from 0 to 3"));
                 };
             });
         }else{
@@ -95,13 +100,13 @@ public class Vec3BoolArithmetic implements Arithmetic{
         );
     }
 
-    private OperatorQuadary makeRange(Func4to1<Vec3d, Double, Double, Integer, Boolean> op){
+    private OperatorQuadary makeRange(Func4to1<Vec3d, Double, Double, Iota, Boolean> op){
         return new OperatorQuadary(new QuadIotaPredicte(IotaPredicate.ofType(VEC3), IotaPredicate.ofType(DOUBLE), IotaPredicate.ofType(DOUBLE), IotaPredicate.ofType(DOUBLE)),
             (i, j, k, l) -> new BooleanIota(op.apply(
                 Operator.downcast(i, VEC3).getVec3(),
                 Operator.downcast(j, DOUBLE).getDouble(),
                 Operator.downcast(k, DOUBLE).getDouble(),
-                HextraUtils.getInt(l, 4)
+                l
             ))
         );
     }
