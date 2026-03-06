@@ -68,7 +68,8 @@
         scientific_exp: "Multiplies the number by 10^n or 10^-n, where n is the length of the tail, depending on whether the start is similar to $(l:patterns/math#hexcasting:mul)$(action)Multiplicative Distillation/$ or $(l:patterns/math#hexcasting:div)$(action)Division Distillation/$."
       },
       lists: {
-        split: "Splits a list at the given index. [a, b, c, d, e], 2 will return [a, b], [c, d, e]."
+        split: "Splits a list at the given index. [a, b, c, d, e], 2 will return [a, b], [c, d, e].",
+        swindle: "Reorders the elements of a list the same way $(l:patterns/stackmanip#hexcasting:swizzle)$(action)Swindler's Gambit/$ reorders the stack. Inputting a negative code will reorder the elements at the start instead of the end."
       }
     }
   },
@@ -103,7 +104,8 @@
 
         scientific_exp: "Scientific Purification",
 
-        split_list: "Splitting Gambit"
+        split_list: "Splitting Gambit",
+        swindle_list: "Swindler's Distillation"
       },
 
       "book.hextrapats:": {

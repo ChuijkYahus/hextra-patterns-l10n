@@ -13,6 +13,14 @@
       "input": "list, num",
       "output": "list, list",
       "text": "hextrapats.page.lists.split"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:swindle_list",
+      "anchor": "hextrapats:swindle_list",
+      "input": "list, num",
+      "output": "list",
+      "text": "hextrapats.page.lists.swindle"
     }
   ]
 }
