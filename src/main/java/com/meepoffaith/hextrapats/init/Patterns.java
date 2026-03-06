@@ -9,6 +9,8 @@ import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.common.lib.hex.HexActions;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import com.meepoffaith.hextrapats.HextraPatterns;
+import com.meepoffaith.hextrapats.casting.actions.ListActions;
+import com.meepoffaith.hextrapats.casting.actions.ListActions.ListSplit;
 import com.meepoffaith.hextrapats.casting.actions.MathActions.DegRad;
 import com.meepoffaith.hextrapats.casting.actions.MathActions.RadDeg;
 import com.meepoffaith.hextrapats.casting.actions.VecActions.VecNegOne;
@@ -38,6 +40,8 @@ public class Patterns{
         //Come on, Elise!
         register("haha_ha_one", "qqqqqeq", HexDir.NORTH_WEST, new VecOne());
         register("eno_ah_ahah", "eeeeeqq", HexDir.SOUTH_WEST, new VecNegOne());
+
+        register("split_list", "deeaqaw", HexDir.NORTH_WEST, new ListSplit());
 
         registerSpecialHandler("scaled_vec_x", SCALED_VEC_X);
         registerSpecialHandler("scaled_vec_y", SCALED_VEC_Y);
