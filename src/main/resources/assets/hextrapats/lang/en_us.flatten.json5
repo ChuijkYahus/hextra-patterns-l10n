@@ -2,7 +2,7 @@
   "pages.hextrapats":{
     "hextrapats_consts.title": "Hextra Constants",
     "hextrapats_logic.title": "Hextra Logic",
-    "hextrapats_nocon.title": "Non-consuming Comparisons",
+    "hextrapats_nocon.title": "Non-consuming Logic",
     "hextrapats_vec_literals.title": "Vector Literals",
     "hextrapats_math.title": "Hextra Math",
     "hextrapats_lists.title": "Hextra Lists",
