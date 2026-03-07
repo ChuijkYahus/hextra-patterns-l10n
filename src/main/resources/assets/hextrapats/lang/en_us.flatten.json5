@@ -24,15 +24,15 @@
         out_range: "If the first number is not between the second and third, return True. Otherwise, return False. If the first value is a vector, compare its length instead.",
         "out_range.ops": "The fourth number seems to describe how to check if the value is outside the range.$(li)0: val < min or max < val$(li)1: val <= min or max < val$(li)2: val < min or max <= val$(li)3: val <= min or max <= val"
       },
-      retained_comparison: {
+      "nocon/": {
         intro: "Sometimes, I want operate on two iotas after comparing them, but it gets rather annoying to have to execute $(l:patterns/stackmanip#hexcasting:2dup)$(action)Dioscuri Gambit/$ every time I do.",
         detail: "With some experimentation, I have found that prepending a comparison with a clockwise triangle will cause the two inputs to not be consumed.",
         greater: "Comp. Gambit: Maximus",
         less: "Comp. Gambit: Minimus",
         greater_eq: "Comp. Gambit: Maximus II",
         less_eq: "Comp. Gambit: Minimus II",
-        equals: "Comp. Gambit: Equality",
-        not_equals: "Comp. Gambit: Inequality",
+        eq: "Comp. Gambit: Equality",
+        neq: "Comp. Gambit: Inequality",
         len_eq: "Comp. Gambit: Len. Eq.",
         len_neq: "Comp. Gambit: Len. Ineq."
       },
@@ -100,7 +100,16 @@
         cons_about_y: "Yaw Purification",
         cons_about_z: "Roll Purification",
 
-        retained_comparison: "Comparison Gambit",
+        "nocon/": {
+          greater: "Comparison Gambit: Maximus",
+          less: "Comparison Gambit: Minimus",
+          greater_eq: "Comparison Gambit: Maximus II",
+          less_eq: "Comparison Gambit: Minimus II",
+          eq: "Comparison Gambit: Equality",
+          neq: "Comparison Gambit: Inequality",
+          len_eq: "Comparison Gambit: Length Equality",
+          len_neq: "Comparison Gambit: Length Inequality",
+        },
 
         scientific_exp: "Scientific Purification",
 
@@ -125,17 +134,6 @@
       scaled_vec_y: "Vector Reflection: (0, %s, 0)",
       scaled_vec_z: "Vector Reflection: (0, 0, %s)",
       scaled_vec_all: "Vector Reflection: (%s, %s, %s)",
-      retained_comparison: {
-        name: "Comparison Gambit: %s",
-        "op.hexcasting:": {
-          greater: "Maximus",
-          less: "Minimus",
-          greater_eq: "Maximus II",
-          less_eq: "Minimus II",
-          equals: "Equality",
-          not_equals: "Inequality"
-        }
-      },
       scientific_exp: "Scientific Purification: 10^%s"
     }
   }
