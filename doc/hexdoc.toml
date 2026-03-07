@@ -12,8 +12,7 @@ resource_dirs = [  # top takes priority
 export_dir = "src/hexdoc_hextrapats/_export/generated"
 
 [template]
-# TODO: change this to point to your actual mod icon
-icon = "icon.png"
+icon = "assets/hextrapats/icon.png"
 include = [
     "hextrapats",
     "hexcasting",
