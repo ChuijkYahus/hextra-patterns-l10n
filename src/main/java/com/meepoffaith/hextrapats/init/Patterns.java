@@ -1,20 +1,25 @@
 package com.meepoffaith.hextrapats.init;
 
 import at.petrak.hexcasting.api.casting.ActionRegistryEntry;
+import at.petrak.hexcasting.api.casting.arithmetic.Arithmetic;
 import at.petrak.hexcasting.api.casting.castables.Action;
 import at.petrak.hexcasting.api.casting.castables.OperationAction;
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler;
+import at.petrak.hexcasting.api.casting.iota.Vec3Iota;
 import at.petrak.hexcasting.api.casting.math.HexDir;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.common.lib.hex.HexActions;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import com.meepoffaith.hextrapats.HextraPatterns;
-import com.meepoffaith.hextrapats.casting.actions.MathActions.DegRad;
-import com.meepoffaith.hextrapats.casting.actions.MathActions.RadDeg;
-import com.meepoffaith.hextrapats.casting.actions.VecActions.VecNegOne;
-import com.meepoffaith.hextrapats.casting.actions.VecActions.VecOne;
+import com.meepoffaith.hextrapats.casting.actions.NoConsumeOperationAction;
+import com.meepoffaith.hextrapats.casting.actions.lists.OpListSwindle;
+import com.meepoffaith.hextrapats.casting.actions.lists.OpSplitList;
+import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsumeEquality;
+import com.meepoffaith.hextrapats.casting.actions.math.OpDegRad;
+import com.meepoffaith.hextrapats.casting.actions.math.OpRadDeg;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Vec3d;
 
 import static com.meepoffaith.hextrapats.init.SpecialHandlers.*;
 
@@ -32,18 +37,29 @@ public class Patterns{
     public static ActionRegistryEntry OUT_RANGE = registerEntry("out_range", "eaae", HexDir.SOUTH_EAST);
 
     public static void init(){
-        register("deg_to_rad", "qqqqqdwdq", HexDir.WEST, new DegRad());
-        register("rad_to_deg", "qdwdqqqqq", HexDir.NORTH_EAST, new RadDeg());
+        register("deg_to_rad", "qqqqqdwdq", HexDir.WEST, new OpDegRad());
+        register("rad_to_deg", "qdwdqqqqq", HexDir.NORTH_EAST, new OpRadDeg());
 
         //Come on, Elise!
-        register("haha_ha_one", "qqqqqeq", HexDir.NORTH_WEST, new VecOne());
-        register("eno_ah_ahah", "eeeeeqq", HexDir.SOUTH_WEST, new VecNegOne());
+        register("haha_ha_one", "qqqqqeq", HexDir.NORTH_WEST, Action.makeConstantOp(new Vec3Iota(new Vec3d(1.0, 1.0, 1.0))));
+        register("eno_ah_ahah", "eeeeeqq", HexDir.SOUTH_WEST, Action.makeConstantOp(new Vec3Iota(new Vec3d(-1.0, -1.0, -1.0))));
+
+        register("split_list", "wdedqqa", HexDir.EAST, new OpSplitList());
+        register("swindle_list", "dqdeqaawddea", HexDir.WEST, new OpListSwindle());
+
+        registerNoConsumeOp("nocon/greater", "ddwe", HexDir.WEST, Arithmetic.GREATER);
+        registerNoConsumeOp("nocon/less", "ddeq", HexDir.WEST, Arithmetic.LESS);
+        registerNoConsumeOp("nocon/greater_eq", "ddwee", HexDir.WEST, Arithmetic.GREATER_EQ);
+        registerNoConsumeOp("nocon/less_eq", "ddeqq", HexDir.WEST, Arithmetic.LESS_EQ);
+        registerNoConsumeOp("nocon/len_eq", "ddqadqqaqw", HexDir.WEST, Arithmetics.LEN_EQ);
+        registerNoConsumeOp("nocon/len_neq", "ddqdaeedew", HexDir.WEST, Arithmetics.LEN_NEQ);
+        register("nocon/eq", "ddqad", HexDir.WEST, new OpNoConsumeEquality(false));
+        register("nocon/neq", "ddqda", HexDir.WEST, new OpNoConsumeEquality(true));
 
         registerSpecialHandler("scaled_vec_x", SCALED_VEC_X);
         registerSpecialHandler("scaled_vec_y", SCALED_VEC_Y);
         registerSpecialHandler("scaled_vec_z", SCALED_VEC_Z);
         registerSpecialHandler("scaled_vec_all", SCALED_VEC_ALL);
-        registerSpecialHandler("retained_comparison", RETAINED_COMPARISON);
         registerSpecialHandler("scientific_exp", SCIENTIFIC_EXPONENT);
     }
 
@@ -82,5 +98,16 @@ public class Patterns{
         SpecialHandler.Factory<?> handler
     ) {
         Registry.register(IXplatAbstractions.INSTANCE.getSpecialHandlerRegistry(), new Identifier(HextraPatterns.MOD_ID, name), handler);
+    }
+
+    private static void registerNoConsumeOp(
+        String name,
+        String signature,
+        HexDir startDir,
+        HexPattern copied
+    ){
+        Registry.register(HexActions.REGISTRY, new Identifier(HextraPatterns.MOD_ID, name),
+            new ActionRegistryEntry(HexPattern.fromAngles(signature, startDir), new NoConsumeOperationAction(copied))
+        );
     }
 }

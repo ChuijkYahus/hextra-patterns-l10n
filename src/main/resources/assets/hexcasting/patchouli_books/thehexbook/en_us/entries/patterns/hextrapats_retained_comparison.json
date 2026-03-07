@@ -1,5 +1,5 @@
 {
-  "name": "pages.hextrapats.hextrapats_retained_comparison.title",
+  "name": "pages.hextrapats.hextrapats_nocon.title",
   "category": "hexcasting:patterns",
   "icon": "minecraft:repeater",
   "sortnum": 5,
@@ -8,117 +8,76 @@
   "pages": [
     {
       "type": "patchouli:text",
-      "text": "hextrapats.page.retained_comparison.intro"
+      "text": "hextrapats.page.nocon.intro"
     },
     {
       "type": "patchouli:text",
-      "title": "hexcasting.action.hextrapats:retained_comparison",
-      "anchor": "hextrapats:retained_comparison",
-      "text": "hextrapats.page.retained_comparison.detail"
+      "title": "hextrapats.page.nocon.name",
+      "text": "hextrapats.page.nocon.detail"
     },
     {
-      "type": "hexcasting:manual_pattern",
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:nocon/greater",
+      "anchor": "hextrapats:nocon/greater",
       "input": "A, B",
       "output": "A, B, bool",
-      "header": "hextrapats.page.retained_comparison.greater",
-      "text": "hexcasting.page.logic.greater",
-      "patterns": [
-        {
-          "startdir": "WEST",
-          "signature": "ddwe"
-        }
-      ]
+      "text": "hexcasting.page.logic.greater"
     },
     {
-      "type": "hexcasting:manual_pattern",
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:nocon/less",
+      "anchor": "hextrapats:nocon/less",
       "input": "A, B",
       "output": "A, B, bool",
-      "header": "hextrapats.page.retained_comparison.less",
-      "text": "hexcasting.page.logic.less",
-      "patterns": [
-        {
-          "startdir": "WEST",
-          "signature": "ddeq"
-        }
-      ]
+      "text": "hexcasting.page.logic.less"
     },
     {
-      "type": "hexcasting:manual_pattern",
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:nocon/greater_eq",
+      "anchor": "hextrapats:nocon/greater_eq",
       "input": "A, B",
       "output": "A, B, bool",
-      "header": "hextrapats.page.retained_comparison.greater_eq",
-      "text": "hexcasting.page.logic.greater_eq",
-      "patterns": [
-        {
-          "startdir": "WEST",
-          "signature": "ddwee"
-        }
-      ]
+      "text": "hexcasting.page.logic.greater_eq"
     },
     {
-      "type": "hexcasting:manual_pattern",
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:nocon/less_eq",
+      "anchor": "hextrapats:nocon/less_eq",
       "input": "A, B",
       "output": "A, B, bool",
-      "header": "hextrapats.page.retained_comparison.less_eq",
-      "text": "hexcasting.page.logic.less_eq",
-      "patterns": [
-        {
-          "startdir": "WEST",
-          "signature": "ddeqq"
-        }
-      ]
+      "text": "hexcasting.page.logic.less_eq"
     },
     {
-      "type": "hexcasting:manual_pattern",
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:nocon/eq",
+      "anchor": "hextrapats:nocon/eq",
       "input": "A, B",
       "output": "A, B, bool",
-      "header": "hextrapats.page.retained_comparison.equals",
-      "text": "hexcasting.page.logic.equals",
-      "patterns": [
-        {
-          "startdir": "WEST",
-          "signature": "ddqad"
-        }
-      ]
+      "text": "hexcasting.page.logic.equals"
     },
     {
-      "type": "hexcasting:manual_pattern",
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:nocon/neq",
+      "anchor": "hextrapats:nocon/neq",
       "input": "A, B",
       "output": "A, B, bool",
-      "header": "hextrapats.page.retained_comparison.not_equals",
-      "text": "hexcasting.page.logic.not_equals",
-      "patterns": [
-        {
-          "startdir": "WEST",
-          "signature": "ddqda"
-        }
-      ]
+      "text": "hexcasting.page.logic.not_equals"
     },
     {
-      "type": "hexcasting:manual_pattern",
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:nocon/len_eq",
+      "anchor": "hextrapats:nocon/len_eq",
       "input": "A, B",
       "output": "A, B, bool",
-      "header": "hextrapats.page.retained_comparison.len_eq",
-      "text": "hextrapats.page.logic.len_eq",
-      "patterns": [
-        {
-          "startdir": "WEST",
-          "signature": "ddqadqqaqw"
-        }
-      ]
+      "text": "hextrapats.page.logic.len_eq"
     },
     {
-      "type": "hexcasting:manual_pattern",
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:nocon/len_neq",
+      "anchor": "hextrapats:nocon/len_neq",
       "input": "A, B",
       "output": "A, B, bool",
-      "header": "hextrapats.page.retained_comparison.len_neq",
-      "text": "hextrapats.page.logic.len_neq",
-      "patterns": [
-        {
-          "startdir": "WEST",
-          "signature": "ddqdaeedew"
-        }
-      ]
+      "text": "hextrapats.page.logic.len_neq"
     }
   ]
 }
