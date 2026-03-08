@@ -17,6 +17,7 @@ import com.meepoffaith.hextrapats.casting.actions.lists.OpSplitList;
 import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsumeEquality;
 import com.meepoffaith.hextrapats.casting.actions.math.OpDegRad;
 import com.meepoffaith.hextrapats.casting.actions.math.OpRadDeg;
+import com.meepoffaith.hextrapats.casting.actions.math.OpRandRange;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
@@ -40,6 +41,7 @@ public class Patterns{
     public static void init(){
         register("deg_to_rad", "qqqqqdwdq", HexDir.WEST, new OpDegRad());
         register("rad_to_deg", "qdwdqqqqq", HexDir.NORTH_EAST, new OpRadDeg());
+        register("rand_range", "eeeqeqqq", HexDir.SOUTH_WEST, new OpRandRange());
 
         //Come on, Elise!
         register("haha_ha_one", "qqqqqeq", HexDir.NORTH_WEST, Action.makeConstantOp(new Vec3Iota(new Vec3d(1.0, 1.0, 1.0))));
