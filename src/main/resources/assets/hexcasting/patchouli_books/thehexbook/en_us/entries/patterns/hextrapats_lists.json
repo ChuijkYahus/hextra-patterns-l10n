@@ -27,7 +27,7 @@
       "op_id": "hextrapats:del_element/all",
       "anchor": "hextrapats:del_element/all",
       "input": "list, any",
-      "output": "list, bool",
+      "output": "list, num",
       "text": "hextrapats.page.lists.del_element/all"
     },
     {
