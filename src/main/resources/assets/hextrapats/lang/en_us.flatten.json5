@@ -62,9 +62,9 @@
         cons_about_x: "Converts an angle in radians to a unit vector where X=0. +Z at 0 radians and +Y at pi/4 radians.",
         cons_about_y: "Converts an angle in radians to a unit vector where Y=0. +Z at 0 radians and -X at pi/4 radians. I've seen some texts related to this pattern mentioning something called $(thing)F3/$, but I couldn't figure out what that means.",
         cons_about_z: "Converts an angle in radians to a unit vector where Z=0. -X at 0 radians and +Y at pi/4 radians.",
-        from_polar: "Creates a unit vector from two polar angles, pitch and yaw, in radians. +Y is up.",
-        to_polar: "Converts a vector's direction into two polar angles, pitch and yaw, in radians. +Y is up.",
-        scientific_exp: "Multiplies the number/vector by 10^n or 10^-n, where n is the length of the tail, depending on whether the start is similar to $(l:patterns/math#hexcasting:mul)$(action)Multiplicative Distillation/$ or $(l:patterns/math#hexcasting:div)$(action)Division Distillation/$."
+        from_polar: "Creates a unit vector from two polar angles, pitch and yaw, in radians. +Y is up. 0 yaw is +Z, pi/2 yaw is -X. Yet again, mentions of $(thing)F3/$ turn up.",
+        to_polar: "Converts a vector's direction into two polar angles, pitch and yaw, in radians. +Y is up. 0 yaw is +Z, pi/2 yaw is -X. Yet again, mentions of $(thing)F3/$ turn up.",
+        scientific_exp: "Multiplies the input by 10^n or 10^-n, where n is the length of the tail, depending on whether the start is similar to $(l:patterns/math#hexcasting:mul)$(action)Mult. Dstl./$ or $(l:patterns/math#hexcasting:div)$(action)Div. Dstl./$. The top 3 patterns are x10^1, x10^2, and x10^3. The bottom 3 are x10^-1, x10^-2, and x10^-3."
       },
       lists: {
         split: "Splits a list at the given index. [a, b, c, d, e], 2 will return [a, b], [c, d, e].",

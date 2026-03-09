@@ -16,12 +16,12 @@ public class OpFromPolar extends ConstMediaActionBase{
     @Override
     public List<? extends Iota> execute(HexIotaStack stack, CastingEnvironment ctx){
         double pitch = stack.getDouble(0);
-        double yaw = stack.getDouble(1);
+        double yaw = -stack.getDouble(1);
         //Replicates Vec3d.fromPolar, but with radian doubles instead of degree floats as input.
-        double f = Math.cos(-yaw - Math.PI);
-        double g = Math.sin(-yaw - Math.PI);
-        double h = -Math.cos(-pitch);
-        double i = Math.sin(-pitch);
+        double f = Math.cos(yaw - Math.PI);
+        double g = Math.sin(yaw - Math.PI);
+        double h = -Math.cos(pitch);
+        double i = Math.sin(pitch);
         return asActionResult(new Vec3Iota(new Vec3d(g * h, i, f * h)));
 
     }

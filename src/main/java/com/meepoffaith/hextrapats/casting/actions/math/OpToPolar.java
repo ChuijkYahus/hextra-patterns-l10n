@@ -18,7 +18,7 @@ public class OpToPolar extends ConstMediaActionBase{
         Vec3d v = stack.getVec3(0);
 
         double yaw = -Math.atan2(v.x, v.z);
-        double pitch = -Math.asin(v.y);
+        double pitch = Math.asin(v.y);
 
         return List.of(new DoubleIota(pitch), new DoubleIota(yaw));
     }
