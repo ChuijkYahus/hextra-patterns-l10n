@@ -12,10 +12,7 @@ import at.petrak.hexcasting.common.lib.hex.HexActions;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import com.meepoffaith.hextrapats.HextraPatterns;
 import com.meepoffaith.hextrapats.casting.actions.NoConsumeOperationAction;
-import com.meepoffaith.hextrapats.casting.actions.lists.OpDelAllElement;
-import com.meepoffaith.hextrapats.casting.actions.lists.OpDelElement;
-import com.meepoffaith.hextrapats.casting.actions.lists.OpListSwindle;
-import com.meepoffaith.hextrapats.casting.actions.lists.OpSplitList;
+import com.meepoffaith.hextrapats.casting.actions.lists.*;
 import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsumeEquality;
 import com.meepoffaith.hextrapats.casting.actions.math.*;
 import net.minecraft.registry.Registry;
@@ -46,6 +43,7 @@ public class Patterns{
         register("rand_vec", "eeeeeqeqqq", HexDir.EAST, new OpRandVec());
         register("from_polar", "eqqadaqa", HexDir.EAST, new OpFromPolar());
         register("to_polar", "qedadeed", HexDir.EAST, new OpToPolar());
+        register("scronglwfijspoivjqwofklcrvewb", "ddedqdaqwdwaqawdwqaqww", HexDir.EAST, new OpShuffle());
 
         //Come on, Elise!
         register("haha_ha_one", "qqqqqeq", HexDir.NORTH_WEST, Action.makeConstantOp(new Vec3Iota(new Vec3d(1.0, 1.0, 1.0))));

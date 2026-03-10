@@ -72,7 +72,8 @@
           first: "Remove the iota at the top of the stack, then remove the first instance of it from the list. If that iota was in the list, return True. Otherwise, return False.",
           all: "Remove the iota at the top of the stack, then remove $(italic)all/$ instances of it from the list. Returns the number of removed occurrences."
         },
-        swindle: "Reorders the elements of a list the same way $(l:patterns/stackmanip#hexcasting:swizzle)$(action)Swindler's Gambit/$ reorders the stack. Inputting a negative code will reorder the elements at the start instead of the end."
+        swindle: "Reorders the elements of a list the same way $(l:patterns/stackmanip#hexcasting:swizzle)$(action)Swindler's Gambit/$ reorders the stack. Inputting a negative code will reorder the elements at the start instead of the end.",
+        scronglwfijspoivjqwofklcrvewb: "Shuffles the order of elements in the list."
       }
     }
   },
@@ -126,7 +127,8 @@
           first: "Elimination Gambit",
           all: "Elimination Gambit II"
         },
-        swindle_list: "Swindler's Distillation"
+        swindle_list: "Swindler's Distillation",
+        scronglwfijspoivjqwofklcrvewb: "Shuffling Purification"
       },
 
       "book.hextrapats:": {

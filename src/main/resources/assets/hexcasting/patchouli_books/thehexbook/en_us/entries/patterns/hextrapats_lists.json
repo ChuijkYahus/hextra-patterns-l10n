@@ -37,6 +37,14 @@
       "input": "list, num",
       "output": "list",
       "text": "hextrapats.page.lists.swindle"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:scronglwfijspoivjqwofklcrvewb",
+      "anchor": "hextrapats:scronglwfijspoivjqwofklcrvewb",
+      "input": "list",
+      "output": "list",
+      "text": "hextrapats.page.lists.scronglwfijspoivjqwofklcrvewb"
     }
   ]
 }
