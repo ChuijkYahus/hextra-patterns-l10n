@@ -1,4 +1,4 @@
-package com.meepoffaith.hextrapats.casting.actions.math;
+package com.meepoffaith.hextrapats.casting.actions.vecmath;
 
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
 import at.petrak.hexcasting.api.casting.iota.Iota;
@@ -23,6 +23,5 @@ public class OpFromPolar extends ConstMediaActionBase{
         double h = -Math.cos(pitch);
         double i = Math.sin(pitch);
         return asActionResult(new Vec3Iota(new Vec3d(g * h, i, f * h)));
-
     }
 }

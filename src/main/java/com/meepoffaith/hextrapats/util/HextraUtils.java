@@ -14,6 +14,7 @@ import net.minecraft.text.Text;
 import java.util.List;
 
 public class HextraUtils{
+
     /** Simulates the accumulation process of Numerical Reflection */
     public static double numericalReflection(String s){
         double accumulator = 0.0;

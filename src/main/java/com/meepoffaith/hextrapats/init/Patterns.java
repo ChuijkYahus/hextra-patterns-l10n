@@ -15,6 +15,7 @@ import com.meepoffaith.hextrapats.casting.actions.NoConsumeOperationAction;
 import com.meepoffaith.hextrapats.casting.actions.lists.*;
 import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsumeEquality;
 import com.meepoffaith.hextrapats.casting.actions.math.*;
+import com.meepoffaith.hextrapats.casting.actions.vecmath.*;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
@@ -40,9 +41,16 @@ public class Patterns{
         register("rad_to_deg", "qdwdqqqqq", HexDir.NORTH_EAST, new OpRadDeg());
         register("rand_zero", "dedqeqqq", HexDir.EAST, new OpRandRange());
         register("rand_range", "eeeqeqqq", HexDir.SOUTH_WEST, new OpRandZero());
+        register("linear_approach", "wwadeeed", HexDir.EAST, new OpApproach());
+        register("angle_dist", "dqqqqd", HexDir.SOUTH_EAST, new OpAngleDist());
+        register("angle_approach", "deeeea", HexDir.EAST, new OpAngleApproach());
+
         register("rand_vec", "eeeeeqeqqq", HexDir.EAST, new OpRandVec());
+        register("vec_dist", "aqqqqqeqeeeeed", HexDir.EAST, new OpVecDist());
+        register("vec_approach", "aqqqqqeadeeed", HexDir.EAST, new OpVecApproach());
         register("from_polar", "eqqadaqa", HexDir.EAST, new OpFromPolar());
         register("to_polar", "qedadeed", HexDir.EAST, new OpToPolar());
+
         register("scronglwfijspoivjqwofklcrvewb", "ddedqdaqwdwaqawdwqaqww", HexDir.EAST, new OpShuffle());
 
         //Come on, Elise!

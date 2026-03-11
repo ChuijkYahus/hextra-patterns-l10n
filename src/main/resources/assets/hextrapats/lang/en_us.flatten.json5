@@ -55,11 +55,16 @@
         invert: "Multiplies the number/vector by -1.",
         rand_zero: "Returns a random number between 0 (inclusive) and the number (exclusive).",
         rand_range: "Returns a random number between the first number (inclusive) and the second (exclusive).",
-        scientific_exp: "Multiplies the input by 10^n or 10^-n, where n is the length of the tail, depending on whether the start is similar to $(l:patterns/math#hexcasting:mul)$(action)Mult. Dstl./$ or $(l:patterns/math#hexcasting:div)$(action)Div. Dstl./$. The top 3 patterns are x10^1, x10^2, and x10^3. The bottom 3 are x10^-1, x10^-2, and x10^-3."
+        scientific_exp: "Multiplies the input by 10^n or 10^-n, where n is the length of the tail, depending on whether the start is similar to $(l:patterns/math#hexcasting:mul)$(action)Mult. Dstl./$ or $(l:patterns/math#hexcasting:div)$(action)Div. Dstl./$. The top 3 patterns are x10^1, x10^2, and x10^3. The bottom 3 are x10^-1, x10^-2, and x10^-3.",
+        linear_approach: "Makes the first value approach the second at a rate of the third value. Will not overshoot.",
+        angle_dist: "Returns the shortest angular distance between two angles in radians.",
+        angle_approach: "Makes the first angle approach the second at a rate of the third value. Will not overshoot. Picks whichever direction is shorter. All angles in radians."
       },
       vec_math: {
         normalize: "Sets the length of the vector to one.",
         rand_vec: "Returns a unit vector facing a random direction.",
+        vec_dist: "Returns the distance between two vectors.",
+        vec_approach: "Moves the first vector towards the second a rate of the third value. Will not overshoot.",
         from_polar: "Creates a unit vector from two polar angles, pitch and yaw, in radians. +Y is up. 0 yaw is +Z, pi/2 yaw is -X. Yet again, mentions of $(thing)F3/$ turn up.",
         to_polar: "Converts a vector's direction into two polar angles, pitch and yaw, in radians. +Y is up. 0 yaw is +Z, pi/2 yaw is -X. Yet again, mentions of $(thing)F3/$ turn up.",
         rot_about_x: "Rotates the vector by the given angle in radians around the X axis.",
@@ -99,20 +104,26 @@
 
         deg_to_rad: "Radian Purification",
         rad_to_deg: "Degree Purification",
-        normalize: "Norm Purification",
         invert: "Reversal Purification",
         rand_zero: "Entropy Purification",
         rand_range: "Entropy Distillation",
+        scientific_exp: "Scientific Purification",
+        linear_approach: "Linear Approach Exaltation",
+        angle_dist: "Angular Distance Distillation",
+        angle_approach: "Angular Approach Exaltation",
+
+        normalize: "Norm Purification",
         rand_vec: "Chaos Reflection",
+        vec_dist: "Vector Distance Distillation",
+        vec_approach: "Vector Approach Exaltation",
+        from_polar: "Polar Distillation",
+        to_polar: "Polar Decomposition",
         rot_about_x: "Pitch Distillation",
         rot_about_y: "Yaw Distillation",
         rot_about_z: "Roll Distillation",
         cons_about_x: "Pitch Purification",
         cons_about_y: "Yaw Purification",
         cons_about_z: "Roll Purification",
-        from_polar: "Polar Distillation",
-        to_polar: "Polar Decomposition",
-        scientific_exp: "Scientific Purification",
 
         "nocon/": {
           greater: "Comparison Gambit: Maximus",
@@ -144,6 +155,13 @@
         scaled_vec_y: "Vector Rfln. +Y/-Y II",
         scaled_vec_z: "Vector Rfln. +Z/-Z II",
         scaled_vec_all: "Vector Rfln. +1/-1 II",
+
+        linear_approach: "Linear Approach Exalt.",
+        angle_dist: "Angular Distance Dstl.",
+        angle_approach: "Angular Approach Exalt.",
+
+        vec_dist: "Vector Distance Dstl.",
+        vec_approach: "Vector Approach Exalt.",
 
         "nocon/": {
           greater: "Comp. Gambit: Maximus",

@@ -86,6 +86,30 @@
           "r": 1
         }
       ]
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:linear_approach",
+      "anchor": "hextrapats:linear_approach",
+      "input": "num, num, num",
+      "output": "num",
+      "text": "hextrapats.page.math.linear_approach"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:angle_dist",
+      "anchor": "hextrapats:angle_dist",
+      "input": "num, num",
+      "output": "num",
+      "text": "hextrapats.page.math.angle_dist"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:angle_approach",
+      "anchor": "hextrapats:angle_approach",
+      "input": "num, num, num",
+      "output": "num",
+      "text": "hextrapats.page.math.angle_approach"
     }
   ]
 }

@@ -5,21 +5,19 @@ import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.ConstMediaActionBase;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
-import net.minecraft.util.math.Vec3d;
+import com.meepoffaith.hextrapats.util.MathUtils;
 
 import java.util.List;
 
-public class OpToPolar extends ConstMediaActionBase{
-    public int argc = 1;
+public class OpAngleDist extends ConstMediaActionBase{
+    public int argc = 2;
     public long mediaCost = 0L;
 
     @Override
     public List<? extends Iota> execute(HexIotaStack stack, CastingEnvironment ctx){
-        Vec3d v = stack.getVec3(0);
+        double ang1 = stack.getDouble(0);
+        double ang2 = stack.getDouble(1);
 
-        double yaw = -Math.atan2(v.x, v.z);
-        double pitch = Math.asin(v.y);
-
-        return List.of(new DoubleIota(pitch), new DoubleIota(yaw));
+        return asActionResult(new DoubleIota(MathUtils.angleDist(ang1, ang2)));
     }
 }
