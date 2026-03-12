@@ -79,15 +79,15 @@ public class Vec3Arithmetic implements Arithmetic{
             return makeVecToVec(Vec3d::normalize);
         }else if(pattern.sigsEqual(INVERT)){
             return makeVecToVec(v -> v.multiply(-1));
-        }else if(pattern.sigsEqual(INCREMENT)){ //Somehow, these don't throw any errors if len = 0
+        }else if(pattern.sigsEqual(INCREMENT)){
             return makeVecToVec(v -> {
                 double len = v.length();
-                return v.multiply((len + 1) / len);
+                return DoubleIota.tolerates(len, 0) ? v : v.multiply((len + 1) / len);
             });
         }else if(pattern.sigsEqual(DECREMENT)){
             return makeVecToVec(v -> {
                 double len = v.length();
-                return v.multiply((len - 1) / len);
+                return  DoubleIota.tolerates(len, 0) ? v : v.multiply((len - 1) / len);
             });
         }else{
             throw new InvalidOperatorException(pattern + " is not a valid operator in Vec3 Arithmetic " + this);
