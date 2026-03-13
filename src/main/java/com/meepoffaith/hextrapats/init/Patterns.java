@@ -12,12 +12,10 @@ import at.petrak.hexcasting.common.lib.hex.HexActions;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import com.meepoffaith.hextrapats.HextraPatterns;
 import com.meepoffaith.hextrapats.casting.actions.NoConsumeOperationAction;
-import com.meepoffaith.hextrapats.casting.actions.lists.OpDelAllElement;
-import com.meepoffaith.hextrapats.casting.actions.lists.OpDelElement;
-import com.meepoffaith.hextrapats.casting.actions.lists.OpListSwindle;
-import com.meepoffaith.hextrapats.casting.actions.lists.OpSplitList;
+import com.meepoffaith.hextrapats.casting.actions.lists.*;
 import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsumeEquality;
 import com.meepoffaith.hextrapats.casting.actions.math.*;
+import com.meepoffaith.hextrapats.casting.actions.vecmath.*;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
@@ -36,14 +34,28 @@ public class Patterns{
     public static ActionRegistryEntry LEN_NEQ = registerEntry("len_neq", "daeedew", HexDir.EAST);
     public static ActionRegistryEntry IN_RANGE = registerEntry("in_range", "qqqq", HexDir.SOUTH_WEST);
     public static ActionRegistryEntry OUT_RANGE = registerEntry("out_range", "eaae", HexDir.SOUTH_EAST);
-    public static ActionRegistryEntry INVERT = registerEntry("invert", "edwaqaw", HexDir.NORTH_WEST);
+    public static ActionRegistryEntry INVERT = registerEntry("invert", "waqawqa", HexDir.SOUTH_WEST);
+    public static ActionRegistryEntry INCREMENT = registerEntry("increment", "waawawaaw", HexDir.NORTH_EAST);
+    public static ActionRegistryEntry DECREMENT = registerEntry("decrement", "wddwdwddw", HexDir.NORTH_WEST);
 
     public static void init(){
         register("deg_to_rad", "qqqqqdwdq", HexDir.WEST, new OpDegRad());
         register("rad_to_deg", "qdwdqqqqq", HexDir.NORTH_EAST, new OpRadDeg());
         register("rand_zero", "dedqeqqq", HexDir.EAST, new OpRandRange());
         register("rand_range", "eeeqeqqq", HexDir.SOUTH_WEST, new OpRandZero());
+        register("linear_approach", "wwadeeed", HexDir.EAST, new OpApproach());
+        register("angle_dist", "dqqqqd", HexDir.SOUTH_EAST, new OpAngleDist());
+        register("angle_approach", "deeeea", HexDir.EAST, new OpAngleApproach());
+
         register("rand_vec", "eeeeeqeqqq", HexDir.EAST, new OpRandVec());
+        register("vec_dist", "aqqqqqeqeeeeed", HexDir.EAST, new OpVecDist());
+        register("vec_approach", "aqqqqqeadeeed", HexDir.EAST, new OpVecApproach());
+        register("vec_angle_dist", "awdaqqqqqea", HexDir.NORTH_EAST, new OpVecAngleDist());
+        register("vec_rotate_towards", "awdaqqqqqwd", HexDir.NORTH_EAST, new OpRotateTowards());
+        register("from_polar", "eqqadaqa", HexDir.EAST, new OpFromPolar());
+        register("to_polar", "qedadeed", HexDir.EAST, new OpToPolar());
+
+        register("scronglwfijspoivjqwofklcrvewb", "ddedqdaqwdwaqawdwqaqww", HexDir.EAST, new OpShuffle());
 
         //Come on, Elise!
         register("haha_ha_one", "qqqqqeq", HexDir.NORTH_WEST, Action.makeConstantOp(new Vec3Iota(new Vec3d(1.0, 1.0, 1.0))));
