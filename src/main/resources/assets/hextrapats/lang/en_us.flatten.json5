@@ -97,11 +97,9 @@
         empty_set: "Push an empty set to the top of the stack.",
         "insert.name": "Insertion Distillation",
         insert: "Remove the top of the stack, then add it to the set at the top of the stack.",
-        "insert_ret.name": "Insertion Gambit",
         insert_ret: "Remove the top of the stack, then add it to the set at the top of the stack. Return True if it wasn't already in the set, otherwise return False.",
         "remove.name": "Removal Distillation",
         remove: "Remove the top of the stack, then remove it from the set at the top of the stack.",
-        "remove_ret.name": "Removal Gambit",
         remove_ret: "Remove the top of the stack, then remove it from the set at the top of the stack. Return True if it was previously in the set, otherwise return False.",
         "find.name": "Existence Gambit",
         find: "Remove the top of the stack, then return True if the set at the top of the stack contains it, otherwise return False.",
@@ -174,9 +172,7 @@
         scronglwfijspoivjqwofklcrvewb: "Shuffling Purification",
 
         empty_set: "Vacant Reflection: Set",
-        set_insert: "Insertion Distillation",
         set_insert_ret: "Insertion Gambit",
-        set_remove: "Removal Distillation",
         set_remove_ret: "Removal Gambit"
       },
 

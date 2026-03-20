@@ -26,9 +26,7 @@ public class Arithmetics{
         APPROACH = Patterns.APPROACH.prototype(),
         ANGLE_DIST = Patterns.ANGLE_DIST.prototype(),
         ANGLE_APPROACH = Patterns.ANGLE_APPROACH.prototype(),
-        SET_INSERT = Patterns.SET_INSERT.prototype(),
         SET_INSERT_RET = Patterns.SET_INSERT_RET.prototype(),
-        SET_REMOVE = Patterns.SET_REMOVE.prototype(),
         SET_REMOVE_RET = Patterns.SET_REMOVE_RET.prototype();
 
     public static void init(){

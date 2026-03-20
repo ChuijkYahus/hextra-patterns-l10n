@@ -25,9 +25,9 @@ public class SetArithmetic implements Arithmetic{
         XOR,
         ABS,
         INDEX_OF,
-        SET_INSERT,
+        APPEND,
         SET_INSERT_RET,
-        SET_REMOVE,
+        REMOVE,
         SET_REMOVE_RET
     );
 
@@ -61,11 +61,11 @@ public class SetArithmetic implements Arithmetic{
             return new OperatorAmount();
         }else if(pattern.sigsEqual(INDEX_OF)){
             return new OperatorExists();
-        }else if(pattern.sigsEqual(SET_INSERT)){
+        }else if(pattern.sigsEqual(APPEND)){
             return new OperatorInsert(false);
         }else if(pattern.sigsEqual(SET_INSERT_RET)){
             return new OperatorInsert(true);
-        }else if(pattern.sigsEqual(SET_REMOVE)){
+        }else if(pattern.sigsEqual(REMOVE)){
             return new OperatorRemove(false);
         }else if(pattern.sigsEqual(SET_REMOVE_RET)){
             return new OperatorRemove(true);

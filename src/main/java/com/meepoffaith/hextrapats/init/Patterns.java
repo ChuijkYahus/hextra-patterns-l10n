@@ -47,10 +47,8 @@ public class Patterns{
         APPROACH = registerEntry("approach", "dedqadeeed", HexDir.SOUTH_WEST),
         ANGLE_DIST = registerEntry("angle_dist", "awdaqqqqqea", HexDir.NORTH_EAST),
         ANGLE_APPROACH = registerEntry("angle_approach", "awdaqqqqqwd", HexDir.NORTH_EAST),
-        SET_INSERT = registerEntry("set_insert", "eedqd", HexDir.SOUTH_EAST),
-        SET_INSERT_RET = registerEntry("set_insert_ret", "qqaea", HexDir.NORTH_EAST),
-        SET_REMOVE = registerEntry("set_remove", "adedaedqd", HexDir.SOUTH_EAST),
-        SET_REMOVE_RET = registerEntry("set_remove_ret", "daqadqaea", HexDir.NORTH_EAST);
+        SET_INSERT_RET = registerEntry("set_insert_ret", "edqdewd", HexDir.SOUTH_WEST ),
+        SET_REMOVE_RET = registerEntry("set_remove_ret", "edqdewaqaaed", HexDir.SOUTH_WEST);
 
     public static void init(){
         register("deg_to_rad", "qqqqqdwdq", HexDir.WEST, new OpDegRad());
