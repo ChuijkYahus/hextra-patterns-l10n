@@ -6,7 +6,6 @@ import at.petrak.hexcasting.api.casting.eval.vm.CastingImage;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.IotaType;
-import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota;
 import at.petrak.hexcasting.api.utils.HexUtils;
 import at.petrak.hexcasting.api.utils.NBTHelper;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
@@ -69,17 +68,6 @@ public class HextraUtils{
         }catch(CommandSyntaxException e){
             throw new RuntimeException(e);
         }
-    }
-
-    public static int getInt(Iota x, int arg){
-        if(x instanceof DoubleIota doubleIota){
-            double d = doubleIota.getDouble();
-            int rounded = (int)Math.round(d);
-            if(DoubleIota.tolerates(d, rounded)){
-                return rounded;
-            }
-        }
-        throw new MishapInvalidIota(x, arg, Text.of("an integer"));
     }
 
     public static CastingImage copyImage(CastingImage image, List<Iota> stack){

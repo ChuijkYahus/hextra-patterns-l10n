@@ -35,7 +35,7 @@ public class OperatorTurnVec extends OperatorBase{
             return asActionResult(new Vec3Iota(to.multiply(from.length() / to.length())));
         }else if(DoubleIota.tolerates(angDist, Math.PI)){
             //From and To are facing directly away from each other. In this case, no axis of rotation can be determined (cross product returns the 0 vector).
-            throw new MishapInvalidIota(stack.get(1), 1, Text.translatable("hextrapats.mishap.bad_direction", stack.get(0).display()));
+            throw MishapInvalidIota.of(stack.get(1), 1, "opposite_vecs", stack.get(0).display());
         }
 
         Vec3d fromN = from.normalize();

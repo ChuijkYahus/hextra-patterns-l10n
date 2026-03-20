@@ -85,7 +85,7 @@ public class HexIotaStack {
         if(i instanceof SetIota s){
             return s;
         }else{
-            throw new MishapInvalidIota(i, argc - (idx + 1), Text.of("set"));
+            throw MishapInvalidIota.ofType(i, argc - (idx + 1), "set");
         }
     }
 
