@@ -103,6 +103,8 @@
         find: "Remove the top of the stack, then return True if the set at the top of the stack contains it, otherwise return False.",
         add: "Remove the set at the top of the stack, then add all its elements to the set at the top of the stack.",
         sub: "Remove the set at the top of the stack, then remove all its elements from the set at the top of the stack.",
+        and: "Takes the intersection of two sets. The new set will only contain elements that were present in both of the previous sets.",
+        xor: "Takes the exclusive disjunction of two sets. The new set will only contain elements that were present in only one of the two sets.",
         abs: "Remove the set at the top of the stack, then push the number of elements in the set to the stack."
       }
     }

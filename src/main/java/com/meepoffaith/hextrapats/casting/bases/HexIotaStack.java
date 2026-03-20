@@ -23,6 +23,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -96,6 +97,7 @@ public class HexIotaStack {
             throw new MishapNotEnoughArgs(idx + 1, stack.size());
         }
     }
+
     public Iota getOfType(int idx, IotaType<? extends Iota> type) {
         Iota iota = get(idx);
 
@@ -106,16 +108,19 @@ public class HexIotaStack {
         else
             throw new MishapInvalidIota(iota, getReverseIdx(idx), type.typeName());
     }
+
     public BlockPos getBlockPosInRange(int idx) {
         BlockPos ret = getBlockPos(idx);
         ctx.assertPosInRange(ret);
         return ret;
     }
+
     public Vec3d getVec3InRange(int idx) {
         Vec3d ret = getVec3(idx);
         ctx.assertVecInRange(ret);
         return ret;
     }
+
     public ArrayList<Iota> getJUSTAList(int idx) {
         // is handrolling your own List really necessary bro
         // doesn't even have it's own .add() :broken_heart:
@@ -128,5 +133,10 @@ public class HexIotaStack {
         }
 
         return theFuckingList;
+    }
+
+    public Set<String> getJUSTASet(int idx) {
+        // I'm lazy lmao
+        return getSet(idx).getSet();
     }
 }

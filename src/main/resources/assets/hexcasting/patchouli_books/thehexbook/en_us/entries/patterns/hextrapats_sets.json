@@ -63,6 +63,22 @@
     },
     {
       "type": "hexcasting:pattern",
+      "op_id": "hexcasting:and",
+      "anchor": "hexcasting:and",
+      "input": "set, set",
+      "output": "set",
+      "text": "hextrapats.page.sets.and"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexcasting:xor",
+      "anchor": "hexcasting:xor",
+      "input": "set, set",
+      "output": "set",
+      "text": "hextrapats.page.sets.xor"
+    },
+    {
+      "type": "hexcasting:pattern",
       "op_id": "hexcasting:abs",
       "anchor": "hexcasting:abs",
       "input": "set",

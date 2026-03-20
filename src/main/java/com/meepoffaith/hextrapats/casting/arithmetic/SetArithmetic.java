@@ -7,10 +7,7 @@ import at.petrak.hexcasting.api.casting.arithmetic.operator.OperatorBinary;
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate;
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
-import com.meepoffaith.hextrapats.casting.arithmetic.operator.set.OperatorAmount;
-import com.meepoffaith.hextrapats.casting.arithmetic.operator.set.OperatorExists;
-import com.meepoffaith.hextrapats.casting.arithmetic.operator.set.OperatorInsert;
-import com.meepoffaith.hextrapats.casting.arithmetic.operator.set.OperatorRemove;
+import com.meepoffaith.hextrapats.casting.arithmetic.operator.set.*;
 import com.meepoffaith.hextrapats.casting.iota.SetIota;
 import com.meepoffaith.hextrapats.util.generics.Func2to1;
 
@@ -23,6 +20,8 @@ public class SetArithmetic implements Arithmetic{
     private static final List<HexPattern> OPS = List.of(
         ADD,
         SUB,
+        AND,
+        XOR,
         ABS,
         INDEX_OF,
         APPEND,
@@ -51,6 +50,10 @@ public class SetArithmetic implements Arithmetic{
                 s1.removeAll(s2);
                 return s1;
             });
+        }else if(pattern.sigsEqual(AND)){
+            return new OperatorIntersection();
+        }else if(pattern.sigsEqual(XOR)){
+            return new OperatorDisjunction();
         }else if(pattern.sigsEqual(ABS)){
             return new OperatorAmount();
         }else if(pattern.sigsEqual(INDEX_OF)){
