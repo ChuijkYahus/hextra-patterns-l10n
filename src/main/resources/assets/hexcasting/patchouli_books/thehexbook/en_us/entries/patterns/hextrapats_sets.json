@@ -20,21 +20,35 @@
     },
     {
       "type": "hexcasting:pattern",
-      "header": "hextrapats.page.sets.insert.name",
-      "op_id": "hexcasting:append",
-      "anchor": "hexcasting:append",
+      "op_id": "hextrapats:set_insert",
+      "anchor": "hextrapats:set_insert",
       "input": "set, any",
-      "output": "set, bool",
+      "output": "set",
       "text": "hextrapats.page.sets.insert"
     },
     {
       "type": "hexcasting:pattern",
-      "header": "hextrapats.page.sets.remove.name",
-      "op_id": "hexcasting:remove_from",
-      "anchor": "hexcasting:remove_from",
+      "op_id": "hextrapats:set_insert_ret",
+      "anchor": "hextrapats:set_insert_ret",
       "input": "set, any",
       "output": "set, bool",
+      "text": "hextrapats.page.sets.insert_ret"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:set_remove",
+      "anchor": "hextrapats:set_remove",
+      "input": "set, any",
+      "output": "set",
       "text": "hextrapats.page.sets.remove"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:set_remove_ret",
+      "anchor": "hextrapats:set_remove_ret",
+      "input": "set, any",
+      "output": "set, bool",
+      "text": "hextrapats.page.sets.remove_ret"
     },
     {
       "type": "hexcasting:pattern",

@@ -15,8 +15,11 @@ import java.util.List;
 import static com.meepoffaith.hextrapats.init.IotaTypes.SET;
 
 public class OperatorRemove extends OperatorBase{
-    public OperatorRemove(){
+    boolean returnBool;
+
+    public OperatorRemove(boolean returnBool){
         super(2, IotaMultiPredicate.pair(IotaPredicate.ofType(SET), IotaPredicate.TRUE));
+        this.returnBool = returnBool;
     }
 
     @Override
@@ -24,6 +27,6 @@ public class OperatorRemove extends OperatorBase{
         SetIota set = stack.getSet(0);
         Iota iota = stack.get(1);
         boolean removed = set.remove(iota);
-        return List.of(set, new BooleanIota(removed));
+        return returnBool ? List.of(set, new BooleanIota(removed)) : asActionResult(set);
     }
 }

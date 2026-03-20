@@ -14,6 +14,7 @@ import com.meepoffaith.hextrapats.util.generics.Func2to1;
 import java.util.List;
 import java.util.Set;
 
+import static com.meepoffaith.hextrapats.init.Arithmetics.*;
 import static com.meepoffaith.hextrapats.init.IotaTypes.SET;
 
 public class SetArithmetic implements Arithmetic{
@@ -24,8 +25,10 @@ public class SetArithmetic implements Arithmetic{
         XOR,
         ABS,
         INDEX_OF,
-        APPEND,
-        REMOVE
+        SET_INSERT,
+        SET_INSERT_RET,
+        SET_REMOVE,
+        SET_REMOVE_RET
     );
 
     @Override
@@ -58,10 +61,14 @@ public class SetArithmetic implements Arithmetic{
             return new OperatorAmount();
         }else if(pattern.sigsEqual(INDEX_OF)){
             return new OperatorExists();
-        }else if(pattern.sigsEqual(APPEND)){
-            return new OperatorInsert();
-        }else if(pattern.sigsEqual(REMOVE)){
-            return new OperatorRemove();
+        }else if(pattern.sigsEqual(SET_INSERT)){
+            return new OperatorInsert(false);
+        }else if(pattern.sigsEqual(SET_INSERT_RET)){
+            return new OperatorInsert(true);
+        }else if(pattern.sigsEqual(SET_REMOVE)){
+            return new OperatorRemove(false);
+        }else if(pattern.sigsEqual(SET_REMOVE_RET)){
+            return new OperatorRemove(true);
         }else{
             throw new InvalidOperatorException(pattern + " is not a valid operator in Set Arithmetic " + this);
         }

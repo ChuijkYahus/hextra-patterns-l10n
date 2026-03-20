@@ -15,15 +15,18 @@ import java.util.List;
 import static com.meepoffaith.hextrapats.init.IotaTypes.SET;
 
 public class OperatorInsert extends OperatorBase{
-    public OperatorInsert(){
+    boolean returnBool;
+
+    public OperatorInsert(boolean returnBool){
         super(2, IotaMultiPredicate.pair(IotaPredicate.ofType(SET), IotaPredicate.TRUE));
+        this.returnBool = returnBool;
     }
 
     @Override
     public @NotNull Iterable<Iota> operate(HexIotaStack stack, CastingEnvironment ctx){
         SetIota set = stack.getSet(0);
         Iota iota = stack.get(1);
-        boolean removed = set.add(iota);
-        return List.of(set, new BooleanIota(removed));
+        boolean added = set.add(iota);
+        return returnBool ? List.of(set, new BooleanIota(added)) : asActionResult(set);
     }
 }
