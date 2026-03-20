@@ -11,6 +11,7 @@ import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.OperatorTrinary;
+import com.meepoffaith.hextrapats.casting.arithmetic.operator.vec3.OperatorAngleApproach;
 import com.meepoffaith.hextrapats.util.MathUtils;
 import com.meepoffaith.hextrapats.util.generics.Func1to1;
 import com.meepoffaith.hextrapats.util.generics.Func2to1;
@@ -105,19 +106,7 @@ public class Vec3Arithmetic implements Arithmetic{
         }else if(pattern.sigsEqual(ANGLE_DIST)){
             return makeVecVectoNum(MathUtils::vecAngleDist);
         }else if(pattern.sigsEqual(ANGLE_APPROACH)){
-            return makeVecVecNumtoVec((from, to, theta) -> {
-                if(theta >= MathUtils.vecAngleDist(from, to)){
-                    return to.multiply(from.length() / to.length());
-                }
-
-                Vec3d fromN = from.normalize();
-                Vec3d toN = to.normalize();
-
-                Vec3d cross = fromN.crossProduct(toN).crossProduct(fromN).normalize();
-                Vec3d next = fromN.multiply(Math.cos(theta)).add(cross.multiply(Math.sin(theta)));
-
-                return next.multiply(from.length());
-            });
+            return new OperatorAngleApproach();
         }else{
             throw new InvalidOperatorException(pattern + " is not a valid operator in Vec3 Arithmetic " + this);
         }
