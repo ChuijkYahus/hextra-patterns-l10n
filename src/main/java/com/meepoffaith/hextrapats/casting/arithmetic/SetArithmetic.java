@@ -7,6 +7,7 @@ import at.petrak.hexcasting.api.casting.arithmetic.operator.OperatorBinary;
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate;
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
+import com.meepoffaith.hextrapats.casting.arithmetic.operator.set.OperatorAmount;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.set.OperatorExists;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.set.OperatorInsert;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.set.OperatorRemove;
@@ -16,13 +17,13 @@ import com.meepoffaith.hextrapats.util.generics.Func2to1;
 import java.util.List;
 import java.util.Set;
 
-import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.DOUBLE;
 import static com.meepoffaith.hextrapats.init.IotaTypes.SET;
 
 public class SetArithmetic implements Arithmetic{
     private static final List<HexPattern> OPS = List.of(
         ADD,
         SUB,
+        ABS,
         INDEX_OF,
         APPEND,
         REMOVE
@@ -50,6 +51,8 @@ public class SetArithmetic implements Arithmetic{
                 s1.removeAll(s2);
                 return s1;
             });
+        }else if(pattern.sigsEqual(ABS)){
+            return new OperatorAmount();
         }else if(pattern.sigsEqual(INDEX_OF)){
             return new OperatorExists();
         }else if(pattern.sigsEqual(APPEND)){

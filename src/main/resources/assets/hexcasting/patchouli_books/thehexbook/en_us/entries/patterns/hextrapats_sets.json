@@ -1,0 +1,73 @@
+{
+  "name": "pages.hextrapats.hextrapats_sets.title",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:bucket",
+  "sortnum": 7,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "patchouli:text",
+      "text": "hextrapats.page.sets.intro"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:empty_set",
+      "anchor": "hextrapats:empty_set",
+      "input": "",
+      "output": "set",
+      "text": "hextrapats.page.sets.empty_set"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "header": "hextrapats.page.sets.insert.name",
+      "op_id": "hexcasting:append",
+      "anchor": "hexcasting:append",
+      "input": "set, any",
+      "output": "set, bool",
+      "text": "hextrapats.page.sets.insert"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "header": "hextrapats.page.sets.remove.name",
+      "op_id": "hexcasting:remove_from",
+      "anchor": "hexcasting:remove_from",
+      "input": "set, any",
+      "output": "set, bool",
+      "text": "hextrapats.page.sets.remove"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "header": "hextrapats.page.sets.find.name",
+      "op_id": "hexcasting:index_of",
+      "anchor": "hexcasting:index_of",
+      "input": "set, any",
+      "output": "set, bool",
+      "text": "hextrapats.page.sets.find"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexcasting:add",
+      "anchor": "hexcasting:add",
+      "input": "set, set",
+      "output": "set",
+      "text": "hextrapats.page.sets.add"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexcasting:sub",
+      "anchor": "hexcasting:sub",
+      "input": "set, set",
+      "output": "set",
+      "text": "hextrapats.page.sets.sub"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexcasting:abs",
+      "anchor": "hexcasting:abs",
+      "input": "set",
+      "output": "num",
+      "text": "hextrapats.page.sets.abs"
+    }
+  ]
+}

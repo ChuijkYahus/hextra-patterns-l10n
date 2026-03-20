@@ -7,6 +7,7 @@
     "hextrapats_math.title": "Hextra Math",
     "hextrapats_vec_math.title": "Hextra Vector Math",
     "hextrapats_lists.title": "Hextra Lists",
+    "hextrapats_sets.title": "Hash Sets"
   },
   hextrapats: {
     page: {
@@ -90,6 +91,19 @@
         },
         swindle: "Reorders the elements of a list the same way $(l:patterns/stackmanip#hexcasting:swizzle)$(action)Swindler's Gambit/$ reorders the stack. Inputting a negative code will reorder the elements at the start instead of the end.",
         scronglwfijspoivjqwofklcrvewb: "Shuffles the order of elements in the list."
+      },
+      sets: {
+        intro: "A hash set contains elements in an unordered fashion, and cannot contain duplicates. Excellent for keeping track of whether or not something exists.<br>Due to a magical process known as '$(thing)hashing/$', access is reduced to nearly O(1), relaxing the burden on Nature.",
+        empty_set: "Push an empty set to the top of the stack.",
+        "insert.name": "Insertion Gambit",
+        insert: "Remove the top of the stack, then add it to the set at the top of the stack. Return True if it wasn't already in the set, otherwise return False.",
+        "remove.name": "Removal Gambit",
+        remove: "Remove the top of the stack, then remove it from the set at the top of the stack. Return True if it was previously in the set, otherwise return False.",
+        "find.name": "Existence Gambit",
+        find: "Remove the top of the stack, then return True if the set at the top of the stack contains it, otherwise return False.",
+        add: "Remove the set at the top of the stack, then add all its elements to the set at the top of the stack.",
+        sub: "Remove the set at the top of the stack, then remove all its elements from the set at the top of the stack.",
+        abs: "Remove the set at the top of the stack, then push the number of elements in the set to the stack."
       }
     }
   },
@@ -151,7 +165,9 @@
           all: "Elimination Gambit II"
         },
         swindle_list: "Swindler's Distillation",
-        scronglwfijspoivjqwofklcrvewb: "Shuffling Purification"
+        scronglwfijspoivjqwofklcrvewb: "Shuffling Purification",
+
+        empty_set: "Vacant Reflection: Set"
       },
 
       "book.hextrapats:": {
