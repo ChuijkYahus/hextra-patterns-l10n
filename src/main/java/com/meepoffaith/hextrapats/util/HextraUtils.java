@@ -13,6 +13,7 @@ import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.minecraft.nbt.StringNbtReader;
 import net.minecraft.registry.RegistryKey;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 
 import java.util.List;
@@ -57,6 +58,14 @@ public class HextraUtils{
     public static Text getDisplay(String serialized){
         try{
             return IotaType.getDisplay(NBTHelper.getAsCompound(StringNbtReader.parse(serialized)));
+        }catch(CommandSyntaxException e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Iota deserialize(String serialized, ServerWorld world){
+        try{
+            return IotaType.deserialize(NBTHelper.getAsCompound(StringNbtReader.parse(serialized)), world);
         }catch(CommandSyntaxException e){
             throw new RuntimeException(e);
         }

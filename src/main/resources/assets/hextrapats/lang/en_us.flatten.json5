@@ -7,7 +7,7 @@
     "hextrapats_math.title": "Hextra Math",
     "hextrapats_vec_math.title": "Hextra Vector Math",
     "hextrapats_lists.title": "Hextra Lists",
-    "hextrapats_sets.title": "Hash Sets"
+    "hextrapats_sets.title": "Hash Set Manipulation"
   },
   hextrapats: {
     page: {
@@ -101,7 +101,9 @@
         "remove.name": "Removal Distillation",
         remove: "Remove the top of the stack, then remove it from the set at the top of the stack.",
         remove_ret: "Remove the top of the stack, then remove it from the set at the top of the stack. Return True if it was previously in the set, otherwise return False.",
-        "find.name": "Existence Gambit",
+        last_n_set: "Remove $(italic)num/$ elements from the stack, then add them to a set at the top of the stack.",
+        splat_set: "Remove the set at the top of the stack, then push its contents to the stack. The order is up to Nature's whims.",
+        "find.name": "Locator's Gambit",
         find: "Remove the top of the stack, then return True if the set at the top of the stack contains it, otherwise return False.",
         add: "Remove the set at the top of the stack, then add all its elements to the set at the top of the stack.",
         sub: "Remove the set at the top of the stack, then remove all its elements from the set at the top of the stack.",
@@ -172,6 +174,8 @@
         scronglwfijspoivjqwofklcrvewb: "Shuffling Purification",
 
         empty_set: "Vacant Reflection: Set",
+        last_n_set: "Bucket's Gambit",
+        splat_set: "Spilling Disintegration",
         set_insert_ret: "Insertion Gambit",
         set_remove_ret: "Removal Gambit"
       },

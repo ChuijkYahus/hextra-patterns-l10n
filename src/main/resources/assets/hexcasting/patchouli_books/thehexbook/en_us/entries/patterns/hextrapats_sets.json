@@ -54,6 +54,22 @@
     },
     {
       "type": "hexcasting:pattern",
+      "op_id": "hextrapats:last_n_set",
+      "anchor": "hextrapats:last_n_set",
+      "input": "many, num",
+      "output": "set",
+      "text": "hextrapats.page.sets.last_n_set"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:splat_set",
+      "anchor": "hextrapats:splat_set",
+      "input": "set",
+      "output": "many",
+      "text": "hextrapats.page.sets.splat_set"
+    },
+    {
+      "type": "hexcasting:pattern",
       "header": "hextrapats.page.sets.find.name",
       "op_id": "hexcasting:index_of",
       "anchor": "hexcasting:index_of",
