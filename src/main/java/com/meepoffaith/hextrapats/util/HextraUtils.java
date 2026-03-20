@@ -5,9 +5,13 @@ import at.petrak.hexcasting.api.casting.castables.SpecialHandler.Factory;
 import at.petrak.hexcasting.api.casting.eval.vm.CastingImage;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
+import at.petrak.hexcasting.api.casting.iota.IotaType;
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota;
 import at.petrak.hexcasting.api.utils.HexUtils;
+import at.petrak.hexcasting.api.utils.NBTHelper;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import net.minecraft.nbt.StringNbtReader;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.text.Text;
 
@@ -48,6 +52,14 @@ public class HextraUtils{
                 HexAPI.instance().getSpecialHandlerI18nKey(key), args
             )
         );
+    }
+
+    public static Text getDisplay(String serialized){
+        try{
+            return IotaType.getDisplay(NBTHelper.getAsCompound(StringNbtReader.parse(serialized)));
+        }catch(CommandSyntaxException e){
+            throw new RuntimeException(e);
+        }
     }
 
     public static int getInt(Iota x, int arg){

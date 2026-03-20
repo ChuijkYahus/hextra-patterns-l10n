@@ -3,6 +3,7 @@ package com.meepoffaith.hextrapats;
 import com.meepoffaith.hextrapats.init.Arithmetics;
 import com.meepoffaith.hextrapats.init.Patterns;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,5 +21,9 @@ public class HextraPatterns implements ModInitializer {
 
 		Patterns.init();
 		Arithmetics.init();
+	}
+
+	public static Identifier modLoc(String name){
+		return new Identifier(MOD_ID, name);
 	}
 }
