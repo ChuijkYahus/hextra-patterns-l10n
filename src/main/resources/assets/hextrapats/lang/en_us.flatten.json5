@@ -109,7 +109,9 @@
         sub: "Remove the set at the top of the stack, then remove all its elements from the set at the top of the stack.",
         and: "Takes the intersection of two sets. The new set will only contain elements that were present in both of the previous sets.",
         xor: "Takes the exclusive disjunction of two sets. The new set will only contain elements that were present in only one of the two sets.",
-        abs: "Remove the set at the top of the stack, then push the number of elements in the set to the stack."
+        abs: "Remove the set at the top of the stack, then push the number of elements in the set to the stack.",
+        list_to_set: "Converts the list at the top of the stack to a set.",
+        set_to_list: "Converts the set at the top of the stack to a list. The order is up to Nature's whims."
       }
     }
   },
@@ -177,7 +179,9 @@
         last_n_set: "Bucket's Gambit",
         splat_set: "Spilling Disintegration",
         set_insert_ret: "Insertion Gambit",
-        set_remove_ret: "Removal Gambit"
+        set_remove_ret: "Removal Gambit",
+        list_to_set: "Disordering Purification",
+        set_to_list: "Ordering Purification"
       },
 
       "book.hextrapats:": {

@@ -116,6 +116,22 @@
       "input": "set",
       "output": "num",
       "text": "hextrapats.page.sets.abs"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:list_to_set",
+      "anchor": "hextrapats:list_to_set",
+      "input": "list",
+      "output": "set",
+      "text": "hextrapats.page.sets.list_to_set"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:set_to_list",
+      "anchor": "hextrapats:set_to_list",
+      "input": "set",
+      "output": "list",
+      "text": "hextrapats.page.sets.set_to_list"
     }
   ]
 }

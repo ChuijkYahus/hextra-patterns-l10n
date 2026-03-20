@@ -18,9 +18,7 @@ import com.meepoffaith.hextrapats.casting.actions.math.OpDegRad;
 import com.meepoffaith.hextrapats.casting.actions.math.OpRadDeg;
 import com.meepoffaith.hextrapats.casting.actions.math.OpRandRange;
 import com.meepoffaith.hextrapats.casting.actions.math.OpRandZero;
-import com.meepoffaith.hextrapats.casting.actions.sets.OpEmptySet;
-import com.meepoffaith.hextrapats.casting.actions.sets.OpLastNToSet;
-import com.meepoffaith.hextrapats.casting.actions.sets.OpSplatSet;
+import com.meepoffaith.hextrapats.casting.actions.sets.*;
 import com.meepoffaith.hextrapats.casting.actions.vecmath.OpFromPolar;
 import com.meepoffaith.hextrapats.casting.actions.vecmath.OpRandVec;
 import com.meepoffaith.hextrapats.casting.actions.vecmath.OpToPolar;
@@ -86,6 +84,8 @@ public class Patterns{
         register("empty_set", "eedqddq", HexDir.NORTH_WEST, new OpEmptySet());
         register("last_n_set", "ewdwaawaqde", HexDir.SOUTH_WEST, new OpLastNToSet());
         register("splat_set", "qwawddwdeaq", HexDir.NORTH_WEST, new OpSplatSet());
+        register("list_to_set", "qqaeaadwaddqdee", HexDir.NORTH_EAST, new OpListToSet());
+        register("set_to_list", "eedqddeqaaeaqq", HexDir.NORTH_WEST, new OpSetToList());
 
         registerSpecialHandler("scaled_vec_x", SCALED_VEC_X);
         registerSpecialHandler("scaled_vec_y", SCALED_VEC_Y);
