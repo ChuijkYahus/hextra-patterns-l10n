@@ -4,12 +4,8 @@ import at.petrak.hexcasting.api.casting.arithmetic.Arithmetic;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.common.lib.hex.HexArithmetics;
 import com.meepoffaith.hextrapats.HextraPatterns;
-import com.meepoffaith.hextrapats.casting.arithmetic.BoolArithmetic;
-import com.meepoffaith.hextrapats.casting.arithmetic.NumArithmetic;
-import com.meepoffaith.hextrapats.casting.arithmetic.Vec3Arithmetic;
-import com.meepoffaith.hextrapats.casting.arithmetic.Vec3BoolArithmetic;
+import com.meepoffaith.hextrapats.casting.arithmetic.*;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 
 public class Arithmetics{
     public static HexPattern
@@ -29,19 +25,22 @@ public class Arithmetics{
         DECREMENT = Patterns.DECREMENT.prototype(),
         APPROACH = Patterns.APPROACH.prototype(),
         ANGLE_DIST = Patterns.ANGLE_DIST.prototype(),
-        ANGLE_APPROACH = Patterns.ANGLE_APPROACH.prototype();
+        ANGLE_APPROACH = Patterns.ANGLE_APPROACH.prototype(),
+        SET_INSERT_RET = Patterns.SET_INSERT_RET.prototype(),
+        SET_REMOVE_RET = Patterns.SET_REMOVE_RET.prototype();
 
     public static void init(){
         registerArithmetic("bool", new BoolArithmetic());
         registerArithmetic("vec3bool", new Vec3BoolArithmetic());
         registerArithmetic("nummath", new NumArithmetic());
         registerArithmetic("vec3math", new Vec3Arithmetic());
+        registerArithmetic("setops", new SetArithmetic());
     }
 
     private static void registerArithmetic(
         String name,
         Arithmetic a
     ){
-        Registry.register(HexArithmetics.REGISTRY,  new Identifier(HextraPatterns.MOD_ID, name), a);
+        Registry.register(HexArithmetics.REGISTRY, HextraPatterns.modLoc(name), a);
     }
 }

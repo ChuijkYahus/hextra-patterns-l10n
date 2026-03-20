@@ -56,7 +56,7 @@ public class ScientificExponent implements SpecialHandler{
             }else if(val instanceof Vec3Iota){
                 return asActionResult(new Vec3Iota(Operator.downcast(val, VEC3).getVec3().multiply(Math.pow(10, exponent))));
             }else{
-                throw new MishapInvalidIota(val, 0, Text.of("a number or vector"));
+                throw MishapInvalidIota.of(val, 0, "numvec");
             }
         }
     }

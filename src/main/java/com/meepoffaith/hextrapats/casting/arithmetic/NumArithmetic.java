@@ -9,11 +9,11 @@ import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
-import com.meepoffaith.hextrapats.casting.arithmetic.operator.OperatorTrinary;
+import com.meepoffaith.hextrapats.casting.arithmetic.operator.num.OperatorApproach;
+import com.meepoffaith.hextrapats.casting.arithmetic.operator.num.OperatorTurn;
 import com.meepoffaith.hextrapats.util.MathUtils;
 import com.meepoffaith.hextrapats.util.generics.Func1to1;
 import com.meepoffaith.hextrapats.util.generics.Func2to1;
-import com.meepoffaith.hextrapats.util.generics.Func3to1;
 
 import java.util.List;
 
@@ -49,37 +49,11 @@ public class NumArithmetic implements Arithmetic{
         }else if(pattern.sigsEqual(DECREMENT)){
             return makeNumToNum(d -> d - 1);
         }else if(pattern.sigsEqual(APPROACH)){
-            return makeNumNumNumtoNum((from, to, speed) -> {
-                if(Math.abs(from - to) < speed) return to;
-
-                if(to < from){
-                    from -= speed;
-                }else{
-                    from += speed;
-                }
-
-                return from;
-            });
+            return new OperatorApproach();
         }else if(pattern.sigsEqual(ANGLE_DIST)){
             return makeNumNumtoNum(MathUtils::angleDist);
         }else if(pattern.sigsEqual(ANGLE_APPROACH)){
-            return makeNumNumNumtoNum((from, to, speed) -> {
-                if(MathUtils.angleDist(from, to) < speed) return to;
-
-                from = MathUtils.mod(from, MathUtils.TAU);
-                to = MathUtils.mod(to, MathUtils.TAU);
-
-                double fwdDist = Math.abs(from - to);
-                double backDst = MathUtils.TAU - fwdDist;
-
-                if(from > to == backDst > fwdDist){
-                    from -= speed;
-                }else{
-                    from += speed;
-                }
-
-                return from;
-            });
+            return new OperatorTurn();
         }else{
             throw new InvalidOperatorException(pattern + " is not a valid operator in Vec3 Bool Arithmetic " + this);
         }
@@ -94,12 +68,6 @@ public class NumArithmetic implements Arithmetic{
     private OperatorBinary makeNumNumtoNum(Func2to1<Double, Double, Double> op){
         return new OperatorBinary(IotaMultiPredicate.all(IotaPredicate.ofType(DOUBLE)),
             (i, j) -> new DoubleIota(op.apply(Operator.downcast(i, DOUBLE).getDouble(), Operator.downcast(j, DOUBLE).getDouble()))
-        );
-    }
-
-    private OperatorTrinary makeNumNumNumtoNum(Func3to1<Double, Double, Double, Double> op){
-        return new OperatorTrinary(IotaMultiPredicate.all(IotaPredicate.ofType(DOUBLE)),
-            (i, j, k) -> new DoubleIota(op.apply(Operator.downcast(i, DOUBLE).getDouble(), Operator.downcast(j, DOUBLE).getDouble(), Operator.downcast(k, DOUBLE).getDouble()))
         );
     }
 }

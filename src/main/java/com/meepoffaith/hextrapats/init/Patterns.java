@@ -14,10 +14,16 @@ import com.meepoffaith.hextrapats.HextraPatterns;
 import com.meepoffaith.hextrapats.casting.actions.NoConsumeOperationAction;
 import com.meepoffaith.hextrapats.casting.actions.lists.*;
 import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsumeEquality;
-import com.meepoffaith.hextrapats.casting.actions.math.*;
-import com.meepoffaith.hextrapats.casting.actions.vecmath.*;
+import com.meepoffaith.hextrapats.casting.actions.math.OpDegRad;
+import com.meepoffaith.hextrapats.casting.actions.math.OpRadDeg;
+import com.meepoffaith.hextrapats.casting.actions.math.OpRandRange;
+import com.meepoffaith.hextrapats.casting.actions.math.OpRandZero;
+import com.meepoffaith.hextrapats.casting.actions.sets.*;
+import com.meepoffaith.hextrapats.casting.actions.vecmath.OpFromPolar;
+import com.meepoffaith.hextrapats.casting.actions.vecmath.OpRandVec;
+import com.meepoffaith.hextrapats.casting.actions.vecmath.OpToPolar;
+import com.meepoffaith.hextrapats.casting.actions.vecmath.OpVecDist;
 import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
 
 import static com.meepoffaith.hextrapats.init.SpecialHandlers.*;
@@ -40,7 +46,9 @@ public class Patterns{
         DECREMENT = registerEntry("decrement", "wddwdwddw", HexDir.NORTH_WEST),
         APPROACH = registerEntry("approach", "dedqadeeed", HexDir.SOUTH_WEST),
         ANGLE_DIST = registerEntry("angle_dist", "awdaqqqqqea", HexDir.NORTH_EAST),
-        ANGLE_APPROACH = registerEntry("angle_approach", "awdaqqqqqwd", HexDir.NORTH_EAST);
+        ANGLE_APPROACH = registerEntry("angle_approach", "awdaqqqqqwd", HexDir.NORTH_EAST),
+        SET_INSERT_RET = registerEntry("set_insert_ret", "edqdewd", HexDir.SOUTH_WEST ),
+        SET_REMOVE_RET = registerEntry("set_remove_ret", "edqdewaqaaed", HexDir.SOUTH_WEST);
 
     public static void init(){
         register("deg_to_rad", "qqqqqdwdq", HexDir.WEST, new OpDegRad());
@@ -73,6 +81,12 @@ public class Patterns{
         register("nocon/eq", "ddqad", HexDir.WEST, new OpNoConsumeEquality(false));
         register("nocon/neq", "ddqda", HexDir.WEST, new OpNoConsumeEquality(true));
 
+        register("empty_set", "eedqddq", HexDir.NORTH_WEST, new OpEmptySet());
+        register("last_n_set", "ewdwaawaqde", HexDir.SOUTH_WEST, new OpLastNToSet());
+        register("splat_set", "qwawddwdeaq", HexDir.NORTH_WEST, new OpSplatSet());
+        register("list_to_set", "qqaeaadwaddqdee", HexDir.NORTH_EAST, new OpListToSet());
+        register("set_to_list", "eedqddeqaaeaqq", HexDir.NORTH_WEST, new OpSetToList());
+
         registerSpecialHandler("scaled_vec_x", SCALED_VEC_X);
         registerSpecialHandler("scaled_vec_y", SCALED_VEC_Y);
         registerSpecialHandler("scaled_vec_z", SCALED_VEC_Z);
@@ -86,7 +100,7 @@ public class Patterns{
         HexDir startDir,
         Action action
     ) {
-        Registry.register(HexActions.REGISTRY, new Identifier(HextraPatterns.MOD_ID, name), new ActionRegistryEntry(HexPattern.fromAngles(signature, startDir), action));
+        Registry.register(HexActions.REGISTRY, HextraPatterns.modLoc(name), new ActionRegistryEntry(HexPattern.fromAngles(signature, startDir), action));
     }
 
     private static HexPattern register(
@@ -95,7 +109,7 @@ public class Patterns{
         HexDir startDir
     ) {
         HexPattern pattern = HexPattern.fromAngles(signature, startDir);
-        Registry.register(HexActions.REGISTRY, new Identifier(HextraPatterns.MOD_ID, name), new ActionRegistryEntry(pattern, new OperationAction(pattern)));
+        Registry.register(HexActions.REGISTRY, HextraPatterns.modLoc(name), new ActionRegistryEntry(pattern, new OperationAction(pattern)));
         return pattern;
     }
 
@@ -106,7 +120,7 @@ public class Patterns{
     ) {
         HexPattern pattern = HexPattern.fromAngles(signature, startDir);
         ActionRegistryEntry entry = new ActionRegistryEntry(pattern, new OperationAction(pattern));
-        Registry.register(HexActions.REGISTRY, new Identifier(HextraPatterns.MOD_ID, name), entry);
+        Registry.register(HexActions.REGISTRY, HextraPatterns.modLoc(name), entry);
         return entry;
     }
 
@@ -114,7 +128,7 @@ public class Patterns{
         String name,
         SpecialHandler.Factory<?> handler
     ) {
-        Registry.register(IXplatAbstractions.INSTANCE.getSpecialHandlerRegistry(), new Identifier(HextraPatterns.MOD_ID, name), handler);
+        Registry.register(IXplatAbstractions.INSTANCE.getSpecialHandlerRegistry(), HextraPatterns.modLoc(name), handler);
     }
 
     private static void registerNoConsumeOp(
@@ -123,7 +137,7 @@ public class Patterns{
         HexDir startDir,
         HexPattern copied
     ){
-        Registry.register(HexActions.REGISTRY, new Identifier(HextraPatterns.MOD_ID, name),
+        Registry.register(HexActions.REGISTRY, HextraPatterns.modLoc(name),
             new ActionRegistryEntry(HexPattern.fromAngles(signature, startDir), new NoConsumeOperationAction(copied))
         );
     }

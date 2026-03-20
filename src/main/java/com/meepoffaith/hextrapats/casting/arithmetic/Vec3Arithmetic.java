@@ -10,11 +10,11 @@ import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
-import com.meepoffaith.hextrapats.casting.arithmetic.operator.OperatorTrinary;
+import com.meepoffaith.hextrapats.casting.arithmetic.operator.vec3.OperatorApproachVec;
+import com.meepoffaith.hextrapats.casting.arithmetic.operator.vec3.OperatorTurnVec;
 import com.meepoffaith.hextrapats.util.MathUtils;
 import com.meepoffaith.hextrapats.util.generics.Func1to1;
 import com.meepoffaith.hextrapats.util.generics.Func2to1;
-import com.meepoffaith.hextrapats.util.generics.Func3to1;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.List;
@@ -93,31 +93,11 @@ public class Vec3Arithmetic implements Arithmetic{
                 return  DoubleIota.tolerates(len, 0) ? v : v.multiply((len - 1) / len);
             });
         }else if(pattern.sigsEqual(APPROACH)){
-            return makeVecVecNumtoVec((from, to, speed) -> {
-                Vec3d step = to.subtract(from);
-                double stepLen = step.length();
-
-                if(stepLen < speed) return to;
-
-                step = step.multiply(speed / stepLen);
-                return from.add(step);
-            });
+            return new OperatorApproachVec();
         }else if(pattern.sigsEqual(ANGLE_DIST)){
             return makeVecVectoNum(MathUtils::vecAngleDist);
         }else if(pattern.sigsEqual(ANGLE_APPROACH)){
-            return makeVecVecNumtoVec((from, to, theta) -> {
-                if(theta >= MathUtils.vecAngleDist(from, to)){
-                    return to.multiply(from.length() / to.length());
-                }
-
-                Vec3d fromN = from.normalize();
-                Vec3d toN = to.normalize();
-
-                Vec3d cross = fromN.crossProduct(toN).crossProduct(fromN).normalize();
-                Vec3d next = fromN.multiply(Math.cos(theta)).add(cross.multiply(Math.sin(theta)));
-
-                return next.multiply(from.length());
-            });
+            return new OperatorTurnVec();
         }else{
             throw new InvalidOperatorException(pattern + " is not a valid operator in Vec3 Arithmetic " + this);
         }
@@ -144,12 +124,6 @@ public class Vec3Arithmetic implements Arithmetic{
     private OperatorBinary makeVecVectoNum(Func2to1<Vec3d, Vec3d, Double> op){
         return new OperatorBinary(IotaMultiPredicate.all(IotaPredicate.ofType(VEC3)),
             (i, j) -> new DoubleIota(op.apply(Operator.downcast(i, VEC3).getVec3(), Operator.downcast(j, VEC3).getVec3()))
-        );
-    }
-
-    private OperatorTrinary makeVecVecNumtoVec(Func3to1<Vec3d, Vec3d, Double, Vec3d> op){
-        return new OperatorTrinary(IotaMultiPredicate.triple(IotaPredicate.ofType(VEC3), IotaPredicate.ofType(VEC3), IotaPredicate.ofType(DOUBLE)),
-            (i, j, k) -> new Vec3Iota(op.apply(Operator.downcast(i, VEC3).getVec3(), Operator.downcast(j, VEC3).getVec3(), Operator.downcast(k, DOUBLE).getDouble()))
         );
     }
 }
