@@ -37,7 +37,7 @@ public class OpListSwindle extends ConstMediaActionBase{
             }
         }
 
-        if(strides.size() > list.size()) throw MishapInvalidIota.of(stack.get(0), 1, "hextrapats.mishap.too_short_to_swindle", strides.size());
+        if(strides.size() > list.size()) throw MishapInvalidIota.of(stack.get(0), 1, "hextrapats:too_short_to_swindle", strides.size());
 
         List<Iota> editTarget = swindleEnd ? list.subList(list.size() - strides.size(), list.size()) : list.subList(0, strides.size());
         List<Iota> swap = new ArrayList<>(editTarget);
