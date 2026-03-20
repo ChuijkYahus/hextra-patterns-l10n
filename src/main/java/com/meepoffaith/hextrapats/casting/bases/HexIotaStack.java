@@ -10,18 +10,21 @@ import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota;
 import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughArgs;
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
+import com.meepoffaith.hextrapats.casting.iota.SetIota;
 import com.mojang.datafixers.util.Either;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 // https://github.com/Real-Luxof/Lapisworks/blob/main/src/main/java/com/luxof/lapisworks/nocarpaltunnel/HexIotaStack.java
 public class HexIotaStack {
@@ -38,7 +41,20 @@ public class HexIotaStack {
         List<? extends Iota> stack,
         int argc,
         CastingEnvironment ctx
-    ) { this.stack = stack; this.argc = argc; this.ctx = ctx; }
+    ){ this.stack = stack; this.argc = argc; this.ctx = ctx; }
+
+    public HexIotaStack(
+        Iterable<? extends Iota> itr,
+        CastingEnvironment ctx
+    ){
+        List<Iota> stack = new ArrayList<>();
+        for(Iota iota : itr){
+            stack.add(iota);
+        }
+        this.stack = stack;
+        this.argc = stack.size();
+        this.ctx = ctx;
+    }
 
     public BlockPos getBlockPos(int idx) { return OperatorUtils.getBlockPos(stack, idx, argc); }
     public boolean getBool(int idx) { return OperatorUtils.getBool(stack, idx, argc); }
@@ -64,6 +80,14 @@ public class HexIotaStack {
     public int getPositiveIntUnderInclusive(int idx, int under) { return OperatorUtils.getPositiveIntUnderInclusive(stack, idx, under, argc); }
     public long getPositiveLong(int idx) { return OperatorUtils.getPositiveLong(stack, idx, argc); }
     public Vec3d getVec3(int idx) { return OperatorUtils.getVec3(stack, idx, argc); }
+    public SetIota getSet(int idx){
+        Iota i = get(idx);
+        if(i instanceof SetIota s){
+            return s;
+        }else{
+            throw new MishapInvalidIota(i, argc - (idx + 1), Text.of("set"));
+        }
+    }
 
     public Iota get(int idx) {
         try {
