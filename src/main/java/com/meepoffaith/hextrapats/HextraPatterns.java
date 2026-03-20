@@ -1,6 +1,7 @@
 package com.meepoffaith.hextrapats;
 
 import com.meepoffaith.hextrapats.init.Arithmetics;
+import com.meepoffaith.hextrapats.init.IotaTypes;
 import com.meepoffaith.hextrapats.init.Patterns;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
@@ -19,6 +20,7 @@ public class HextraPatterns implements ModInitializer {
 	public void onInitialize() {
 		LOGGER.info("Is anyone there? Hello? I'm trAPPED IN HERE AND CAN'T GET OUT H E L P !");
 
+		IotaTypes.init();
 		Patterns.init();
 		Arithmetics.init();
 	}

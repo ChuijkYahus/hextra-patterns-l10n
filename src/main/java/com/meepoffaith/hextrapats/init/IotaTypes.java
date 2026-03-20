@@ -10,6 +10,9 @@ import net.minecraft.registry.Registry;
 public class IotaTypes{
     public static final IotaType<SetIota> SET = type("set", SetIota.TYPE);
 
+    public static void init(){
+    }
+
     private static <U extends Iota, T extends IotaType<U>> T type(String name, T type) {
         return Registry.register(IXplatAbstractions.INSTANCE.getIotaTypeRegistry(), HextraPatterns.modLoc(name), type);
     }
