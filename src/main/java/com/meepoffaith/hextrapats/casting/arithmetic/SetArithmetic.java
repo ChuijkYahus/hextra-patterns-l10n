@@ -14,7 +14,8 @@ import com.meepoffaith.hextrapats.util.generics.Func2to1;
 import java.util.List;
 import java.util.Set;
 
-import static com.meepoffaith.hextrapats.init.Arithmetics.*;
+import static com.meepoffaith.hextrapats.init.Arithmetics.SET_INSERT_RET;
+import static com.meepoffaith.hextrapats.init.Arithmetics.SET_REMOVE_RET;
 import static com.meepoffaith.hextrapats.init.IotaTypes.SET;
 
 public class SetArithmetic implements Arithmetic{

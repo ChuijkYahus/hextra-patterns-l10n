@@ -14,7 +14,8 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
 
-import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.*;
+import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.DOUBLE;
+import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.VEC3;
 
 public class OperatorTurnVec extends OperatorBase{
     public OperatorTurnVec(){

@@ -4,13 +4,10 @@ import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
 import at.petrak.hexcasting.api.casting.iota.BooleanIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
-import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
 import com.meepoffaith.hextrapats.util.HextraUtils;
 import com.meepoffaith.hextrapats.util.QuadIotaPredicte;
-import net.minecraft.text.Text;
-import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
 
 import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.DOUBLE;
