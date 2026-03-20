@@ -113,6 +113,9 @@
         list_to_set: "Converts the list at the top of the stack to a set.",
         set_to_list: "Converts the set at the top of the stack to a list. The order is up to Nature's whims."
       }
+    },
+    mishap: {
+      bad_direction: "vector not facing directly away from start direction (%s)"
     }
   },
   hexcasting: {
