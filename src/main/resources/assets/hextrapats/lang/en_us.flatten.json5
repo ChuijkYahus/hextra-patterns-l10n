@@ -234,9 +234,14 @@
       }
     },
     mishap: {
-      "invalid_value.hextrapats:": {
-        opposite_vecs: "vector not facing opposite to the start direction (%s)",
-        too_short_to_swindle: "a list of at least length %s"
+      invalid_value: {
+        class: {
+          set: "a set"
+        },
+        "hextrapats:": {
+          opposite_vecs: "vector not facing opposite to the start direction (%s)",
+          too_short_to_swindle: "a list of at least length %s"
+        }
       }
     }
   }
