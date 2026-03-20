@@ -7,7 +7,6 @@ import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota;
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota;
-import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidOperatorArgs;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
 import com.meepoffaith.hextrapats.util.MathUtils;
@@ -17,8 +16,8 @@ import org.jetbrains.annotations.NotNull;
 
 import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.*;
 
-public class OperatorAngleApproach extends OperatorBase{
-    public OperatorAngleApproach(){
+public class OperatorTurnVec extends OperatorBase{
+    public OperatorTurnVec(){
         super(3, IotaMultiPredicate.triple(IotaPredicate.ofType(VEC3), IotaPredicate.ofType(VEC3), IotaPredicate.ofType(DOUBLE)));
     }
 
