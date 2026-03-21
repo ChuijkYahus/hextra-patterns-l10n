@@ -1,5 +1,6 @@
 package com.meepoffaith.hextrapats.util;
 
+import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import net.minecraft.util.math.Vec3d;
 
 public class MathUtils{
@@ -25,5 +26,9 @@ public class MathUtils{
         double len2 = a.length() * b.length();
 
         return Math.acos(dot/len2);
+    }
+
+    public static double roundToTolerance(double val){
+        return Math.round(val / DoubleIota.TOLERANCE) * DoubleIota.TOLERANCE;
     }
 }

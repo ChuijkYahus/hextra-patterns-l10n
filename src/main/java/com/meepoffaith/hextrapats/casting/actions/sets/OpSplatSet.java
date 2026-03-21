@@ -1,10 +1,10 @@
 package com.meepoffaith.hextrapats.casting.actions.sets;
 
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
+import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.ConstMediaActionBase;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
-import com.meepoffaith.hextrapats.util.HextraUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +16,10 @@ public class OpSplatSet extends ConstMediaActionBase{
 
     @Override
     public List<? extends Iota> execute(HexIotaStack stack, CastingEnvironment ctx){
-        Set<String> set = stack.getJUSTASet(0);
+        Set<Double> set = stack.getJUSTASet(0);
         List<Iota> out = new ArrayList<>();
-        for(String s : set){
-            out.add(HextraUtils.deserialize(s, ctx.getWorld()));
+        for(double d : set){
+            out.add(new DoubleIota(d));
         }
         return out;
     }

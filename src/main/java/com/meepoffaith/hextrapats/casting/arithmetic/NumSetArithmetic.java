@@ -8,7 +8,7 @@ import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.set.*;
-import com.meepoffaith.hextrapats.casting.iota.SetIota;
+import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
 import com.meepoffaith.hextrapats.util.generics.Func2to1;
 
 import java.util.List;
@@ -16,9 +16,9 @@ import java.util.Set;
 
 import static com.meepoffaith.hextrapats.init.Arithmetics.SET_INSERT_RET;
 import static com.meepoffaith.hextrapats.init.Arithmetics.SET_REMOVE_RET;
-import static com.meepoffaith.hextrapats.init.IotaTypes.SET;
+import static com.meepoffaith.hextrapats.init.IotaTypes.NUM_SET;
 
-public class SetArithmetic implements Arithmetic{
+public class NumSetArithmetic implements Arithmetic{
     private static final List<HexPattern> OPS = List.of(
         ADD,
         SUB,
@@ -75,9 +75,9 @@ public class SetArithmetic implements Arithmetic{
         }
     }
 
-    private OperatorBinary makeSetSettoSet(Func2to1<Set<String>, Set<String>, Set<String>> op){
-        return new OperatorBinary(IotaMultiPredicate.all(IotaPredicate.ofType(SET)),
-            (i, j) -> new SetIota(op.apply(Operator.downcast(i, SET).getSet(), Operator.downcast(j, SET).getSet()))
+    private OperatorBinary makeSetSettoSet(Func2to1<Set<Double>, Set<Double>, Set<Double>> op){
+        return new OperatorBinary(IotaMultiPredicate.all(IotaPredicate.ofType(NUM_SET)),
+            (i, j) -> new DoubleSetIota(op.apply(Operator.downcast(i, NUM_SET).getSet(), Operator.downcast(j, NUM_SET).getSet()))
         );
     }
 }

@@ -4,11 +4,11 @@ import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.IotaType;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import com.meepoffaith.hextrapats.HextraPatterns;
-import com.meepoffaith.hextrapats.casting.iota.SetIota;
+import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
 import net.minecraft.registry.Registry;
 
 public class IotaTypes{
-    public static final IotaType<SetIota> SET = type("set", SetIota.TYPE);
+    public static final IotaType<DoubleSetIota> NUM_SET = type("num_set", DoubleSetIota.TYPE);
 
     public static void init(){
     }

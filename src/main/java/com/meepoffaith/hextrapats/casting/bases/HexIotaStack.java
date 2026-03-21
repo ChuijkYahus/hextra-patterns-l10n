@@ -10,7 +10,7 @@ import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota;
 import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughArgs;
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
-import com.meepoffaith.hextrapats.casting.iota.SetIota;
+import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
 import com.mojang.datafixers.util.Either;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
@@ -80,9 +80,9 @@ public class HexIotaStack {
     public int getPositiveIntUnderInclusive(int idx, int under) { return OperatorUtils.getPositiveIntUnderInclusive(stack, idx, under, argc); }
     public long getPositiveLong(int idx) { return OperatorUtils.getPositiveLong(stack, idx, argc); }
     public Vec3d getVec3(int idx) { return OperatorUtils.getVec3(stack, idx, argc); }
-    public SetIota getSet(int idx){
+    public DoubleSetIota getSet(int idx){
         Iota i = get(idx);
-        if(i instanceof SetIota s){
+        if(i instanceof DoubleSetIota s){
             return s;
         }else{
             throw MishapInvalidIota.ofType(i, argc - (idx + 1), "set");
@@ -134,7 +134,7 @@ public class HexIotaStack {
         return theFuckingList;
     }
 
-    public Set<String> getJUSTASet(int idx) {
+    public Set<Double> getJUSTASet(int idx) {
         // I'm lazy lmao
         return getSet(idx).getSet();
     }

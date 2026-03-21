@@ -4,7 +4,7 @@ import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.ConstMediaActionBase;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
-import com.meepoffaith.hextrapats.casting.iota.SetIota;
+import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
 
 import java.util.HashSet;
 import java.util.List;
@@ -15,6 +15,6 @@ public class OpEmptySet extends ConstMediaActionBase{
 
     @Override
     public List<? extends Iota> execute(HexIotaStack stack, CastingEnvironment ctx){
-        return asActionResult(new SetIota(new HashSet<>()));
+        return asActionResult(new DoubleSetIota(new HashSet<>()));
     }
 }

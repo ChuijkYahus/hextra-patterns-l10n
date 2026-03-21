@@ -228,15 +228,15 @@
       scientific_exp: "Scientific Purification: 10^%s"
     },
     "iota.hextrapats:": {
-      set: {
-        "": "Set",
-        desc: "a set"
+      num_set: {
+        "": "Set (Nums)",
+        desc: "a number set"
       }
     },
     mishap: {
       invalid_value: {
         class: {
-          set: "a set"
+          num_set: "a set"
         },
         "hextrapats:": {
           opposite_vecs: "vector not facing opposite to the start direction (%s)",

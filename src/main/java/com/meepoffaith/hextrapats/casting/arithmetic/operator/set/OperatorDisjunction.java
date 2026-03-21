@@ -6,25 +6,25 @@ import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
-import com.meepoffaith.hextrapats.casting.iota.SetIota;
+import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.meepoffaith.hextrapats.init.IotaTypes.SET;
+import static com.meepoffaith.hextrapats.init.IotaTypes.NUM_SET;
 
 public class OperatorDisjunction extends OperatorBase{
     public OperatorDisjunction(){
-        super(2, IotaMultiPredicate.all(IotaPredicate.ofType(SET)));
+        super(2, IotaMultiPredicate.all(IotaPredicate.ofType(NUM_SET)));
     }
 
     @Override
     public @NotNull Iterable<Iota> operate(HexIotaStack stack, CastingEnvironment ctx){
-        Set<String> set1 = stack.getJUSTASet(0);
-        Set<String> set2 = stack.getJUSTASet(1);
-        HashSet<String> disjunction = new HashSet<>();
-        for(String key : set1){
+        Set<Double> set1 = stack.getJUSTASet(0);
+        Set<Double> set2 = stack.getJUSTASet(1);
+        HashSet<Double> disjunction = new HashSet<>();
+        for(double key : set1){
             if(!set2.contains(key)){
                 disjunction.add(key);
             }else{
@@ -32,6 +32,6 @@ public class OperatorDisjunction extends OperatorBase{
             }
         }
         disjunction.addAll(set2);
-        return asActionResult(new SetIota(disjunction));
+        return asActionResult(new DoubleSetIota(disjunction));
     }
 }
