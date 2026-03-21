@@ -1,4 +1,4 @@
-package com.meepoffaith.hextrapats.casting.arithmetic.operator.set;
+package com.meepoffaith.hextrapats.casting.arithmetic.operator.numset;
 
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate;
 import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
@@ -14,10 +14,10 @@ import java.util.List;
 
 import static com.meepoffaith.hextrapats.init.IotaTypes.NUM_SET;
 
-public class OperatorRemove extends OperatorBase{
+public class OperatorInsert extends OperatorBase{
     boolean returnBool;
 
-    public OperatorRemove(boolean returnBool){
+    public OperatorInsert(boolean returnBool){
         super(2, IotaMultiPredicate.pair(IotaPredicate.ofType(NUM_SET), IotaPredicate.TRUE));
         this.returnBool = returnBool;
     }
@@ -25,8 +25,8 @@ public class OperatorRemove extends OperatorBase{
     @Override
     public @NotNull Iterable<Iota> operate(HexIotaStack stack, CastingEnvironment ctx){
         DoubleSetIota set = stack.getNumSet(0);
-        double iota = stack.getDouble(1);
-        boolean removed = set.remove(iota);
-        return returnBool ? List.of(set, new BooleanIota(removed)) : asActionResult(set);
+        double num = stack.getDouble(1);
+        boolean added = set.add(num);
+        return returnBool ? List.of(set, new BooleanIota(added)) : asActionResult(set);
     }
 }

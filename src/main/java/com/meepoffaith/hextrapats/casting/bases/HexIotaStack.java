@@ -11,6 +11,7 @@ import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota;
 import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughArgs;
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
+import com.meepoffaith.hextrapats.casting.iota.Vec3SetIota;
 import com.mojang.datafixers.util.Either;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
@@ -84,7 +85,15 @@ public class HexIotaStack {
         if(i instanceof DoubleSetIota s){
             return s;
         }else{
-            throw MishapInvalidIota.ofType(i, argc - (idx + 1), "set");
+            throw MishapInvalidIota.ofType(i, argc - (idx + 1), "num_set");
+        }
+    }
+    public Vec3SetIota getVec3Set(int idx){
+        Iota i = get(idx);
+        if(i instanceof Vec3SetIota s){
+            return s;
+        }else{
+            throw MishapInvalidIota.ofType(i, argc - (idx + 1), "vec_set");
         }
     }
 
@@ -131,10 +140,5 @@ public class HexIotaStack {
         }
 
         return theFuckingList;
-    }
-
-    public Set<Double> getJUSTASet(int idx) {
-        // I'm lazy lmao
-        return getNumSet(idx).getSet();
     }
 }

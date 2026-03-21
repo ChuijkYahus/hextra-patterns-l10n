@@ -5,19 +5,20 @@ import at.petrak.hexcasting.api.casting.arithmetic.engine.InvalidOperatorExcepti
 import at.petrak.hexcasting.api.casting.arithmetic.operator.Operator;
 import at.petrak.hexcasting.api.casting.arithmetic.operator.OperatorBinary;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
-import com.meepoffaith.hextrapats.casting.arithmetic.operator.numset.*;
-import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
+import com.meepoffaith.hextrapats.casting.arithmetic.operator.vecset.*;
+import com.meepoffaith.hextrapats.casting.iota.Vec3SetIota;
 import com.meepoffaith.hextrapats.util.MultiPreds;
 import com.meepoffaith.hextrapats.util.generics.Func2to1;
+import net.minecraft.util.math.Vec3d;
 
 import java.util.List;
 import java.util.Set;
 
 import static com.meepoffaith.hextrapats.init.Arithmetics.SET_INSERT_RET;
 import static com.meepoffaith.hextrapats.init.Arithmetics.SET_REMOVE_RET;
-import static com.meepoffaith.hextrapats.init.IotaTypes.NUM_SET;
+import static com.meepoffaith.hextrapats.init.IotaTypes.VEC_SET;
 
-public class NumSetArithmetic implements Arithmetic{
+public class VecSetArithmetic implements Arithmetic{
     private static final List<HexPattern> OPS = List.of(
         ADD,
         SUB,
@@ -33,7 +34,7 @@ public class NumSetArithmetic implements Arithmetic{
 
     @Override
     public String arithName(){
-        return "num_set_ops";
+        return "vec_set_ops";
     }
 
     @Override
@@ -74,9 +75,9 @@ public class NumSetArithmetic implements Arithmetic{
         }
     }
 
-    private OperatorBinary makeSetSettoSet(Func2to1<Set<Double>, Set<Double>, Set<Double>> op){
-        return new OperatorBinary(MultiPreds.all(NUM_SET),
-            (i, j) -> new DoubleSetIota(op.apply(Operator.downcast(i, NUM_SET).getSet(), Operator.downcast(j, NUM_SET).getSet()))
+    private OperatorBinary makeSetSettoSet(Func2to1<Set<Vec3d>, Set<Vec3d>, Set<Vec3d>> op){
+        return new OperatorBinary(MultiPreds.all(VEC_SET),
+            (i, j) -> new Vec3SetIota(op.apply(Operator.downcast(i, VEC_SET).getSet(), Operator.downcast(j, VEC_SET).getSet()))
         );
     }
 }

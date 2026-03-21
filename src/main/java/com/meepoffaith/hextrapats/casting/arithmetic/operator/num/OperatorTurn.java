@@ -1,7 +1,5 @@
 package com.meepoffaith.hextrapats.casting.arithmetic.operator.num;
 
-import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate;
-import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;

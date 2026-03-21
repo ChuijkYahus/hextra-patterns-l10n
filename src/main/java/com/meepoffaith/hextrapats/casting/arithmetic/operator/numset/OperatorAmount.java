@@ -1,4 +1,4 @@
-package com.meepoffaith.hextrapats.casting.arithmetic.operator.set;
+package com.meepoffaith.hextrapats.casting.arithmetic.operator.numset;
 
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;

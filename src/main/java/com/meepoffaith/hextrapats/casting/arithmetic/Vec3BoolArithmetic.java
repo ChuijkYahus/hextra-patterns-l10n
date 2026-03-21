@@ -4,8 +4,6 @@ import at.petrak.hexcasting.api.casting.arithmetic.Arithmetic;
 import at.petrak.hexcasting.api.casting.arithmetic.engine.InvalidOperatorException;
 import at.petrak.hexcasting.api.casting.arithmetic.operator.Operator;
 import at.petrak.hexcasting.api.casting.arithmetic.operator.OperatorBinary;
-import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate;
-import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.iota.BooleanIota;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
