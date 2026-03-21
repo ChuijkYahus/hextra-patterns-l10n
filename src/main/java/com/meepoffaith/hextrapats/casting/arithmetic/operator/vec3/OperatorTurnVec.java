@@ -11,6 +11,7 @@ import at.petrak.hexcasting.api.utils.HexUtils;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
 import com.meepoffaith.hextrapats.util.MathUtils;
+import com.meepoffaith.hextrapats.util.MultiPreds;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
@@ -21,7 +22,7 @@ import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.VEC3;
 
 public class OperatorTurnVec extends OperatorBase{
     public OperatorTurnVec(){
-        super(3, IotaMultiPredicate.triple(IotaPredicate.ofType(VEC3), IotaPredicate.ofType(VEC3), IotaPredicate.ofType(DOUBLE)));
+        super(3, MultiPreds.triple(VEC3, VEC3, DOUBLE));
     }
 
     @Override

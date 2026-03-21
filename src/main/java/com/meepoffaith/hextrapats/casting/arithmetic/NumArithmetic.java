@@ -12,6 +12,7 @@ import at.petrak.hexcasting.api.casting.math.HexPattern;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.num.OperatorApproach;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.num.OperatorTurn;
 import com.meepoffaith.hextrapats.util.MathUtils;
+import com.meepoffaith.hextrapats.util.MultiPreds;
 import com.meepoffaith.hextrapats.util.generics.Func1to1;
 import com.meepoffaith.hextrapats.util.generics.Func2to1;
 
@@ -60,13 +61,13 @@ public class NumArithmetic implements Arithmetic{
     }
 
     private OperatorUnary makeNumToNum(Func1to1<Double, Double> op){
-        return new OperatorUnary(IotaMultiPredicate.all(IotaPredicate.ofType(DOUBLE)),
+        return new OperatorUnary(MultiPreds.all(DOUBLE),
             i -> new DoubleIota(op.apply(Operator.downcast(i, DOUBLE).getDouble()))
         );
     }
 
     private OperatorBinary makeNumNumtoNum(Func2to1<Double, Double, Double> op){
-        return new OperatorBinary(IotaMultiPredicate.all(IotaPredicate.ofType(DOUBLE)),
+        return new OperatorBinary(MultiPreds.all(DOUBLE),
             (i, j) -> new DoubleIota(op.apply(Operator.downcast(i, DOUBLE).getDouble(), Operator.downcast(j, DOUBLE).getDouble()))
         );
     }

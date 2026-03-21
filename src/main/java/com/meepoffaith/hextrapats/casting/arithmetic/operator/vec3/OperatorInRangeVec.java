@@ -1,13 +1,12 @@
 package com.meepoffaith.hextrapats.casting.arithmetic.operator.vec3;
 
-import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
 import at.petrak.hexcasting.api.casting.iota.BooleanIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
 import com.meepoffaith.hextrapats.util.HextraUtils;
-import com.meepoffaith.hextrapats.util.QuadIotaPredicte;
+import com.meepoffaith.hextrapats.util.MultiPreds;
 import org.jetbrains.annotations.NotNull;
 
 import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.DOUBLE;
@@ -15,7 +14,7 @@ import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.VEC3;
 
 public class OperatorInRangeVec extends OperatorBase{
     public OperatorInRangeVec(){
-        super(4, new QuadIotaPredicte(IotaPredicate.ofType(VEC3), IotaPredicate.ofType(DOUBLE), IotaPredicate.ofType(DOUBLE), IotaPredicate.ofType(DOUBLE)));
+        super(4, MultiPreds.quad(VEC3, DOUBLE, DOUBLE, DOUBLE));
     }
 
     @Override

@@ -8,13 +8,14 @@ import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
 import com.meepoffaith.hextrapats.util.MathUtils;
+import com.meepoffaith.hextrapats.util.MultiPreds;
 import org.jetbrains.annotations.NotNull;
 
 import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.DOUBLE;
 
 public class OperatorTurn extends OperatorBase{
     public OperatorTurn(){
-        super(3, IotaMultiPredicate.all(IotaPredicate.ofType(DOUBLE)));
+        super(3, MultiPreds.all(DOUBLE));
     }
 
     @Override

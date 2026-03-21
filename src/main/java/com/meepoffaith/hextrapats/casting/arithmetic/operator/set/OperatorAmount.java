@@ -8,13 +8,14 @@ import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
+import com.meepoffaith.hextrapats.util.MultiPreds;
 import org.jetbrains.annotations.NotNull;
 
 import static com.meepoffaith.hextrapats.init.IotaTypes.NUM_SET;
 
 public class OperatorAmount extends OperatorBase{
     public OperatorAmount(){
-        super(1, IotaMultiPredicate.all(IotaPredicate.ofType(NUM_SET)));
+        super(1, MultiPreds.all(NUM_SET));
     }
 
     @Override

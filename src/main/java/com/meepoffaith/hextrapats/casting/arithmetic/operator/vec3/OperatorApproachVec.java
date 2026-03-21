@@ -7,6 +7,7 @@ import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
+import com.meepoffaith.hextrapats.util.MultiPreds;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
 
@@ -15,7 +16,7 @@ import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.VEC3;
 
 public class OperatorApproachVec extends OperatorBase{
     public OperatorApproachVec(){
-        super(3, IotaMultiPredicate.triple(IotaPredicate.ofType(VEC3), IotaPredicate.ofType(VEC3), IotaPredicate.ofType(DOUBLE)));
+        super(3, MultiPreds.triple(VEC3, VEC3, DOUBLE));
     }
 
     @Override

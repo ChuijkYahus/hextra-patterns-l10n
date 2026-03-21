@@ -12,6 +12,7 @@ import at.petrak.hexcasting.api.casting.math.HexPattern;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.vec3.OperatorInRangeVec;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.vec3.OperatorOutRangeVec;
 import com.meepoffaith.hextrapats.util.HextraUtils;
+import com.meepoffaith.hextrapats.util.MultiPreds;
 import com.meepoffaith.hextrapats.util.generics.Func2to1;
 import net.minecraft.util.math.Vec3d;
 
@@ -66,7 +67,7 @@ public class Vec3BoolArithmetic implements Arithmetic{
     }
 
     private OperatorBinary makeComp(Func2to1<Vec3d, Vec3d, Boolean> op){
-        return new OperatorBinary(IotaMultiPredicate.all(IotaPredicate.ofType(VEC3)),
+        return new OperatorBinary(MultiPreds.all(VEC3),
             (i, j) -> new BooleanIota(op.apply(Operator.downcast(i, VEC3).getVec3(), Operator.downcast(j, VEC3).getVec3()))
         );
     }

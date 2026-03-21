@@ -8,13 +8,14 @@ import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
 import com.meepoffaith.hextrapats.util.HextraUtils;
+import com.meepoffaith.hextrapats.util.MultiPreds;
 import org.jetbrains.annotations.NotNull;
 
 import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.DOUBLE;
 
 public class OperatorOutRange extends OperatorBase{
     public OperatorOutRange(){
-        super(4, IotaMultiPredicate.all(IotaPredicate.ofType(DOUBLE)));
+        super(4, MultiPreds.all(DOUBLE));
     }
 
     @Override

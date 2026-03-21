@@ -13,6 +13,7 @@ import at.petrak.hexcasting.api.casting.math.HexPattern;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.vec3.OperatorApproachVec;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.vec3.OperatorTurnVec;
 import com.meepoffaith.hextrapats.util.MathUtils;
+import com.meepoffaith.hextrapats.util.MultiPreds;
 import com.meepoffaith.hextrapats.util.generics.Func1to1;
 import com.meepoffaith.hextrapats.util.generics.Func2to1;
 import net.minecraft.util.math.Vec3d;
@@ -104,25 +105,25 @@ public class Vec3Arithmetic implements Arithmetic{
     }
 
     private OperatorBinary makeVecNumToVec(Func2to1<Vec3d, Double, Vec3d> op){
-        return new OperatorBinary(IotaMultiPredicate.pair(IotaPredicate.ofType(VEC3), IotaPredicate.ofType(DOUBLE)),
+        return new OperatorBinary(MultiPreds.pair(VEC3, DOUBLE),
             (i, j) -> new Vec3Iota(op.apply(Operator.downcast(i, VEC3).getVec3(), Operator.downcast(j, DOUBLE).getDouble()))
         );
     }
 
     private OperatorUnary makeNumToVec(Func1to1<Double, Vec3d> op){
-        return new OperatorUnary(IotaMultiPredicate.all(IotaPredicate.ofType(DOUBLE)),
+        return new OperatorUnary(MultiPreds.all(DOUBLE),
             i -> new Vec3Iota(op.apply(Operator.downcast(i, DOUBLE).getDouble()))
         );
     }
 
     private OperatorUnary makeVecToVec(Func1to1<Vec3d, Vec3d> op){
-        return new OperatorUnary(IotaMultiPredicate.all(IotaPredicate.ofType(VEC3)),
+        return new OperatorUnary(MultiPreds.all(VEC3),
             i -> new Vec3Iota(op.apply(Operator.downcast(i, VEC3).getVec3()))
         );
     }
 
     private OperatorBinary makeVecVectoNum(Func2to1<Vec3d, Vec3d, Double> op){
-        return new OperatorBinary(IotaMultiPredicate.all(IotaPredicate.ofType(VEC3)),
+        return new OperatorBinary(MultiPreds.all(VEC3),
             (i, j) -> new DoubleIota(op.apply(Operator.downcast(i, VEC3).getVec3(), Operator.downcast(j, VEC3).getVec3()))
         );
     }
