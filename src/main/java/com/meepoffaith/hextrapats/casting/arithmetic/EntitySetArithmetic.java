@@ -5,7 +5,7 @@ import at.petrak.hexcasting.api.casting.arithmetic.engine.InvalidOperatorExcepti
 import at.petrak.hexcasting.api.casting.arithmetic.operator.Operator;
 import at.petrak.hexcasting.api.casting.arithmetic.operator.OperatorBinary;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
-import com.meepoffaith.hextrapats.casting.arithmetic.operator.entityset.OperatorInsertE;
+import com.meepoffaith.hextrapats.casting.arithmetic.operator.entityset.*;
 import com.meepoffaith.hextrapats.casting.arithmetic.operator.numset.*;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
 import com.meepoffaith.hextrapats.casting.iota.EntitySetIota;
@@ -58,21 +58,21 @@ public class EntitySetArithmetic implements Arithmetic{
                 return s1;
             });
         }else if(pattern.sigsEqual(AND)){
-            return new OperatorIntersectionN();
+            return new OperatorIntersectionE();
         }else if(pattern.sigsEqual(XOR)){
-            return new OperatorDisjunctionN();
+            return new OperatorDisjunctionE();
         }else if(pattern.sigsEqual(ABS)){
-            return new OperatorAmountN();
+            return new OperatorAmountE();
         }else if(pattern.sigsEqual(INDEX_OF)){
-            return new OperatorExistsN();
+            return new OperatorExistsE();
         }else if(pattern.sigsEqual(APPEND)){
             return new OperatorInsertE(false);
         }else if(pattern.sigsEqual(SET_INSERT_RET)){
             return new OperatorInsertE(true);
         }else if(pattern.sigsEqual(REMOVE)){
-            return new OperatorRemoveN(false);
+            return new OperatorRemoveE(false);
         }else if(pattern.sigsEqual(SET_REMOVE_RET)){
-            return new OperatorRemoveN(true);
+            return new OperatorRemoveE(true);
         }else{
             throw new InvalidOperatorException(pattern + " is not a valid operator in Set Arithmetic " + this);
         }

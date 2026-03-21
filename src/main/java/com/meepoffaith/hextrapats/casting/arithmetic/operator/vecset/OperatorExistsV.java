@@ -23,8 +23,8 @@ public class OperatorExistsV extends OperatorBase{
     @Override
     public @NotNull Iterable<Iota> operate(HexIotaStack stack, CastingEnvironment ctx){
         Vec3SetIota set = stack.getVec3Set(0);
-        Vec3d iota = stack.getVec3(1);
-        boolean found = set.contains(iota);
+        Vec3d vec = stack.getVec3(1);
+        boolean found = set.contains(vec);
         return List.of(set, new BooleanIota(found));
     }
 }

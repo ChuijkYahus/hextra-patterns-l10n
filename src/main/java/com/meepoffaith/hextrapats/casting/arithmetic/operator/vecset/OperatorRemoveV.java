@@ -26,8 +26,8 @@ public class OperatorRemoveV extends OperatorBase{
     @Override
     public @NotNull Iterable<Iota> operate(HexIotaStack stack, CastingEnvironment ctx){
         Vec3SetIota set = stack.getVec3Set(0);
-        Vec3d iota = stack.getVec3(1);
-        boolean removed = set.remove(iota);
+        Vec3d vec = stack.getVec3(1);
+        boolean removed = set.remove(vec);
         return returnBool ? List.of(set, new BooleanIota(removed)) : asActionResult(set);
     }
 }
