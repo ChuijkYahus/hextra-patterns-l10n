@@ -14,8 +14,8 @@ import java.util.List;
 
 import static com.meepoffaith.hextrapats.init.IotaTypes.NUM_SET;
 
-public class OperatorExists extends OperatorBase{
-    public OperatorExists(){
+public class OperatorExistsN extends OperatorBase{
+    public OperatorExistsN(){
         super(2, IotaMultiPredicate.pair(IotaPredicate.ofType(NUM_SET), IotaPredicate.TRUE));
     }
 

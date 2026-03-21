@@ -54,21 +54,21 @@ public class NumSetArithmetic implements Arithmetic{
                 return s1;
             });
         }else if(pattern.sigsEqual(AND)){
-            return new OperatorIntersection();
+            return new OperatorIntersectionN();
         }else if(pattern.sigsEqual(XOR)){
-            return new OperatorDisjunction();
+            return new OperatorDisjunctionN();
         }else if(pattern.sigsEqual(ABS)){
-            return new OperatorAmount();
+            return new OperatorAmountN();
         }else if(pattern.sigsEqual(INDEX_OF)){
-            return new OperatorExists();
+            return new OperatorExistsN();
         }else if(pattern.sigsEqual(APPEND)){
-            return new OperatorInsert(false);
+            return new OperatorInsertN(false);
         }else if(pattern.sigsEqual(SET_INSERT_RET)){
-            return new OperatorInsert(true);
+            return new OperatorInsertN(true);
         }else if(pattern.sigsEqual(REMOVE)){
-            return new OperatorRemove(false);
+            return new OperatorRemoveN(false);
         }else if(pattern.sigsEqual(SET_REMOVE_RET)){
-            return new OperatorRemove(true);
+            return new OperatorRemoveN(true);
         }else{
             throw new InvalidOperatorException(pattern + " is not a valid operator in Set Arithmetic " + this);
         }

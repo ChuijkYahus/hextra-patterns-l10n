@@ -14,8 +14,8 @@ import java.util.Set;
 
 import static com.meepoffaith.hextrapats.init.IotaTypes.VEC_SET;
 
-public class OperatorIntersection extends OperatorBase{
-    public OperatorIntersection(){
+public class OperatorIntersectionV extends OperatorBase{
+    public OperatorIntersectionV(){
         super(2, MultiPreds.all(VEC_SET));
     }
 

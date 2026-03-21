@@ -11,8 +11,8 @@ import org.jetbrains.annotations.NotNull;
 
 import static com.meepoffaith.hextrapats.init.IotaTypes.NUM_SET;
 
-public class OperatorAmount extends OperatorBase{
-    public OperatorAmount(){
+public class OperatorAmountN extends OperatorBase{
+    public OperatorAmountN(){
         super(1, MultiPreds.all(NUM_SET));
     }
 

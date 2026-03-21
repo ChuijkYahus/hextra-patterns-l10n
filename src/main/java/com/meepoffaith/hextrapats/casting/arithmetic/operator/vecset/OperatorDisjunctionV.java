@@ -14,8 +14,8 @@ import java.util.Set;
 
 import static com.meepoffaith.hextrapats.init.IotaTypes.VEC_SET;
 
-public class OperatorDisjunction extends OperatorBase{
-    public OperatorDisjunction(){
+public class OperatorDisjunctionV extends OperatorBase{
+    public OperatorDisjunctionV(){
         super(2, MultiPreds.all(VEC_SET));
     }
 

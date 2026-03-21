@@ -13,8 +13,8 @@ import java.util.Set;
 
 import static com.meepoffaith.hextrapats.init.IotaTypes.NUM_SET;
 
-public class OperatorIntersection extends OperatorBase{
-    public OperatorIntersection(){
+public class OperatorDisjunctionN extends OperatorBase{
+    public OperatorDisjunctionN(){
         super(2, MultiPreds.all(NUM_SET));
     }
 
@@ -22,10 +22,15 @@ public class OperatorIntersection extends OperatorBase{
     public @NotNull Iterable<Iota> operate(HexIotaStack stack, CastingEnvironment ctx){
         Set<Double> set1 = stack.getNumSet(0).getSet();
         Set<Double> set2 = stack.getNumSet(1).getSet();
-        HashSet<Double> intersection = new HashSet<>();
+        HashSet<Double> disjunction = new HashSet<>();
         for(double key : set1){
-            if(set2.contains(key)) intersection.add(key);
+            if(!set2.contains(key)){
+                disjunction.add(key);
+            }else{
+                set2.remove(key);
+            }
         }
-        return asActionResult(new DoubleSetIota(intersection));
+        disjunction.addAll(set2);
+        return asActionResult(new DoubleSetIota(disjunction));
     }
 }

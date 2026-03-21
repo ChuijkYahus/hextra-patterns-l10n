@@ -15,10 +15,10 @@ import java.util.List;
 
 import static com.meepoffaith.hextrapats.init.IotaTypes.VEC_SET;
 
-public class OperatorInsert extends OperatorBase{
+public class OperatorRemoveV extends OperatorBase{
     boolean returnBool;
 
-    public OperatorInsert(boolean returnBool){
+    public OperatorRemoveV(boolean returnBool){
         super(2, IotaMultiPredicate.pair(IotaPredicate.ofType(VEC_SET), IotaPredicate.TRUE));
         this.returnBool = returnBool;
     }
@@ -26,8 +26,8 @@ public class OperatorInsert extends OperatorBase{
     @Override
     public @NotNull Iterable<Iota> operate(HexIotaStack stack, CastingEnvironment ctx){
         Vec3SetIota set = stack.getVec3Set(0);
-        Vec3d vec = stack.getVec3(1);
-        boolean added = set.add(vec);
-        return returnBool ? List.of(set, new BooleanIota(added)) : asActionResult(set);
+        Vec3d iota = stack.getVec3(1);
+        boolean removed = set.remove(iota);
+        return returnBool ? List.of(set, new BooleanIota(removed)) : asActionResult(set);
     }
 }

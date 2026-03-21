@@ -14,10 +14,10 @@ import java.util.List;
 
 import static com.meepoffaith.hextrapats.init.IotaTypes.NUM_SET;
 
-public class OperatorInsert extends OperatorBase{
+public class OperatorInsertN extends OperatorBase{
     boolean returnBool;
 
-    public OperatorInsert(boolean returnBool){
+    public OperatorInsertN(boolean returnBool){
         super(2, IotaMultiPredicate.pair(IotaPredicate.ofType(NUM_SET), IotaPredicate.TRUE));
         this.returnBool = returnBool;
     }

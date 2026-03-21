@@ -55,21 +55,21 @@ public class VecSetArithmetic implements Arithmetic{
                 return s1;
             });
         }else if(pattern.sigsEqual(AND)){
-            return new OperatorIntersection();
+            return new OperatorIntersectionV();
         }else if(pattern.sigsEqual(XOR)){
-            return new OperatorDisjunction();
+            return new OperatorDisjunctionV();
         }else if(pattern.sigsEqual(ABS)){
-            return new OperatorAmount();
+            return new OperatorAmountV();
         }else if(pattern.sigsEqual(INDEX_OF)){
-            return new OperatorExists();
+            return new OperatorExistsV();
         }else if(pattern.sigsEqual(APPEND)){
-            return new OperatorInsert(false);
+            return new OperatorInsertV(false);
         }else if(pattern.sigsEqual(SET_INSERT_RET)){
-            return new OperatorInsert(true);
+            return new OperatorInsertV(true);
         }else if(pattern.sigsEqual(REMOVE)){
-            return new OperatorRemove(false);
+            return new OperatorRemoveV(false);
         }else if(pattern.sigsEqual(SET_REMOVE_RET)){
-            return new OperatorRemove(true);
+            return new OperatorRemoveV(true);
         }else{
             throw new InvalidOperatorException(pattern + " is not a valid operator in Set Arithmetic " + this);
         }
