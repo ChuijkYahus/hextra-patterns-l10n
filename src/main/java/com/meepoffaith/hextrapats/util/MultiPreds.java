@@ -26,6 +26,10 @@ public class MultiPreds{
         return IotaMultiPredicate.any(IotaPredicate.ofType(needs), IotaPredicate.ofType(fallback));
     }
 
+    public static IotaMultiPredicate either3(IotaMultiPredicate first, IotaMultiPredicate second, IotaMultiPredicate third){
+        return new Either3(first, second, third);
+    }
+
     record Quad(IotaPredicate first, IotaPredicate second, IotaPredicate third, IotaPredicate fourth) implements IotaMultiPredicate{
         @Override
         public boolean test(Iterable<Iota> iotas){
@@ -35,6 +39,13 @@ public class MultiPreds{
                 it.hasNext() && third.test(it.next()) &&
                 it.hasNext() && fourth.test(it.next()) &&
                 !it.hasNext();
+        }
+    }
+
+    record Either3(IotaMultiPredicate first, IotaMultiPredicate second, IotaMultiPredicate third) implements IotaMultiPredicate{
+        @Override
+        public boolean test(Iterable<Iota> iotas){
+            return first.test(iotas) || second.test(iotas) || third.test(iotas);
         }
     }
 }

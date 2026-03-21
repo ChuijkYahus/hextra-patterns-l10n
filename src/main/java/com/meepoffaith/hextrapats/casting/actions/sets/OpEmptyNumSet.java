@@ -9,7 +9,7 @@ import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
 import java.util.HashSet;
 import java.util.List;
 
-public class OpEmptySet extends ConstMediaActionBase{
+public class OpEmptyNumSet extends ConstMediaActionBase{
     public int argc = 0;
     public long mediaCost = 0L;
 

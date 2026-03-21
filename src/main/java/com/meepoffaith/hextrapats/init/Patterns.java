@@ -81,7 +81,8 @@ public class Patterns{
         register("nocon/eq", "ddqad", HexDir.WEST, new OpNoConsumeEquality(false));
         register("nocon/neq", "ddqda", HexDir.WEST, new OpNoConsumeEquality(true));
 
-        register("empty_set", "eedqddq", HexDir.NORTH_WEST, new OpEmptySet());
+        register("empty_num_set", "eedqddeeaqaa", HexDir.NORTH_WEST, new OpEmptyNumSet());
+        register("empty_vec_set", "eedqddeeqqqqq", HexDir.NORTH_WEST, new OpEmptyVecSet());
         register("last_n_set", "ewdwaawaqde", HexDir.SOUTH_WEST, new OpLastNToSet());
         register("splat_set", "qwawddwdeaq", HexDir.NORTH_WEST, new OpSplatSet());
         register("list_to_set", "qqaeaadwaddqdee", HexDir.NORTH_EAST, new OpListToSet());

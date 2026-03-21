@@ -17,7 +17,6 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
@@ -80,7 +79,7 @@ public class HexIotaStack {
     public int getPositiveIntUnderInclusive(int idx, int under) { return OperatorUtils.getPositiveIntUnderInclusive(stack, idx, under, argc); }
     public long getPositiveLong(int idx) { return OperatorUtils.getPositiveLong(stack, idx, argc); }
     public Vec3d getVec3(int idx) { return OperatorUtils.getVec3(stack, idx, argc); }
-    public DoubleSetIota getSet(int idx){
+    public DoubleSetIota getNumSet(int idx){
         Iota i = get(idx);
         if(i instanceof DoubleSetIota s){
             return s;
@@ -136,6 +135,6 @@ public class HexIotaStack {
 
     public Set<Double> getJUSTASet(int idx) {
         // I'm lazy lmao
-        return getSet(idx).getSet();
+        return getNumSet(idx).getSet();
     }
 }

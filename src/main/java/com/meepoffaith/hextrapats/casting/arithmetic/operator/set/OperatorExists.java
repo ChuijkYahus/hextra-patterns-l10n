@@ -21,7 +21,7 @@ public class OperatorExists extends OperatorBase{
 
     @Override
     public @NotNull Iterable<Iota> operate(HexIotaStack stack, CastingEnvironment ctx){
-        DoubleSetIota set = stack.getSet(0);
+        DoubleSetIota set = stack.getNumSet(0);
         double iota = stack.getDouble(1);
         boolean found = set.contains(iota);
         return List.of(set, new BooleanIota(found));

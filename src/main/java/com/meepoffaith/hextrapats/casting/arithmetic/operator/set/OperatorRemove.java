@@ -24,7 +24,7 @@ public class OperatorRemove extends OperatorBase{
 
     @Override
     public @NotNull Iterable<Iota> operate(HexIotaStack stack, CastingEnvironment ctx){
-        DoubleSetIota set = stack.getSet(0);
+        DoubleSetIota set = stack.getNumSet(0);
         double iota = stack.getDouble(1);
         boolean removed = set.remove(iota);
         return returnBool ? List.of(set, new BooleanIota(removed)) : asActionResult(set);

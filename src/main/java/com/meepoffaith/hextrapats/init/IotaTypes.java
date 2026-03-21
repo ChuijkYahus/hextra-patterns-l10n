@@ -5,10 +5,12 @@ import at.petrak.hexcasting.api.casting.iota.IotaType;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import com.meepoffaith.hextrapats.HextraPatterns;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
+import com.meepoffaith.hextrapats.casting.iota.Vec3SetIota;
 import net.minecraft.registry.Registry;
 
 public class IotaTypes{
     public static final IotaType<DoubleSetIota> NUM_SET = type("num_set", DoubleSetIota.TYPE);
+    public static final IotaType<Vec3SetIota> VEC_SET = type("vec_set", Vec3SetIota.TYPE);
 
     public static void init(){
     }

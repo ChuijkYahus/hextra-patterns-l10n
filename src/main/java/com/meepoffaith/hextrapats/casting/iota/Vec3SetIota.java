@@ -1,29 +1,31 @@
 package com.meepoffaith.hextrapats.casting.iota;
 
-import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.IotaType;
+import at.petrak.hexcasting.api.casting.iota.Vec3Iota;
 import at.petrak.hexcasting.api.utils.HexUtils;
 import com.meepoffaith.hextrapats.util.MathUtils;
-import net.minecraft.nbt.NbtDouble;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.NbtLongArray;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class DoubleSetIota extends Iota{
-    public DoubleSetIota(@NotNull Set<Double> payload){
+public class Vec3SetIota extends Iota{
+    public Vec3SetIota(Set<Vec3d> payload){
         super(TYPE, payload);
     }
 
-    public Set<Double> getSet(){
-        return (Set<Double>)payload;
+    public Set<Vec3d> getSet(){
+        return (Set<Vec3d>)payload;
     }
 
     @Override
@@ -36,62 +38,71 @@ public class DoubleSetIota extends Iota{
         return getSet().size();
     }
 
-    public boolean contains(double key){
+    public boolean contains(Vec3d key){
         return getSet().contains(MathUtils.roundToTolerance(key));
     }
 
-    public boolean add(double key){
+    public boolean add(Vec3d key){
         return getSet().add(MathUtils.roundToTolerance(key));
     }
 
-    public boolean remove(double key){
+    public boolean remove(Vec3d key){
         return getSet().remove(MathUtils.roundToTolerance(key));
     }
 
     @Override
     protected boolean toleratesOther(Iota that){
-        return that instanceof DoubleSetIota ds && ds.getSet().equals(getSet());
+        return that instanceof Vec3SetIota ds && ds.getSet().equals(getSet());
     }
 
     @Override
     public @NotNull NbtElement serialize(){
         NbtList list = new NbtList();
-        for(double key : getSet()){
-            list.add(NbtDouble.of(key));
+        for(Vec3d key : getSet()){
+            list.add(HexUtils.serializeToNBT(key));
         }
         return list;
     }
 
-    public static IotaType<DoubleSetIota> TYPE = new IotaType<>(){
+    public static IotaType<Vec3SetIota> TYPE = new IotaType<>(){
         @Override
-        public DoubleSetIota deserialize(NbtElement tag, ServerWorld world) throws IllegalArgumentException{
+        public Vec3SetIota deserialize(NbtElement tag, ServerWorld world) throws IllegalArgumentException{
             NbtList list = HexUtils.downcast(tag, NbtList.TYPE);
-            Set<Double> set = new HashSet<>();
-            for(int i = 0; i < list.size(); i++){
-                set.add(list.getDouble(i));
+            Set<Vec3d> set = new HashSet<>();
+            for(NbtElement nbtElement : list){ //Taken from Vec3Iota
+                set.add(deserializeVec(nbtElement));
             }
-            return new DoubleSetIota(set);
+            return new Vec3SetIota(set);
         }
 
         @Override
         public Text display(NbtElement tag){
-            MutableText comp = HexUtils.getDarkGreen("{nums: ");
+            MutableText comp = HexUtils.getDarkRed("{vecs: ");
             NbtList list = HexUtils.downcast(tag, NbtList.TYPE);
             for(int i = 0; i < list.size(); i++){
-                String val = String.valueOf(list.getDouble(i));
-                comp.append(HexUtils.getGreen(val));
+                comp.append(Vec3Iota.display(deserializeVec(list.get(i))));
                 if(i + 1 < list.size()){
-                    comp.append(HexUtils.getDarkGreen(" | "));
+                    comp.append(HexUtils.getDarkRed(" | "));
                 }
             }
-            comp.append(HexUtils.getDarkGreen("}"));
+            comp.append(HexUtils.getDarkRed("}"));
 
             return comp;
         }
 
         @Override
         public int color(){
-            return DoubleIota.TYPE.color();
+            return Vec3Iota.TYPE.color();
         }
     };
+
+    public static Vec3d deserializeVec(NbtElement tag){
+        Vec3d vec;
+        if(tag.getNbtType() == NbtLongArray.TYPE){
+            var lat = HexUtils.downcast(tag, NbtLongArray.TYPE);
+            vec = HexUtils.vecFromNBT(lat.getLongArray());
+        }else
+            vec = HexUtils.vecFromNBT(HexUtils.downcast(tag, NbtCompound.TYPE));
+        return vec;
+    }
 }

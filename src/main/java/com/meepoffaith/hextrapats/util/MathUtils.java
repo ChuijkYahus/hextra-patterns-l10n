@@ -31,4 +31,12 @@ public class MathUtils{
     public static double roundToTolerance(double val){
         return Math.round(val / DoubleIota.TOLERANCE) * DoubleIota.TOLERANCE;
     }
+
+    public static Vec3d roundToTolerance(Vec3d v){
+        return new Vec3d(
+            roundToTolerance(v.getX()),
+            roundToTolerance(v.getY()),
+            roundToTolerance(v.getZ())
+        );
+    }
 }

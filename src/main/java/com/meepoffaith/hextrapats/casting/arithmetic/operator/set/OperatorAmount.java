@@ -1,7 +1,5 @@
 package com.meepoffaith.hextrapats.casting.arithmetic.operator.set;
 
-import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaMultiPredicate;
-import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
@@ -20,7 +18,7 @@ public class OperatorAmount extends OperatorBase{
 
     @Override
     public @NotNull Iterable<Iota> operate(HexIotaStack stack, CastingEnvironment ctx){
-        DoubleSetIota set = stack.getSet(0);
+        DoubleSetIota set = stack.getNumSet(0);
         return asActionResult(new DoubleIota(set.size()));
     }
 }
