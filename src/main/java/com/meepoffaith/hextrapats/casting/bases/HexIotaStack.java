@@ -11,6 +11,7 @@ import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota;
 import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughArgs;
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
+import com.meepoffaith.hextrapats.casting.iota.EntitySetIota;
 import com.meepoffaith.hextrapats.casting.iota.Vec3SetIota;
 import com.mojang.datafixers.util.Either;
 import net.minecraft.entity.Entity;
@@ -94,6 +95,14 @@ public class HexIotaStack {
             return s;
         }else{
             throw MishapInvalidIota.ofType(i, argc - (idx + 1), "vec_set");
+        }
+    }
+    public EntitySetIota getEntitySet(int idx){
+        Iota i = get(idx);
+        if(i instanceof EntitySetIota e){
+            return e;
+        }else{
+            throw MishapInvalidIota.ofType(i, argc - (idx + 1), "entity_set");
         }
     }
 

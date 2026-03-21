@@ -33,7 +33,7 @@ public class Vec3BoolArithmetic implements Arithmetic{
 
     @Override
     public String arithName(){
-        return "hextrapats_vec3_bool_math";
+        return "vec3_bool_math";
     }
 
     @Override

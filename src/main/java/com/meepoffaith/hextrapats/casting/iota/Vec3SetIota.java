@@ -12,7 +12,6 @@ import net.minecraft.nbt.NbtLongArray;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
 
@@ -52,7 +51,7 @@ public class Vec3SetIota extends Iota{
 
     @Override
     protected boolean toleratesOther(Iota that){
-        return that instanceof Vec3SetIota ds && ds.getSet().equals(getSet());
+        return that instanceof Vec3SetIota vs && vs.getSet().equals(getSet());
     }
 
     @Override

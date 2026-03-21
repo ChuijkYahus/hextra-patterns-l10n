@@ -98,7 +98,9 @@
       },
       sets: {
         intro: "A hash set contains elements in an unordered fashion, and cannot contain duplicates. Excellent for keeping track of whether or not something exists.<br>Due to a magical process known as '$(thing)hashing/$', access is reduced to nearly O(1), relaxing the burden on Nature.",
-        empty_set: "Push an empty set to the top of the stack.",
+        empty_num_set: "Push an empty set that can hold numbers to the top of the stack.",
+        empty_vec_set: "Push an empty set that can hold vectors to the top of the stack.",
+        empty_entity_set: "Push an empty set that can hold entities to the top of the stack.",
         insert: {
           name: "Insertion Distillation",
           "": "Remove the top of the stack, then add it to the set at the top of the stack."

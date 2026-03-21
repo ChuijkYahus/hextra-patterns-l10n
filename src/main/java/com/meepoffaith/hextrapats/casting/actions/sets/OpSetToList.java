@@ -17,7 +17,7 @@ public class OpSetToList extends ConstMediaActionBase{
 
     @Override
     public List<? extends Iota> execute(HexIotaStack stack, CastingEnvironment ctx){
-        Set<Double> set = stack.getJUSTASet(0);
+        Set<Double> set = stack.getNumSet(0).getSet();
         List<Iota> list = new ArrayList<>(set.size());
         for(double d : set){
             list.add(new DoubleIota(d));
