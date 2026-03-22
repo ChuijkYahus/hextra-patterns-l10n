@@ -12,6 +12,7 @@ import at.petrak.hexcasting.common.lib.hex.HexActions;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import com.meepoffaith.hextrapats.HextraPatterns;
 import com.meepoffaith.hextrapats.casting.actions.NoConsumeOperationAction;
+import com.meepoffaith.hextrapats.casting.actions.eval.OpConditionalHalt;
 import com.meepoffaith.hextrapats.casting.actions.lists.*;
 import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsumeEquality;
 import com.meepoffaith.hextrapats.casting.actions.math.OpDegRad;
@@ -88,6 +89,9 @@ public class Patterns{
         register("splat_set", "qwawddwdeaq", HexDir.NORTH_WEST, new OpSplatSet());
         register("list_to_set", "qqaeaadwaddqdee", HexDir.NORTH_EAST, new OpListToSet());
         register("set_to_list", "eedqddeqaaeaqq", HexDir.NORTH_WEST, new OpSetToList());
+
+        register("true_halt", "aqdeeaaqa", HexDir.SOUTH_WEST, new OpConditionalHalt(true));
+        register("false_halt", "aqdeedded", HexDir.SOUTH_WEST, new OpConditionalHalt(false));
 
         registerSpecialHandler("scaled_vec_x", SCALED_VEC_X);
         registerSpecialHandler("scaled_vec_y", SCALED_VEC_Y);

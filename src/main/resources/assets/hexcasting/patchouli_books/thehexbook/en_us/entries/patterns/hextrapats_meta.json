@@ -1,0 +1,26 @@
+{
+  "name": "pages.hextrapats.hextrapats_meta.title",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:dragon_egg",
+  "sortnum": 12,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:true_halt",
+      "anchor": "hextrapats:true_halt",
+      "input": "any",
+      "output": "",
+      "text": "hextrapats.page.meta.true_halt"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:false_halt",
+      "anchor": "hextrapats:false_halt",
+      "input": "any",
+      "output": "",
+      "text": "hextrapats.page.meta.false_halt"
+    }
+  ]
+}
