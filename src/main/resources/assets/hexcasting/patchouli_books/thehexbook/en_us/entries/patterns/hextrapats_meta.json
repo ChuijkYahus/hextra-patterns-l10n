@@ -8,6 +8,22 @@
   "pages": [
     {
       "type": "hexcasting:pattern",
+      "op_id": "hextrapats:true_eval",
+      "anchor": "hextrapats:true_eval",
+      "input": "any, ([pattern] | pattern)",
+      "output": "many",
+      "text": "hextrapats.page.meta.true_eval"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:false_eval",
+      "anchor": "hextrapats:false_eval",
+      "input": "any, ([pattern] | pattern)",
+      "output": "many",
+      "text": "hextrapats.page.meta.false_eval"
+    },
+    {
+      "type": "hexcasting:pattern",
       "op_id": "hextrapats:true_halt",
       "anchor": "hextrapats:true_halt",
       "input": "any",

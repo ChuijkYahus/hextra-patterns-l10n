@@ -15,7 +15,7 @@
       "op_id": "hextrapats:empty_num_set",
       "anchor": "hextrapats:empty_num_set",
       "input": "",
-      "output": "set",
+      "output": "num set",
       "text": "hextrapats.page.sets.empty_num_set"
     },
     {
@@ -23,7 +23,7 @@
       "op_id": "hextrapats:empty_vec_set",
       "anchor": "hextrapats:empty_vec_set",
       "input": "",
-      "output": "set",
+      "output": "vec set",
       "text": "hextrapats.page.sets.empty_vec_set"
     },
     {
@@ -31,7 +31,7 @@
       "op_id": "hextrapats:empty_entity_set",
       "anchor": "hextrapats:empty_entity_set",
       "input": "",
-      "output": "set",
+      "output": "entity set",
       "text": "hextrapats.page.sets.empty_entity_set"
     },
     {

@@ -128,7 +128,9 @@
       },
       meta: {
         true_halt: "Forcibly halts a $(thing)Hex/$ like $(l:patterns/meta#hexcasting:halt)$(action)Charon's Gambit/$ if the iota at the top of the stack is $(l:patterns/logic#hexcasting:bool_coerce)$(thing)considered $(action)True $(thing)by Nature/$.",
-        false_halt: "Forcibly halts a $(thing)Hex/$ like $(l:patterns/meta#hexcasting:halt)$(action)Charon's Gambit/$ if the iota at the top of the stack is $(l:patterns/logic#hexcasting:bool_coerce)$(thing)considered $(action)False $(thing)by Nature/$."
+        false_halt: "Forcibly halts a $(thing)Hex/$ like $(l:patterns/meta#hexcasting:halt)$(action)Charon's Gambit/$ if the iota at the top of the stack is $(l:patterns/logic#hexcasting:bool_coerce)$(thing)considered $(action)False $(thing)by Nature/$.",
+        true_eval: "Casts a pattern or list of patterns like $(l:patterns/meta#hexcasting:eval)$(action)Hermes' Gambit/$ if the next iota from the top of the stack is $(l:patterns/logic#hexcasting:bool_coerce)$(thing)considered $(action)True $(thing)by Nature/$.",
+        false_eval: "Casts a pattern or list of patterns like $(l:patterns/meta#hexcasting:eval)$(action)Hermes' Gambit/$ if the next iota from the top of the stack is $(l:patterns/logic#hexcasting:bool_coerce)$(thing)considered $(action)False $(thing)by Nature/$."
       }
     }
   },
@@ -192,7 +194,9 @@
         swindle_list: "Swindler's Distillation",
         scronglwfijspoivjqwofklcrvewb: "Shuffling Purification",
 
-        empty_set: "Vacant Reflection: Set",
+        empty_num_set: "Vacant Refl.: Number Set",
+        empty_vec_set: "Vacant Refl.: Vector Set",
+        empty_entity_set: "Vacant Refl.: Entity Set",
         last_n_set: "Bucket's Gambit",
         splat_set: "Spilling Disintegration",
         set_insert_ret: "Insertion Gambit",
@@ -201,7 +205,9 @@
         set_to_list: "Ordering Purification",
 
         true_halt: "Acheron's Gambit",
-        false_halt: "Styx's Gambit"
+        false_halt: "Styx's Gambit",
+        true_eval: "Helios' Gambit",
+        false_eval: "Selene's Gambit"
       },
 
       "book.hextrapats:": {
