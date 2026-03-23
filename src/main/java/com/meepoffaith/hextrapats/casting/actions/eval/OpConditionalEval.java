@@ -36,7 +36,7 @@ public class OpConditionalEval implements Action{
             return exec(env, image, cont, stack, toRun);
         }else{
             var image2 = HextraUtils.copyImage(image.withUsedOp(), stack);
-            return new OperationResult(image2, List.of(), cont, HexEvalSounds.SPELL);
+            return new OperationResult(image2, List.of(), cont, HexEvalSounds.NORMAL_EXECUTE);
         }
     }
 
