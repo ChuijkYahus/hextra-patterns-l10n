@@ -14,8 +14,7 @@ public class IotaTypes{
     public static final IotaType<Vec3SetIota> VEC_SET = type("vec_set", Vec3SetIota.TYPE);
     public static final IotaType<EntitySetIota> ENTITY_SET = type("entity_set", EntitySetIota.TYPE);
 
-    public static void init(){
-    }
+    public static void init(){}
 
     private static <U extends Iota, T extends IotaType<U>> T type(String name, T type) {
         return Registry.register(IXplatAbstractions.INSTANCE.getIotaTypeRegistry(), HextraPatterns.modLoc(name), type);
