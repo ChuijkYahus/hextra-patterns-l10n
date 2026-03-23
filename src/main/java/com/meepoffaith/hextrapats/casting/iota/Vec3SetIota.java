@@ -91,7 +91,7 @@ public class Vec3SetIota extends Iota{
 
         @Override
         public int color(){
-            return Vec3Iota.TYPE.color();
+            return 0xAA0000;
         }
     };
 

@@ -105,13 +105,13 @@ public class EntitySetIota extends Iota{
 
         @Override
         public int color(){
-            return 0;
+            return 0x00AAAA;
         }
     };
 
     public static Text getEntityNameWithInline(Entity entity, boolean fearSerializer){
         MutableText baseName = entity.getName().copy();
-        Text inlineEnt = null;
+        Text inlineEnt;
         if(entity instanceof PlayerEntity player){
             inlineEnt = new PlayerHeadData(player.getGameProfile()).asText(!fearSerializer);
             inlineEnt = inlineEnt.copyContentOnly().fillStyle(InlineAPI.INSTANCE.withSizeModifier(inlineEnt.getStyle(), 1.5));

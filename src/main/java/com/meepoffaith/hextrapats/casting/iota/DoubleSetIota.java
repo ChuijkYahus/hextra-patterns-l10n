@@ -91,7 +91,7 @@ public class DoubleSetIota extends Iota{
 
         @Override
         public int color(){
-            return DoubleIota.TYPE.color();
+            return 0x00AA00;
         }
     };
 }

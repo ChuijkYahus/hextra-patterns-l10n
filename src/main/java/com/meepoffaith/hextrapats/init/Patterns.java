@@ -91,10 +91,10 @@ public class Patterns{
         register("list_to_set", "qqaeaadwaddqdee", HexDir.NORTH_EAST, new OpListToSet());
         register("set_to_list", "eedqddeqaaeaqq", HexDir.NORTH_WEST, new OpSetToList());
 
-        register("true_halt", "aqdeeaaqa", HexDir.SOUTH_WEST, new OpConditionalHalt(true));
-        register("false_halt", "aqdeedded", HexDir.SOUTH_WEST, new OpConditionalHalt(false));
         register("true_eval", "deaqqaaqa", HexDir.SOUTH_EAST, new OpConditionalEval(true));
         register("false_eval", "deaqqdded", HexDir.SOUTH_EAST, new OpConditionalEval(false));
+        register("true_halt", "aqdeedded", HexDir.SOUTH_WEST, new OpConditionalHalt(true));
+        register("false_halt", "aqdeeaaqa", HexDir.SOUTH_WEST, new OpConditionalHalt(false));
 
         registerSpecialHandler("scaled_vec_x", SCALED_VEC_X);
         registerSpecialHandler("scaled_vec_y", SCALED_VEC_Y);
