@@ -7,11 +7,14 @@ import at.petrak.hexcasting.api.casting.eval.vm.*;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.ListIota;
+import at.petrak.hexcasting.api.utils.HexUtils;
 import at.petrak.hexcasting.api.utils.NBTBuilder;
 import at.petrak.hexcasting.common.lib.hex.HexEvalSounds;
+import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import com.meepoffaith.hextrapats.util.HextraUtils;
 import kotlin.Pair;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.server.world.ServerWorld;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -96,9 +99,15 @@ public class FrameIndexForEach implements ContinuationFrame{
 
     @Override
     public @NotNull NbtCompound serializeToNBT(){
-        NBTBuilder builder = NBTBuilder.INSTANCE;
-
-        return null;
+        var tag = new NbtCompound();
+        tag.put("data", HexUtils.serializeToNBT(data));
+        tag.put("code", HexUtils.serializeToNBT(code));
+        if(baseStack != null){
+            tag.put("base", HexUtils.serializeToNBT(baseStack));
+        }
+        tag.putInt("index", index);
+        tag.put("accumulator", HexUtils.serializeToNBT(acc));
+        return tag;
     }
 
     @Override
@@ -113,8 +122,19 @@ public class FrameIndexForEach implements ContinuationFrame{
 
     public static ContinuationFrame.Type<FrameIndexForEach> TYPE = new ContinuationFrame.Type<FrameIndexForEach>(){
         @Override
-        public @Nullable FrameIndexForEach deserializeFromNBT(@NotNull NbtCompound nbtCompound, @NotNull ServerWorld serverWorld){
-            return null;
+        public @Nullable FrameIndexForEach deserializeFromNBT(@NotNull NbtCompound tag, @NotNull ServerWorld world){
+            List<Iota> baseStack = null;
+            if(tag.contains("base")){
+                baseStack = HextraUtils.handroll(HexIotaTypes.LIST.deserialize(tag.getList("base", NbtElement.COMPOUND_TYPE), world).getList());
+            }
+
+            return new FrameIndexForEach(
+                HexIotaTypes.LIST.deserialize(tag.getList("data", NbtElement.COMPOUND_TYPE), world).getList(),
+                HexIotaTypes.LIST.deserialize(tag.getList("code", NbtElement.COMPOUND_TYPE), world).getList(),
+                baseStack,
+                tag.getInt("index"),
+                HextraUtils.handroll(HexIotaTypes.LIST.deserialize(tag.getList("accumulator", NbtElement.COMPOUND_TYPE), world).getList())
+            );
         }
     };
 }

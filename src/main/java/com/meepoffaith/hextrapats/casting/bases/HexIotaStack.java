@@ -13,6 +13,7 @@ import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
 import com.meepoffaith.hextrapats.casting.iota.EntitySetIota;
 import com.meepoffaith.hextrapats.casting.iota.Vec3SetIota;
+import com.meepoffaith.hextrapats.util.HextraUtils;
 import com.mojang.datafixers.util.Either;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ItemEntity;
@@ -142,12 +143,6 @@ public class HexIotaStack {
         // doesn't even have it's own .add() :broken_heart:
         SpellList list = getList(idx);
 
-        ArrayList<Iota> theFuckingList = new ArrayList<>();
-
-        for (int i = 0; i < list.size(); i++) {
-            theFuckingList.add(list.getAt(i));
-        }
-
-        return theFuckingList;
+        return HextraUtils.handroll(list);
     }
 }

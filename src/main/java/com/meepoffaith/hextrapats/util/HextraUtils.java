@@ -1,6 +1,7 @@
 package com.meepoffaith.hextrapats.util;
 
 import at.petrak.hexcasting.api.HexAPI;
+import at.petrak.hexcasting.api.casting.SpellList;
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler.Factory;
 import at.petrak.hexcasting.api.casting.eval.vm.CastingImage;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
@@ -15,6 +16,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HextraUtils{
@@ -64,5 +66,15 @@ public class HextraUtils{
 
     public static boolean lessEq(double a, double b){
         return a <= b || DoubleIota.tolerates(a, b);
+    }
+
+    public static ArrayList<Iota> handroll(SpellList list){
+        ArrayList<Iota> theFuckingList = new ArrayList<>();
+
+        for (int i = 0; i < list.size(); i++) {
+            theFuckingList.add(list.getAt(i));
+        }
+
+        return theFuckingList;
     }
 }
