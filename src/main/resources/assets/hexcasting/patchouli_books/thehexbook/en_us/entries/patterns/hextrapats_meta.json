@@ -37,6 +37,14 @@
       "input": "any",
       "output": "",
       "text": "hextrapats.page.meta.false_halt"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:index_for_each",
+      "anchor": "hextrapats:index_for_each",
+      "input": "[pattern], list",
+      "output": "list",
+      "text": "hextrapats.page.meta.index_for_each"
     }
   ]
 }
