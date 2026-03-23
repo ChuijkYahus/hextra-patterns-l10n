@@ -28,9 +28,9 @@ public class FrameIndexForEach implements ContinuationFrame{
     SpellList code;
     List<Iota> baseStack;
     int index;
-    List<Iota> acc;
+    ArrayList<Iota> acc;
 
-    public FrameIndexForEach(SpellList data, SpellList code, List<Iota> baseStack, int index, List<Iota> acc){
+    public FrameIndexForEach(SpellList data, SpellList code, List<Iota> baseStack, int index, ArrayList<Iota> acc){
         this.data = data;
         this.code = code;
         this.baseStack = baseStack;
@@ -39,7 +39,7 @@ public class FrameIndexForEach implements ContinuationFrame{
     }
 
     public FrameIndexForEach(SpellList data, SpellList code){
-        this(data, code, null, 0, List.of());
+        this(data, code, null, 0, new ArrayList<>());
     }
 
     @Override
