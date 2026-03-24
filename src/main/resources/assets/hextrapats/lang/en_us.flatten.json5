@@ -108,25 +108,25 @@
         last_n_entity_set: "Remove $(italic)num/$ entities from the top of the stack, then add them to an entity set at the top of the stack.",
         insert: {
           name: "Insertion Distillation",
-          "": "Remove the top of the stack, then add it to the set at the top of the stack. Type must match set type."
+          "": "Remove the iota at the top of the stack, then add it to the set. The iota's type must match the set's type."
         },
-        insert_ret: "Remove the top of the stack, then add it to the set at the top of the stack. Return True if it wasn't already in the set, otherwise return False. Type must match set type.",
+        insert_ret: "Remove the iota at the top of the stack, then add it to the set. Return True if it wasn't already in the set, otherwise return False. The iota's type must match the set's type.",
         remove: {
           name: "Removal Distillation",
-          "": "Remove the top of the stack, then remove it from the set at the top of the stack. Type must match set type."
+          "": "Remove the iota from top of the stack, then remove it set. The iota's type must match the set's type."
         },
-        remove_ret: "Remove the top of the stack, then remove it from the set at the top of the stack. Return True if it was previously in the set, otherwise return False. Type must match set type.",
-        splat_set: "Remove the set at the top of the stack, then push its contents to the stack. The order is up to Nature's whims.",
+        remove_ret: "Remove the iota from top of the stack, then remove it set. Return True if it was previously in the set, otherwise return False. The iota's type must match the set's type.",
         find: {
           name: "Locator's Gambit",
-          "": "Remove the top of the stack, then return True if the set at the top of the stack contains it, otherwise return False. Type must match set type."
+          "": "Remove the iota top of the stack, then return True if the set contains that iota, otherwise return False. The iota's type must match the set's type."
         },
-        add: "Remove the set at the top of the stack, then add all its elements to the set at the top of the stack. Type must match set type.",
-        sub: "Remove the set at the top of the stack, then remove all its elements from the set at the top of the stack.",
-        and: "Takes the intersection of two sets. The new set will only contain elements that were present in both of the previous sets.",
-        xor: "Takes the exclusive disjunction of two sets. The new set will only contain elements that were present in only one of the two sets.",
+        add: "Remove the set at the top of the stack, then add all its elements to the set at the top of the stack. The two sets must be of matching type.",
+        sub: "Remove the set at the top of the stack, then remove all its elements from the set at the top of the stack. The two sets must be of matching type.",
+        and: "Takes the intersection of two sets. The new set will only contain elements that were present in both of the previous sets. The two sets must be of matching type.",
+        xor: "Takes the exclusive disjunction of two sets. The new set will only contain elements that were present in only one of the two sets. The two sets must be of matching type.",
         abs: "Remove the set at the top of the stack, then push the number of elements in the set to the stack.",
-        set_to_list: "Converts the set at the top of the stack to a list. The order is up to Nature's whims."
+        set_to_list: "Converts the set at the top of the stack to a list. The order is up to Nature's whims.",
+        splat_set: "Remove the set at the top of the stack, then push its contents to the stack. The order is up to Nature's whims.",
       },
       meta: {
         true_halt: "Forcibly halts a $(thing)Hex/$ like $(l:patterns/meta#hexcasting:halt)$(action)Charon's Gambit/$ if the iota at the top of the stack is $(l:patterns/logic#hexcasting:bool_coerce)$(thing)considered $(action)True $(thing)by Nature/$.",
