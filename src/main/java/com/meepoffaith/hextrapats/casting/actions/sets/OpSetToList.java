@@ -1,11 +1,12 @@
 package com.meepoffaith.hextrapats.casting.actions.sets;
 
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
-import at.petrak.hexcasting.api.casting.iota.DoubleIota;
-import at.petrak.hexcasting.api.casting.iota.Iota;
-import at.petrak.hexcasting.api.casting.iota.ListIota;
+import at.petrak.hexcasting.api.casting.iota.*;
 import com.meepoffaith.hextrapats.casting.bases.ConstMediaActionBase;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
+import com.meepoffaith.hextrapats.util.AnySet;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,11 +18,25 @@ public class OpSetToList extends ConstMediaActionBase{
 
     @Override
     public List<? extends Iota> execute(HexIotaStack stack, CastingEnvironment ctx){
-        Set<Double> set = stack.getNumSet(0).getSet();
-        List<Iota> list = new ArrayList<>(set.size());
-        for(double d : set){
-            list.add(new DoubleIota(d));
-        }
-        return asActionResult(new ListIota(list));
+        AnySet set = stack.getSet(0);
+        List<Iota> list = new ArrayList<>();
+        return set.operate(
+            dSet -> {
+                for(double d : dSet){
+                    list.add(new DoubleIota(d));
+                }
+                return asActionResult(new ListIota(list));
+            }, vSet -> {
+                for(Vec3d v : vSet){
+                    list.add(new Vec3Iota(v));
+                }
+                return asActionResult(new ListIota(list));
+            }, eSet -> {
+                for(Entity d : eSet){
+                    list.add(new EntityIota(d));
+                }
+                return asActionResult(new ListIota(list));
+            }
+        );
     }
 }
