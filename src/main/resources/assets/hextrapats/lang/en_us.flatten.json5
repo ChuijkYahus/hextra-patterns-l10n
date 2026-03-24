@@ -99,7 +99,7 @@
       },
       sets: {
         intro: "A hash set contains elements in an unordered fashion, and cannot contain duplicates. Excellent for keeping track of whether or not something exists.<br>Due to a magical process known as '$(thing)hashing/$', access is reduced to nearly O(1), relaxing the burden on Nature.",
-        tolerance: "However, '$(thing)hashing/$' seems to have a different, albeit minor, burden on Nature. It seems that numbers and vectors lose precision in the process of getting inserted into a set, becoming rounded to 4 decimals. This seems to be related to how Nature considers $(l:patterns/logic#hexcasting:equals)$(action)equality/$.",
+        tolerance: "However, '$(thing)hashing/$' seems to have a different, albeit minor, burden on Nature. Numbers and vectors lose precision in the process of getting inserted into a set, becoming rounded to 4 decimals. This seems to be related to $(l:patterns/logic#hexcasting:equals)$(thing)how Nature considers $(action)equality/$.",
         empty_num_set: "Push an empty set that can hold numbers to the top of the stack.",
         last_n_num_set: "Remove $(italic)num/$ numbers from the top of the stack, then add them to a number set at the top of the stack.",
         empty_vec_set: "Push an empty set that can hold vectors to the top of the stack.",
