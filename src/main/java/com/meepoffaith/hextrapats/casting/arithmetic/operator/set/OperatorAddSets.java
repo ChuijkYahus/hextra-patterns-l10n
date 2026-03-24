@@ -5,8 +5,10 @@ import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
+import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota.DoubleSet;
 import com.meepoffaith.hextrapats.casting.iota.EntitySetIota;
 import com.meepoffaith.hextrapats.casting.iota.VecSetIota;
+import com.meepoffaith.hextrapats.casting.iota.VecSetIota.VecSet;
 import com.meepoffaith.hextrapats.util.AnySet;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
@@ -26,21 +28,18 @@ public class OperatorAddSets extends OperatorBase{
         AnySet set = stack.getSet(0);
         return set.operate(
             d -> {
-                Set<Double> set1 = d.getSet();
-                Set<Double> set2 = stack.getNumSet(1).getSet();
-                set1.addAll(set2);
-                return asActionResult(new DoubleSetIota(set1));
+                DoubleSet set2 = stack.getNumSet(1).getSet();
+                d.addAll(set2);
+                return asActionResult(new DoubleSetIota(d));
             },
             v -> {
-                Set<Vec3d> set1 = v.getSet();
-                Set<Vec3d> set2 = stack.getVec3Set(1).getSet();
-                set1.addAll(set2);
-                return asActionResult(new VecSetIota(set1));
+                VecSet set2 = stack.getVec3Set(1).getSet();
+                v.addAll(set2);
+                return asActionResult(new VecSetIota(v));
             }, e -> {
-                Set<Entity> set1 = e.getSet();
                 Set<Entity> set2 = stack.getEntitySet(1).getSet();
-                set1.addAll(set2);
-                return asActionResult(new EntitySetIota(set1));
+                e.addAll(set2);
+                return asActionResult(new EntitySetIota(e));
             }
         );
     }

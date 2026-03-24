@@ -5,8 +5,10 @@ import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
+import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota.DoubleSet;
 import com.meepoffaith.hextrapats.casting.iota.EntitySetIota;
 import com.meepoffaith.hextrapats.casting.iota.VecSetIota;
+import com.meepoffaith.hextrapats.casting.iota.VecSetIota.VecSet;
 import com.meepoffaith.hextrapats.util.AnySet;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
@@ -27,9 +29,9 @@ public class OperatorDisjunction extends OperatorBase{
         AnySet set = stack.getSet(0);
         return set.operate(
             d -> {
-                Set<Double> set2 = stack.getNumSet(1).getSet();
-                HashSet<Double> disjunction = new HashSet<>();
-                for(double key : d.getSet()){
+                DoubleSet set2 = stack.getNumSet(1).getSet();
+                DoubleSet disjunction = new DoubleSet();
+                for(double key : d){
                     if(!set2.contains(key)){
                         disjunction.add(key);
                     }else{
@@ -39,9 +41,9 @@ public class OperatorDisjunction extends OperatorBase{
                 disjunction.addAll(set2);
                 return asActionResult(new DoubleSetIota(disjunction));
             }, v -> {
-                Set<Vec3d> set2 = stack.getVec3Set(1).getSet();
-                HashSet<Vec3d> disjunction = new HashSet<>();
-                for(Vec3d key : v.getSet()){
+                VecSet set2 = stack.getVec3Set(1).getSet();
+                VecSet disjunction = new VecSet();
+                for(Vec3d key : v){
                     if(!set2.contains(key)){
                         disjunction.add(key);
                     }else{
@@ -53,7 +55,7 @@ public class OperatorDisjunction extends OperatorBase{
             }, e -> {
                 Set<Entity> set2 = stack.getEntitySet(1).getSet();
                 HashSet<Entity> disjunction = new HashSet<>();
-                for(Entity key : e.getSet()){
+                for(Entity key : e){
                     if(!set2.contains(key)){
                         disjunction.add(key);
                     }else{

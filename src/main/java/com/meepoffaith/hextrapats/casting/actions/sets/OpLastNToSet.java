@@ -12,6 +12,7 @@ import at.petrak.hexcasting.api.casting.mishaps.Mishap;
 import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughArgs;
 import at.petrak.hexcasting.common.lib.hex.HexEvalSounds;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
+import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota.DoubleSet;
 import com.meepoffaith.hextrapats.util.HextraUtils;
 import org.jetbrains.annotations.NotNull;
 
@@ -29,7 +30,7 @@ public class OpLastNToSet implements Action{
 
         int yoinkCount = OperatorUtils.getPositiveIntUnderInclusive(stack, stack.size() - 1, stack.size() - 1, stack.size());
         stack.remove(stack.size() - 1);
-        DoubleSetIota out = new DoubleSetIota(new HashSet<>());
+        DoubleSetIota out = new DoubleSetIota(new DoubleSet());
         for(int i = 0; i < yoinkCount; i++){
             out.add(Operator.downcast(stack.remove(stack.size() - 1), DOUBLE).getDouble());
         }

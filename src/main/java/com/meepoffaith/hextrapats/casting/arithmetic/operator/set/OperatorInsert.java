@@ -5,6 +5,9 @@ import at.petrak.hexcasting.api.casting.iota.BooleanIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
+import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
+import com.meepoffaith.hextrapats.casting.iota.EntitySetIota;
+import com.meepoffaith.hextrapats.casting.iota.VecSetIota;
 import com.meepoffaith.hextrapats.util.AnySet;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
@@ -29,16 +32,19 @@ public class OperatorInsert extends OperatorBase{
             d -> {
                 double num = stack.getDouble(1);
                 boolean added = d.add(num);
-                return returnBool ? List.of(d, new BooleanIota(added)) : asActionResult(d);
+                DoubleSetIota out = new DoubleSetIota(d);
+                return returnBool ? List.of(out, new BooleanIota(added)) : asActionResult(out);
             },
             v -> {
                 Vec3d vec = stack.getVec3(1);
                 boolean added = v.add(vec);
-                return returnBool ? List.of(v, new BooleanIota(added)) : asActionResult(v);
+                VecSetIota out = new VecSetIota(v);
+                return returnBool ? List.of(out, new BooleanIota(added)) : asActionResult(out);
             }, e -> {
                 Entity entity = stack.getEntity(1);
                 boolean added = e.add(entity);
-                return returnBool ? List.of(e, new BooleanIota(added)) : asActionResult(e);
+                EntitySetIota out = new EntitySetIota(e);
+                return returnBool ? List.of(out, new BooleanIota(added)) : asActionResult(out);
             }
         );
     }

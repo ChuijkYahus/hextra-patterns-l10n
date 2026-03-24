@@ -6,6 +6,7 @@ import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.ConstMediaActionBase;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
+import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota.DoubleSet;
 
 import java.util.HashSet;
 import java.util.List;
@@ -19,7 +20,7 @@ public class OpListToSet extends ConstMediaActionBase{
     @Override
     public List<? extends Iota> execute(HexIotaStack stack, CastingEnvironment ctx){
         List<Iota> list = stack.getJUSTAList(0);
-        DoubleSetIota out = new DoubleSetIota(new HashSet<>());
+        DoubleSetIota out = new DoubleSetIota(new DoubleSet());
         for(Iota iota : list){
             out.add(Operator.downcast(iota, DOUBLE).getDouble());
         }

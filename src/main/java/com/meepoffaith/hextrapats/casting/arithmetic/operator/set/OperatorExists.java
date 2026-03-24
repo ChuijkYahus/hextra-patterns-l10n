@@ -5,6 +5,9 @@ import at.petrak.hexcasting.api.casting.iota.BooleanIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
+import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
+import com.meepoffaith.hextrapats.casting.iota.EntitySetIota;
+import com.meepoffaith.hextrapats.casting.iota.VecSetIota;
 import com.meepoffaith.hextrapats.util.AnySet;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
@@ -26,17 +29,17 @@ public class OperatorExists extends OperatorBase{
             d -> {
                 double num = stack.getDouble(1);
                 boolean found = d.contains(num);
-                return List.of(d, new BooleanIota(found));
+                return List.of(new DoubleSetIota(d), new BooleanIota(found));
             },
             v -> {
                 Vec3d vec = stack.getVec3(1);
                 boolean found = v.contains(vec);
-                return List.of(v, new BooleanIota(found));
+                return List.of(new VecSetIota(v), new BooleanIota(found));
             },
             e -> {
                 Entity entity = stack.getEntity(1);
                 boolean found = e.contains(entity);
-                return List.of(e, new BooleanIota(found));
+                return List.of(new EntitySetIota(e), new BooleanIota(found));
             }
         );
     }

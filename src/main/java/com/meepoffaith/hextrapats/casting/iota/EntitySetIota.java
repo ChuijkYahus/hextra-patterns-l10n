@@ -29,6 +29,10 @@ public class EntitySetIota extends Iota{
         return (Set<Entity>)payload;
     }
 
+    public Set<Entity> getMutableSet(){
+        return new HashSet<>(getSet());
+    }
+
     @Override
     public boolean isTruthy(){
         return !getSet().isEmpty();

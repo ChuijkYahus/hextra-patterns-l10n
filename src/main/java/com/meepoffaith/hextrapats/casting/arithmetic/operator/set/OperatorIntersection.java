@@ -5,8 +5,10 @@ import at.petrak.hexcasting.api.casting.iota.Iota;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.bases.OperatorBase;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
+import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota.DoubleSet;
 import com.meepoffaith.hextrapats.casting.iota.EntitySetIota;
 import com.meepoffaith.hextrapats.casting.iota.VecSetIota;
+import com.meepoffaith.hextrapats.casting.iota.VecSetIota.VecSet;
 import com.meepoffaith.hextrapats.util.AnySet;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.Vec3d;
@@ -27,24 +29,24 @@ public class OperatorIntersection extends OperatorBase{
         AnySet set = stack.getSet(0);
         return set.operate(
             d -> {
-                Set<Double> set2 = stack.getNumSet(1).getSet();
-                HashSet<Double> intersection = new HashSet<>();
-                for(double key : d.getSet()){
+                DoubleSet set2 = stack.getNumSet(1).getSet();
+                DoubleSet intersection = new DoubleSet();
+                for(double key : d){
                     if(set2.contains(key)) intersection.add(key);
                 }
                 return asActionResult(new DoubleSetIota(intersection));
             },
             v -> {
-                Set<Vec3d> set2 = stack.getVec3Set(1).getSet();
-                HashSet<Vec3d> intersection = new HashSet<>();
-                for(Vec3d key : v.getSet()){
+                VecSet set2 = stack.getVec3Set(1).getSet();
+                VecSet intersection = new VecSet();
+                for(Vec3d key : v){
                     if(set2.contains(key)) intersection.add(key);
                 }
                 return asActionResult(new VecSetIota(intersection));
             }, e -> {
                 Set<Entity> set2 = stack.getEntitySet(1).getSet();
                 HashSet<Entity> intersection = new HashSet<>();
-                for(Entity key : e.getSet()){
+                for(Entity key : e){
                     if(set2.contains(key)) intersection.add(key);
                 }
                 return asActionResult(new EntitySetIota(intersection));

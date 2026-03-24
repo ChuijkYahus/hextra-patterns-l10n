@@ -19,12 +19,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class VecSetIota extends Iota{
-    public VecSetIota(Set<Vec3d> payload){
+    public VecSetIota(VecSet payload){
         super(TYPE, payload);
     }
 
-    public Set<Vec3d> getSet(){
-        return (Set<Vec3d>)payload;
+    public VecSet getSet(){
+        return (VecSet)payload;
+    }
+
+    public VecSet getMutableSet(){
+        return new VecSet(getSet());
     }
 
     @Override
@@ -38,15 +42,15 @@ public class VecSetIota extends Iota{
     }
 
     public boolean contains(Vec3d key){
-        return getSet().contains(MathUtils.roundToTolerance(key));
+        return getSet().contains(key);
     }
 
     public boolean add(Vec3d key){
-        return getSet().add(MathUtils.roundToTolerance(key));
+        return getSet().add(key);
     }
 
     public boolean remove(Vec3d key){
-        return getSet().remove(MathUtils.roundToTolerance(key));
+        return getSet().remove(key);
     }
 
     @Override
@@ -67,7 +71,7 @@ public class VecSetIota extends Iota{
         @Override
         public VecSetIota deserialize(NbtElement tag, ServerWorld world) throws IllegalArgumentException{
             NbtList list = HexUtils.downcast(tag, NbtList.TYPE);
-            Set<Vec3d> set = new HashSet<>();
+            VecSet set = new VecSet();
             for(NbtElement nbtElement : list){ //Taken from Vec3Iota
                 set.add(deserializeVec(nbtElement));
             }
@@ -103,5 +107,31 @@ public class VecSetIota extends Iota{
         }else
             vec = HexUtils.vecFromNBT(HexUtils.downcast(tag, NbtCompound.TYPE));
         return vec;
+    }
+
+    /** HashSet of Vec3ds with automatic tolerance handling. */
+    public static class VecSet extends HashSet<Vec3d>{
+        public VecSet(){
+            super();
+        }
+
+        public VecSet(VecSet set){
+            super(set);
+        }
+
+        @Override
+        public boolean add(Vec3d vec3d){
+            return super.add(MathUtils.roundToTolerance(vec3d));
+        }
+
+        @Override
+        public boolean contains(Object o){
+            return o instanceof Vec3d v && super.contains(MathUtils.roundToTolerance(v));
+        }
+
+        @Override
+        public boolean remove(Object o){
+            return o instanceof Vec3d v && super.remove(MathUtils.roundToTolerance(v));
+        }
     }
 }
