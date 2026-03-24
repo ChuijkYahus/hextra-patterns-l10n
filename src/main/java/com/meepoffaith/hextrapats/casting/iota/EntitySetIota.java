@@ -77,6 +77,7 @@ public class EntitySetIota extends Iota{
         return list;
     }
 
+    // For Transgress Others mishap
     @Override
     public @Nullable Iterable<Iota> subIotas(){
         List<Iota> list = new ArrayList<>();

@@ -70,6 +70,7 @@ public class VecSetIota extends Iota{
         return list;
     }
 
+    /* Likely unnecessary, handled by size()
     @Override
     public @Nullable Iterable<Iota> subIotas(){
         List<Iota> list = new ArrayList<>();
@@ -78,6 +79,7 @@ public class VecSetIota extends Iota{
         }
         return list;
     }
+     */
 
     public static IotaType<VecSetIota> TYPE = new IotaType<>(){
         @Override

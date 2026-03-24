@@ -66,6 +66,7 @@ public class DoubleSetIota extends Iota{
         return list;
     }
 
+    /* Likely unnecessary, handled by size()
     @Override
     public @Nullable Iterable<Iota> subIotas(){
         List<Iota> list = new ArrayList<>();
@@ -74,6 +75,7 @@ public class DoubleSetIota extends Iota{
         }
         return list;
     }
+     */
 
     public static IotaType<DoubleSetIota> TYPE = new IotaType<>(){
         @Override
