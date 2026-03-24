@@ -11,7 +11,8 @@
       "text": "hextrapats.page.sets.intro"
     },
     {
-      "type": "patchouli:empty"
+      "type": "patchouli:text",
+      "text": "hextrapats.page.sets.tolerance"
     },
     {
       "type": "hexcasting:pattern",
