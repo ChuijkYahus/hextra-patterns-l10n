@@ -29,7 +29,7 @@
       },
       nocon: {
         intro: "Sometimes, I want operate on two iotas after comparing them, but it gets rather annoying to have to execute $(l:patterns/stackmanip#hexcasting:2dup)$(action)Dioscuri Gambit/$ every time I do.",
-        name: "Comparison Gambit",
+        name: "Retention Gambit",
         detail: "With some experimentation, I have found that prepending a comparison with a clockwise triangle will cause the two inputs to not be consumed.",
       },
       vec_literals: {
@@ -179,15 +179,15 @@
         cons_about_z: "Roll Purification",
 
         "nocon/": {
-          bool_coerce: "Comparison Gambit: Augur's",
-          greater: "Comparison Gambit: Maximus",
-          less: "Comparison Gambit: Minimus",
-          greater_eq: "Comparison Gambit: Maximus II",
-          less_eq: "Comparison Gambit: Minimus II",
-          eq: "Comparison Gambit: Equality",
-          neq: "Comparison Gambit: Inequality",
-          len_eq: "Comparison Gambit: Length Equality",
-          len_neq: "Comparison Gambit: Length Inequality",
+          bool_coerce: "Retention Gambit: Augur's",
+          greater: "Retention Gambit: Maximus",
+          less: "Retention Gambit: Minimus",
+          greater_eq: "Retention Gambit: Maximus II",
+          less_eq: "Retention Gambit: Minimus II",
+          eq: "Retention Gambit: Equality",
+          neq: "Retention Gambit: Inequality",
+          len_eq: "Retention Gambit: Length Equality",
+          len_neq: "Retention Gambit: Length Inequality",
         },
 
         split_list: "Separation Gambit",
@@ -232,15 +232,15 @@
         decrement: "Decrementation Purif.",
 
         "nocon/": {
-          bool_coerce: "Comp. Gambit: Augur's",
-          greater: "Comp. Gambit: Maximus",
-          less: "Comp. Gambit: Minimus",
+          bool_coerce: "Ret. Gambit: Augur's",
+          greater: "Ret. Gambit: Maximus",
+          less: "Ret. Gambit: Minimus",
           greater_eq: "Comp. Gambit: Maximus II",
-          less_eq: "Comp. Gambit: Minimus II",
-          eq: "Comp. Gambit: Equality",
-          neq: "Comp. Gambit: Inequality",
-          len_eq: "Comp. Gambit: Len. Eq.",
-          len_neq: "Comp. Gambit: Len. Ineq."
+          less_eq: "Ret. Gambit: Minimus II",
+          eq: "Ret. Gambit: Equality",
+          neq: "Ret. Gambit: Inequality",
+          len_eq: "Ret. Gambit: Len. Eq.",
+          len_neq: "Ret. Gambit: Len. Ineq."
         },
 
         empty_num_set: "Vacant Refl.: Num. Set",
