@@ -107,20 +107,20 @@
         last_n_entity_set: "Remove $(italic)num/$ entities from the top of the stack, then add them to an entity set at the top of the stack.",
         insert: {
           name: "Insertion Distillation",
-          "": "Remove the top of the stack, then add it to the set at the top of the stack."
+          "": "Remove the top of the stack, then add it to the set at the top of the stack. Type must match set type."
         },
-        insert_ret: "Remove the top of the stack, then add it to the set at the top of the stack. Return True if it wasn't already in the set, otherwise return False.",
+        insert_ret: "Remove the top of the stack, then add it to the set at the top of the stack. Return True if it wasn't already in the set, otherwise return False. Type must match set type.",
         remove: {
           name: "Removal Distillation",
-          "": "Remove the top of the stack, then remove it from the set at the top of the stack."
+          "": "Remove the top of the stack, then remove it from the set at the top of the stack. Type must match set type."
         },
-        remove_ret: "Remove the top of the stack, then remove it from the set at the top of the stack. Return True if it was previously in the set, otherwise return False.",
+        remove_ret: "Remove the top of the stack, then remove it from the set at the top of the stack. Return True if it was previously in the set, otherwise return False. Type must match set type.",
         splat_set: "Remove the set at the top of the stack, then push its contents to the stack. The order is up to Nature's whims.",
         find: {
           name: "Locator's Gambit",
-          "": "Remove the top of the stack, then return True if the set at the top of the stack contains it, otherwise return False."
+          "": "Remove the top of the stack, then return True if the set at the top of the stack contains it, otherwise return False. Type must match set type."
         },
-        add: "Remove the set at the top of the stack, then add all its elements to the set at the top of the stack.",
+        add: "Remove the set at the top of the stack, then add all its elements to the set at the top of the stack. Type must match set type.",
         sub: "Remove the set at the top of the stack, then remove all its elements from the set at the top of the stack.",
         and: "Takes the intersection of two sets. The new set will only contain elements that were present in both of the previous sets.",
         xor: "Takes the exclusive disjunction of two sets. The new set will only contain elements that were present in only one of the two sets.",

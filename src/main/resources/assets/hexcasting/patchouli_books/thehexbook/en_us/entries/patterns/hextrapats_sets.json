@@ -66,7 +66,7 @@
       "header": "hextrapats.page.sets.insert.name",
       "op_id": "hexcasting:append",
       "anchor": "hexcasting:append",
-      "input": "set, (num | vec | entity)",
+      "input": "set, (num|vec|entity)",
       "output": "set",
       "text": "hextrapats.page.sets.insert"
     },
@@ -74,7 +74,7 @@
       "type": "hexcasting:pattern",
       "op_id": "hextrapats:set_insert_ret",
       "anchor": "hextrapats:set_insert_ret",
-      "input": "set, (num | vec | entity)",
+      "input": "set, (num|vec|entity)",
       "output": "set, bool",
       "text": "hextrapats.page.sets.insert_ret"
     },
@@ -83,7 +83,7 @@
       "header": "hextrapats.page.sets.remove.name",
       "op_id": "hexcasting:remove_from",
       "anchor": "hexcasting:remove_from",
-      "input": "set, (num | vec | entity)",
+      "input": "set, (num|vec|entity)",
       "output": "set",
       "text": "hextrapats.page.sets.remove"
     },
@@ -91,7 +91,7 @@
       "type": "hexcasting:pattern",
       "op_id": "hextrapats:set_remove_ret",
       "anchor": "hextrapats:set_remove_ret",
-      "input": "set, (num | vec | entity)",
+      "input": "set, (num|vec|entity)",
       "output": "set, bool",
       "text": "hextrapats.page.sets.remove_ret"
     },
@@ -108,7 +108,7 @@
       "header": "hextrapats.page.sets.find.name",
       "op_id": "hexcasting:index_of",
       "anchor": "hexcasting:index_of",
-      "input": "set, (num | vec | entity)",
+      "input": "set, (num|vec|entity)",
       "output": "set, bool",
       "text": "hextrapats.page.sets.find"
     },
