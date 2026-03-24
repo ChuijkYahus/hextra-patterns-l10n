@@ -18,8 +18,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Vec3SetIota extends Iota{
-    public Vec3SetIota(Set<Vec3d> payload){
+public class VecSetIota extends Iota{
+    public VecSetIota(Set<Vec3d> payload){
         super(TYPE, payload);
     }
 
@@ -51,7 +51,7 @@ public class Vec3SetIota extends Iota{
 
     @Override
     protected boolean toleratesOther(Iota that){
-        return that instanceof Vec3SetIota vs && vs.getSet().equals(getSet());
+        return that instanceof VecSetIota vs && vs.getSet().equals(getSet());
     }
 
     @Override
@@ -63,15 +63,15 @@ public class Vec3SetIota extends Iota{
         return list;
     }
 
-    public static IotaType<Vec3SetIota> TYPE = new IotaType<>(){
+    public static IotaType<VecSetIota> TYPE = new IotaType<>(){
         @Override
-        public Vec3SetIota deserialize(NbtElement tag, ServerWorld world) throws IllegalArgumentException{
+        public VecSetIota deserialize(NbtElement tag, ServerWorld world) throws IllegalArgumentException{
             NbtList list = HexUtils.downcast(tag, NbtList.TYPE);
             Set<Vec3d> set = new HashSet<>();
             for(NbtElement nbtElement : list){ //Taken from Vec3Iota
                 set.add(deserializeVec(nbtElement));
             }
-            return new Vec3SetIota(set);
+            return new VecSetIota(set);
         }
 
         @Override

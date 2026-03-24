@@ -12,7 +12,8 @@ import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughArgs;
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
 import com.meepoffaith.hextrapats.casting.iota.EntitySetIota;
-import com.meepoffaith.hextrapats.casting.iota.Vec3SetIota;
+import com.meepoffaith.hextrapats.casting.iota.VecSetIota;
+import com.meepoffaith.hextrapats.util.AnySet;
 import com.meepoffaith.hextrapats.util.HextraUtils;
 import com.mojang.datafixers.util.Either;
 import net.minecraft.entity.Entity;
@@ -26,7 +27,6 @@ import net.minecraft.util.math.Vec3d;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 // https://github.com/Real-Luxof/Lapisworks/blob/main/src/main/java/com/luxof/lapisworks/nocarpaltunnel/HexIotaStack.java
 public class HexIotaStack {
@@ -82,6 +82,10 @@ public class HexIotaStack {
     public int getPositiveIntUnderInclusive(int idx, int under) { return OperatorUtils.getPositiveIntUnderInclusive(stack, idx, under, argc); }
     public long getPositiveLong(int idx) { return OperatorUtils.getPositiveLong(stack, idx, argc); }
     public Vec3d getVec3(int idx) { return OperatorUtils.getVec3(stack, idx, argc); }
+    public AnySet getSet(int idx){
+        Iota i = get(idx);
+        return new AnySet(i, argc - (idx + 1));
+    }
     public DoubleSetIota getNumSet(int idx){
         Iota i = get(idx);
         if(i instanceof DoubleSetIota s){
@@ -90,9 +94,9 @@ public class HexIotaStack {
             throw MishapInvalidIota.ofType(i, argc - (idx + 1), "num_set");
         }
     }
-    public Vec3SetIota getVec3Set(int idx){
+    public VecSetIota getVec3Set(int idx){
         Iota i = get(idx);
-        if(i instanceof Vec3SetIota s){
+        if(i instanceof VecSetIota s){
             return s;
         }else{
             throw MishapInvalidIota.ofType(i, argc - (idx + 1), "vec_set");

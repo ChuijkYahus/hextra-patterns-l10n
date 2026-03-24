@@ -6,12 +6,12 @@ import at.petrak.hexcasting.xplat.IXplatAbstractions;
 import com.meepoffaith.hextrapats.HextraPatterns;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
 import com.meepoffaith.hextrapats.casting.iota.EntitySetIota;
-import com.meepoffaith.hextrapats.casting.iota.Vec3SetIota;
+import com.meepoffaith.hextrapats.casting.iota.VecSetIota;
 import net.minecraft.registry.Registry;
 
 public class IotaTypes{
     public static final IotaType<DoubleSetIota> NUM_SET = type("num_set", DoubleSetIota.TYPE);
-    public static final IotaType<Vec3SetIota> VEC_SET = type("vec_set", Vec3SetIota.TYPE);
+    public static final IotaType<VecSetIota> VEC_SET = type("vec_set", VecSetIota.TYPE);
     public static final IotaType<EntitySetIota> ENTITY_SET = type("entity_set", EntitySetIota.TYPE);
 
     public static void init(){}

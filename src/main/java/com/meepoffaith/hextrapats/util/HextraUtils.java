@@ -6,14 +6,9 @@ import at.petrak.hexcasting.api.casting.castables.SpecialHandler.Factory;
 import at.petrak.hexcasting.api.casting.eval.vm.CastingImage;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
-import at.petrak.hexcasting.api.casting.iota.IotaType;
 import at.petrak.hexcasting.api.utils.HexUtils;
-import at.petrak.hexcasting.api.utils.NBTHelper;
 import at.petrak.hexcasting.xplat.IXplatAbstractions;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import net.minecraft.nbt.StringNbtReader;
 import net.minecraft.registry.RegistryKey;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 
 import java.util.ArrayList;

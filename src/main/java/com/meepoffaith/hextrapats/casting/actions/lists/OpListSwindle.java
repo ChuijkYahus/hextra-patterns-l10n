@@ -6,7 +6,6 @@ import at.petrak.hexcasting.api.casting.iota.ListIota;
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota;
 import com.meepoffaith.hextrapats.casting.bases.ConstMediaActionBase;
 import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
-import net.minecraft.text.Text;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -34,9 +34,7 @@ public class Arithmetics{
         registerArithmetic("vec3bool", new Vec3BoolArithmetic());
         registerArithmetic("nummath", new NumArithmetic());
         registerArithmetic("vec3math", new Vec3Arithmetic());
-        registerArithmetic("numsetops", new NumSetArithmetic());
-        registerArithmetic("vecsetops", new VecSetArithmetic());
-        registerArithmetic("entitysetops", new EntitySetArithmetic());
+        registerArithmetic("setops", new SetArithmetic());
     }
 
     private static void registerArithmetic(

@@ -5,7 +5,14 @@ import at.petrak.hexcasting.api.casting.arithmetic.predicates.IotaPredicate;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.IotaType;
 
+import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.*;
+import static com.meepoffaith.hextrapats.init.IotaTypes.*;
+
 public class MultiPreds{
+    public static IotaMultiPredicate SET_OP = either3(pair(NUM_SET, DOUBLE), pair(VEC_SET, VEC3), pair(ENTITY_SET, ENTITY));
+    public static IotaMultiPredicate ALL_SETS = either3(all(NUM_SET), all(VEC_SET), all(ENTITY_SET));
+    public static IotaPredicate ANY_SET = IotaPredicate.or(IotaPredicate.ofType(NUM_SET), IotaPredicate.or(IotaPredicate.ofType(VEC_SET), IotaPredicate.ofType(ENTITY_SET)));
+
     public static IotaMultiPredicate all(IotaType<?> type){
         return IotaMultiPredicate.all(IotaPredicate.ofType(type));
     }
@@ -48,4 +55,6 @@ public class MultiPreds{
             return first.test(iotas) || second.test(iotas) || third.test(iotas);
         }
     }
+
+
 }

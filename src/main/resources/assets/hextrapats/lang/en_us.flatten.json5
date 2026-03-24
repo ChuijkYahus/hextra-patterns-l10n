@@ -249,12 +249,23 @@
       num_set: {
         "": "Set (Nums)",
         desc: "a number set"
+      },
+      vec_set: {
+        "": "Set (Vectors)",
+        desc: "a vector set"
+      },
+      entity_set: {
+        "": "Set (Entities)",
+        desc: "an entity set"
       }
     },
     mishap: {
       invalid_value: {
         class: {
-          num_set: "a set"
+          any_set: "any set",
+          num_set: "a number set",
+          vec_set: "a vector set",
+          entity_set: "an entity set"
         },
         "hextrapats:": {
           opposite_vecs: "vector not facing opposite to the start direction (%s)",
