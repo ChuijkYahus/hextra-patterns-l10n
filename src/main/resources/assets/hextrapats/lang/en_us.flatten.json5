@@ -100,8 +100,11 @@
       sets: {
         intro: "A hash set contains elements in an unordered fashion, and cannot contain duplicates. Excellent for keeping track of whether or not something exists.<br>Due to a magical process known as '$(thing)hashing/$', access is reduced to nearly O(1), relaxing the burden on Nature.",
         empty_num_set: "Push an empty set that can hold numbers to the top of the stack.",
+        last_n_num_set: "Remove $(italic)num/$ numbers from the top of the stack, then add them to a number set at the top of the stack.",
         empty_vec_set: "Push an empty set that can hold vectors to the top of the stack.",
+        last_n_vec_set: "Remove $(italic)num/$ vectors from the top of the stack, then add them to a vec set at the top of the stack.",
         empty_entity_set: "Push an empty set that can hold entities to the top of the stack.",
+        last_n_entity_set: "Remove $(italic)num/$ entities from the top of the stack, then add them to an entity set at the top of the stack.",
         insert: {
           name: "Insertion Distillation",
           "": "Remove the top of the stack, then add it to the set at the top of the stack."
@@ -193,10 +196,12 @@
         swindle_list: "Swindler's Distillation",
         scronglwfijspoivjqwofklcrvewb: "Shuffling Purification",
 
-        empty_num_set: "Vacant Refl.: Number Set",
-        empty_vec_set: "Vacant Refl.: Vector Set",
-        empty_entity_set: "Vacant Refl.: Entity Set",
-        last_n_set: "Bucket's Gambit",
+        empty_num_set: "Vacant Reflection: Number Set",
+        empty_vec_set: "Vacant Reflection: Vector Set",
+        empty_entity_set: "Vacant Reflection: Entity Set",
+        last_n_num_set: "Bucketing Gambit: Numbers",
+        last_n_vec_set: "Bucketing Gambit: Vectors",
+        last_n_entity_set: "Bucketing Gambit: Entities",
         splat_set: "Spilling Disintegration",
         set_insert_ret: "Insertion Gambit",
         set_remove_ret: "Removal Gambit",
@@ -233,7 +238,14 @@
           neq: "Comp. Gambit: Inequality",
           len_eq: "Comp. Gambit: Len. Eq.",
           len_neq: "Comp. Gambit: Len. Ineq."
-        }
+        },
+
+        empty_num_set: "Vacant Refl.: Num. Set",
+        empty_vec_set: "Vacant Refl.: Vec. Set",
+        empty_entity_set: "Vacant Refl.: Ent. Set",
+        last_n_num_set: "Bucketing Gamb.: Nums",
+        last_n_vec_set: "Bucketing Gamb.: Vecs",
+        last_n_entity_set: "Bucketing Gamb.: Ents"
       }
     },
     "special.hextrapats:": {
