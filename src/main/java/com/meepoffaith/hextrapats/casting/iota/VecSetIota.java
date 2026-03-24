@@ -14,8 +14,11 @@ import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class VecSetIota extends Iota{
@@ -63,6 +66,15 @@ public class VecSetIota extends Iota{
         NbtList list = new NbtList();
         for(Vec3d key : getSet()){
             list.add(HexUtils.serializeToNBT(key));
+        }
+        return list;
+    }
+
+    @Override
+    public @Nullable Iterable<Iota> subIotas(){
+        List<Iota> list = new ArrayList<>();
+        for(Vec3d key : getSet()){
+            list.add(new Vec3Iota(key));
         }
         return list;
     }

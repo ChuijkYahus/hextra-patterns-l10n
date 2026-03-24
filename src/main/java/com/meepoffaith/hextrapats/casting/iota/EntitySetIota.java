@@ -1,5 +1,7 @@
 package com.meepoffaith.hextrapats.casting.iota;
 
+import at.petrak.hexcasting.api.casting.SpellList.LList;
+import at.petrak.hexcasting.api.casting.iota.EntityIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.IotaType;
 import at.petrak.hexcasting.api.utils.HexUtils;
@@ -16,8 +18,11 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class EntitySetIota extends Iota{
@@ -68,6 +73,15 @@ public class EntitySetIota extends Iota{
             out.putUuid("uuid", key.getUuid());
             out.putString("name", Text.Serializer.toJson(getEntityNameWithInline(key, true)));
             list.add(out);
+        }
+        return list;
+    }
+
+    @Override
+    public @Nullable Iterable<Iota> subIotas(){
+        List<Iota> list = new ArrayList<>();
+        for(Entity key : getSet()){
+            list.add(new EntityIota(key));
         }
         return list;
     }
