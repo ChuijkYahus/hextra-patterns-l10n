@@ -28,9 +28,9 @@
         "out_range.ops": "The fourth number seems to describe how to check if the value is outside the range.$(li)0: val < min or max < val$(li)1: val <= min or max < val$(li)2: val < min or max <= val$(li)3: val <= min or max <= val"
       },
       nocon: {
-        intro: "Sometimes, I want operate on iotas after using them for logic operations, but it gets rather annoying to have to copy them every time I do and can place a heavy burden on Nature, especially with large iotas like lists where $(l:casting/mishaps)$(thing)stack size can be a concern/$.",
+        intro: "Sometimes, I want operate on iotas after using them for logic operations, but it gets rather annoying to have to copy them every time I do. All this copying also places a heavy burden on Nature, especially with large iotas like lists where $(l:casting/mishaps)$(thing)stack size can be a concern/$.",
         name: "Retention Gambit",
-        detail: "With some experimentation, I have found that prepending certain logic operations with a clockwise triangle will cause the two inputs to not be consumed.",
+        detail: "With some experimentation, I have found that prepending certain logic operations with a clockwise triangle will cause the inputs to not be consumed.",
       },
       vec_literals: {
         intro: "Interestingly, attaching the tail of any Vector Reflection to the start of $(l:patterns/numbers)$(action)Number Reflection/$ makes it return a vector.",
