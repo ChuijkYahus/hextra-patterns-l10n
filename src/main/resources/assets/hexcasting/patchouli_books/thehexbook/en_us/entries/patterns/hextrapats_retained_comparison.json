@@ -17,6 +17,14 @@
     },
     {
       "type": "hexcasting:pattern",
+      "op_id": "hextrapats:nocon/bool_coerce",
+      "anchor": "hextrapats:nocon/bool_coerce",
+      "input": "A",
+      "output": "A, bool",
+      "text": "hexcasting.page.logic.bool_coerce"
+    },
+    {
+      "type": "hexcasting:pattern",
       "op_id": "hextrapats:nocon/greater",
       "anchor": "hextrapats:nocon/greater",
       "input": "A, B",

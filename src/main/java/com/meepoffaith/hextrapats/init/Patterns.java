@@ -16,6 +16,7 @@ import com.meepoffaith.hextrapats.casting.actions.eval.OpConditionalEval;
 import com.meepoffaith.hextrapats.casting.actions.eval.OpConditionalHalt;
 import com.meepoffaith.hextrapats.casting.actions.eval.OpIndexForEach;
 import com.meepoffaith.hextrapats.casting.actions.lists.*;
+import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsumeBoolCoerce;
 import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsumeEquality;
 import com.meepoffaith.hextrapats.casting.actions.math.OpDegRad;
 import com.meepoffaith.hextrapats.casting.actions.math.OpRadDeg;
@@ -75,6 +76,7 @@ public class Patterns{
         register("del_element/all", "dedwqaeaqaw", HexDir.NORTH_EAST, new OpDelAllElement());
         register("swindle_list", "dqdeqaawddea", HexDir.WEST, new OpListSwindle());
 
+        register("nocon/bool_coerce", "ddaw", HexDir.SOUTH_EAST, new OpNoConsumeBoolCoerce());
         registerNoConsumeOp("nocon/greater", "ddwe", HexDir.WEST, Arithmetic.GREATER);
         registerNoConsumeOp("nocon/less", "ddeq", HexDir.WEST, Arithmetic.LESS);
         registerNoConsumeOp("nocon/greater_eq", "ddwee", HexDir.WEST, Arithmetic.GREATER_EQ);

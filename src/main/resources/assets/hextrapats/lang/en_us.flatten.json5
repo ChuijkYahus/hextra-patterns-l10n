@@ -179,6 +179,7 @@
         cons_about_z: "Roll Purification",
 
         "nocon/": {
+          bool_coerce: "Comparison Gambit: Augur's",
           greater: "Comparison Gambit: Maximus",
           less: "Comparison Gambit: Minimus",
           greater_eq: "Comparison Gambit: Maximus II",
@@ -213,7 +214,7 @@
         false_halt: "Styx's Gambit",
         true_eval: "Helios' Gambit",
         false_eval: "Selene's Gambit",
-        index_for_each: "Thoth's Gambit II"
+        index_for_each: "Djehuty's Gambit"
       },
 
       "book.hextrapats:": {
@@ -231,6 +232,7 @@
         decrement: "Decrementation Purif.",
 
         "nocon/": {
+          bool_coerce: "Comp. Gambit: Augur's",
           greater: "Comp. Gambit: Maximus",
           less: "Comp. Gambit: Minimus",
           greater_eq: "Comp. Gambit: Maximus II",
