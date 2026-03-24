@@ -112,7 +112,6 @@
           "": "Remove the top of the stack, then remove it from the set at the top of the stack."
         },
         remove_ret: "Remove the top of the stack, then remove it from the set at the top of the stack. Return True if it was previously in the set, otherwise return False.",
-        last_n_set: "Remove $(italic)num/$ elements from the stack, then add them to a set at the top of the stack.",
         splat_set: "Remove the set at the top of the stack, then push its contents to the stack. The order is up to Nature's whims.",
         find: {
           name: "Locator's Gambit",
@@ -123,7 +122,6 @@
         and: "Takes the intersection of two sets. The new set will only contain elements that were present in both of the previous sets.",
         xor: "Takes the exclusive disjunction of two sets. The new set will only contain elements that were present in only one of the two sets.",
         abs: "Remove the set at the top of the stack, then push the number of elements in the set to the stack.",
-        list_to_set: "Converts the list at the top of the stack to a set.",
         set_to_list: "Converts the set at the top of the stack to a list. The order is up to Nature's whims."
       },
       meta: {
