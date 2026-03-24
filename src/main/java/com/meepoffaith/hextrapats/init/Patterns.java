@@ -95,7 +95,7 @@ public class Patterns{
 
         register("true_eval", "deaqqaaqa", HexDir.SOUTH_EAST, new OpConditionalEval(true));
         register("false_eval", "deaqqdded", HexDir.SOUTH_EAST, new OpConditionalEval(false));
-        register("index_for_each", "dadaddww", HexDir.NORTH_EAST, new OpIndexForEach());
+        register("index_for_each", "dadaddqdq", HexDir.NORTH_EAST, new OpIndexForEach());
         register("true_halt", "aqdeedded", HexDir.SOUTH_WEST, new OpConditionalHalt(true));
         register("false_halt", "aqdeeaaqa", HexDir.SOUTH_WEST, new OpConditionalHalt(false));
 
