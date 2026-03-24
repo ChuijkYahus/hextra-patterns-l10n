@@ -87,9 +87,7 @@ public class Patterns{
         register("empty_num_set", "eedqddeeaqaa", HexDir.NORTH_WEST, new OpEmptyNumSet());
         register("empty_vec_set", "eedqddeeqqqqq", HexDir.NORTH_WEST, new OpEmptyVecSet());
         register("empty_entity_set", "eedqddeweaqa", HexDir.NORTH_WEST, new OpEmptyEntitySet());
-        register("last_n_set", "ewdwaawaqde", HexDir.SOUTH_WEST, new OpLastNToSet());
         register("splat_set", "qwawddwdeaq", HexDir.NORTH_WEST, new OpSplatSet());
-        register("list_to_set", "qqaeaadwaddqdee", HexDir.NORTH_EAST, new OpListToSet());
         register("set_to_list", "eedqddeqaaeaqq", HexDir.NORTH_WEST, new OpSetToList());
 
         register("true_eval", "deaqqaaqa", HexDir.SOUTH_EAST, new OpConditionalEval(true));
