@@ -9,6 +9,9 @@ import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import java.util.List;
 
 public class OpNoConsumeBoolCoerce extends ConstMediaActionBase{
+    public int argc = 1;
+    public long mediaCost = 0L;
+
     @Override
     public List<? extends Iota> execute(HexIotaStack stack, CastingEnvironment ctx){
         Iota iota = stack.get(0);
