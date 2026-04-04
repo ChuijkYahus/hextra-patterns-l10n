@@ -72,7 +72,7 @@ public class FrameMainForEach implements ContinuationFrame{
 
     @Override
     public @NotNull Pair<Boolean, List<Iota>> breakDownwards(@NotNull List<? extends Iota> stack){
-        return new Pair<>(true, List.of());
+        return new Pair<>(true, new ArrayList<>(stack));
     }
 
     @Override
