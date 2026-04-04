@@ -15,6 +15,7 @@ import com.meepoffaith.hextrapats.casting.actions.NoConsumeOperationAction;
 import com.meepoffaith.hextrapats.casting.actions.eval.OpConditionalEval;
 import com.meepoffaith.hextrapats.casting.actions.eval.OpConditionalHalt;
 import com.meepoffaith.hextrapats.casting.actions.eval.OpIndexForEach;
+import com.meepoffaith.hextrapats.casting.actions.eval.OpMainForEach;
 import com.meepoffaith.hextrapats.casting.actions.lists.*;
 import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsumeBoolCoerce;
 import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsumeEquality;
@@ -97,9 +98,11 @@ public class Patterns{
 
         register("true_eval", "deaqqaaqa", HexDir.SOUTH_EAST, new OpConditionalEval(true));
         register("false_eval", "deaqqdded", HexDir.SOUTH_EAST, new OpConditionalEval(false));
-        register("index_for_each", "dadaddqdq", HexDir.NORTH_EAST, new OpIndexForEach());
         register("true_halt", "aqdeedded", HexDir.SOUTH_WEST, new OpConditionalHalt(true));
         register("false_halt", "aqdeeaaqa", HexDir.SOUTH_WEST, new OpConditionalHalt(false));
+        register("index_for_each", "dadaddqdq", HexDir.NORTH_EAST, new OpIndexForEach());
+        register("main_for_each", "aawdadad", HexDir.WEST, new OpMainForEach(false));
+        register("main_index_for_each", "aawdadaddqdq", HexDir.WEST, new OpMainForEach(true));
 
         registerSpecialHandler("scaled_vec_x", SCALED_VEC_X);
         registerSpecialHandler("scaled_vec_y", SCALED_VEC_Y);

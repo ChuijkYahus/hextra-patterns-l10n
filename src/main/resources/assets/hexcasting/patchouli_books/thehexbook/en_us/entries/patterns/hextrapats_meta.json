@@ -45,6 +45,22 @@
       "input": "[pattern], list",
       "output": "list",
       "text": "hextrapats.page.meta.index_for_each"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:main_for_each",
+      "anchor": "hextrapats:main_for_each",
+      "input": "many, [pattern], list",
+      "output": "many",
+      "text": "hextrapats.page.meta.main_for_each"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:main_index_for_each",
+      "anchor": "hextrapats:main_index_for_each",
+      "input": "many, [pattern], list",
+      "output": "many",
+      "text": "hextrapats.page.meta.main_index_for_each"
     }
   ]
 }

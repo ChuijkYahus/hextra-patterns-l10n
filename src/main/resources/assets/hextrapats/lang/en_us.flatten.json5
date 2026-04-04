@@ -133,7 +133,9 @@
         false_halt: "Forcibly halts a $(thing)Hex/$ like $(l:patterns/meta#hexcasting:halt)$(action)Charon's Gambit/$ if the iota at the top of the stack is $(l:patterns/logic#hexcasting:bool_coerce)$(thing)considered $(action)False $(thing)by Nature/$.",
         true_eval: "Casts a pattern or list of patterns like $(l:patterns/meta#hexcasting:eval)$(action)Hermes' Gambit/$ if the next iota from the top of the stack is $(l:patterns/logic#hexcasting:bool_coerce)$(thing)considered $(action)True $(thing)by Nature/$.",
         false_eval: "Casts a pattern or list of patterns like $(l:patterns/meta#hexcasting:eval)$(action)Hermes' Gambit/$ if the next iota from the top of the stack is $(l:patterns/logic#hexcasting:bool_coerce)$(thing)considered $(action)False $(thing)by Nature/$.",
-        index_for_each: "Casts like $(l:patterns/meta#hexcasting:for_each)$(action)Thoth's Gambit/$, however the new stack for each element additionally has the index of that element added to the top."
+        index_for_each: "Casts like $(l:patterns/meta#hexcasting:for_each)$(action)Thoth's Gambit/$, however the new stack for each element additionally has the index of that element added to the top.",
+        main_for_each: "Casts like $(l:patterns/meta#hexcasting:for_each)$(action)Thoth's Gambit/$, however each sub-execution operates on the main stack instead of copies of the stack.",
+        main_index_for_each: "Casts like $(l:patterns/hextrapats_meta#hextrapats:index_for_each)$(action)Djehuty's Gambit/$, however each sub-execution operates on the main stack instead of copies of the stack."
       }
     }
   },
@@ -214,7 +216,9 @@
         false_halt: "Styx's Gambit",
         true_eval: "Helios' Gambit",
         false_eval: "Selene's Gambit",
-        index_for_each: "Djehuty's Gambit"
+        index_for_each: "Djehuty's Gambit",
+        main_for_each: "Osiris' Gambit",
+        main_index_for_each: "Anubis' Gambit"
       },
 
       "book.hextrapats:": {
