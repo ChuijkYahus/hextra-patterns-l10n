@@ -1,7 +1,6 @@
 package com.meepoffaith.hextrapats.casting.actions.sets;
 
 import at.petrak.hexcasting.api.casting.OperatorUtils;
-import at.petrak.hexcasting.api.casting.arithmetic.operator.Operator;
 import at.petrak.hexcasting.api.casting.castables.Action;
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment;
 import at.petrak.hexcasting.api.casting.eval.OperationResult;
@@ -17,8 +16,6 @@ import com.meepoffaith.hextrapats.util.HextraUtils;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
-
-import static at.petrak.hexcasting.common.lib.hex.HexIotaTypes.DOUBLE;
 
 public class OpLastNNumSet implements Action{
     @Override

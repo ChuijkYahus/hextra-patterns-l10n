@@ -7,7 +7,6 @@ import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota.DoubleSet;
 
-import java.util.HashSet;
 import java.util.List;
 
 public class OpEmptyNumSet extends ConstMediaActionBase{

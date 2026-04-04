@@ -11,7 +11,6 @@ import com.meepoffaith.hextrapats.casting.iota.VecSetIota;
 import com.meepoffaith.hextrapats.casting.iota.VecSetIota.VecSet;
 import com.meepoffaith.hextrapats.util.AnySet;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Set;

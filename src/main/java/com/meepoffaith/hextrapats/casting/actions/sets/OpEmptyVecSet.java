@@ -7,7 +7,6 @@ import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.iota.VecSetIota;
 import com.meepoffaith.hextrapats.casting.iota.VecSetIota.VecSet;
 
-import java.util.HashSet;
 import java.util.List;
 
 public class OpEmptyVecSet extends ConstMediaActionBase{

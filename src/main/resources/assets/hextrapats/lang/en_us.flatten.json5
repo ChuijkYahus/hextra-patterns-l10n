@@ -217,8 +217,8 @@
         true_eval: "Helios' Gambit",
         false_eval: "Selene's Gambit",
         index_for_each: "Djehuty's Gambit",
-        main_for_each: "Osiris' Gambit",
-        main_index_for_each: "Anubis' Gambit"
+        main_for_each: "Anubis' Gambit",
+        main_index_for_each: "Osiris' Gambit"
       },
 
       "book.hextrapats:": {

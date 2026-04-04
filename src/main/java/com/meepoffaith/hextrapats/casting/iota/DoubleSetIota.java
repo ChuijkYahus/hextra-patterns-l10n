@@ -1,11 +1,9 @@
 package com.meepoffaith.hextrapats.casting.iota;
 
-import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.IotaType;
 import at.petrak.hexcasting.api.utils.HexUtils;
 import com.meepoffaith.hextrapats.util.MathUtils;
-import it.unimi.dsi.fastutil.doubles.DoubleSet;
 import net.minecraft.nbt.NbtDouble;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
@@ -13,9 +11,8 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.*;
+import java.util.HashSet;
 
 public class DoubleSetIota extends Iota{
     public DoubleSetIota(@NotNull DoubleSet payload){

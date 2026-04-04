@@ -1,6 +1,5 @@
 package com.meepoffaith.hextrapats.casting.iota;
 
-import at.petrak.hexcasting.api.casting.SpellList.LList;
 import at.petrak.hexcasting.api.casting.iota.EntityIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.IotaType;
