@@ -7,10 +7,13 @@ import at.petrak.hexcasting.api.casting.eval.vm.*;
 import at.petrak.hexcasting.api.casting.iota.DoubleIota;
 import at.petrak.hexcasting.api.casting.iota.Iota;
 import at.petrak.hexcasting.api.casting.iota.ListIota;
+import at.petrak.hexcasting.api.utils.HexUtils;
 import at.petrak.hexcasting.common.lib.hex.HexEvalSounds;
+import at.petrak.hexcasting.common.lib.hex.HexIotaTypes;
 import com.meepoffaith.hextrapats.util.HextraUtils;
 import kotlin.Pair;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.server.world.ServerWorld;
 import org.jetbrains.annotations.NotNull;
 
@@ -68,22 +71,32 @@ public class FrameMainForEach implements ContinuationFrame{
     }
 
     @Override
-    public @NotNull Pair<Boolean, List<Iota>> breakDownwards(@NotNull List<? extends Iota> list){
-        return null;
+    public @NotNull Pair<Boolean, List<Iota>> breakDownwards(@NotNull List<? extends Iota> stack){
+        return new Pair<>(true, List.of());
     }
 
     @Override
     public @NotNull NbtCompound serializeToNBT(){
-        return null;
+        var tag = new NbtCompound();
+        tag.put("data", HexUtils.serializeToNBT(data));
+        tag.put("code", HexUtils.serializeToNBT(code));
+        tag.putInt("index", index);
+        return tag;
     }
 
     @Override
     public int size(){
-        return 0;
+        return data.size() + code.size();
     }
 
     @Override
     public @NotNull Type<?> getType(){
-        return null;
+        return TYPE;
     }
+
+    public static ContinuationFrame.Type<FrameMainForEach> TYPE = (tag, world) -> new FrameMainForEach(
+        HexIotaTypes.LIST.deserialize(tag.getList("data", NbtElement.COMPOUND_TYPE), world).getList(),
+        HexIotaTypes.LIST.deserialize(tag.getList("code", NbtElement.COMPOUND_TYPE), world).getList(),
+        tag.getInt("index")
+    );
 }

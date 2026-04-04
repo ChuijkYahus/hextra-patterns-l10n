@@ -16,7 +16,6 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.server.world.ServerWorld;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -119,21 +118,18 @@ public class FrameIndexForEach implements ContinuationFrame{
         return TYPE;
     }
 
-    public static ContinuationFrame.Type<FrameIndexForEach> TYPE = new ContinuationFrame.Type<FrameIndexForEach>(){
-        @Override
-        public @Nullable FrameIndexForEach deserializeFromNBT(@NotNull NbtCompound tag, @NotNull ServerWorld world){
-            List<Iota> baseStack = null;
-            if(tag.contains("base")){
-                baseStack = HextraUtils.handroll(HexIotaTypes.LIST.deserialize(tag.getList("base", NbtElement.COMPOUND_TYPE), world).getList());
-            }
-
-            return new FrameIndexForEach(
-                HexIotaTypes.LIST.deserialize(tag.getList("data", NbtElement.COMPOUND_TYPE), world).getList(),
-                HexIotaTypes.LIST.deserialize(tag.getList("code", NbtElement.COMPOUND_TYPE), world).getList(),
-                baseStack,
-                tag.getInt("index"),
-                HextraUtils.handroll(HexIotaTypes.LIST.deserialize(tag.getList("accumulator", NbtElement.COMPOUND_TYPE), world).getList())
-            );
+    public static ContinuationFrame.Type<FrameIndexForEach> TYPE = (tag, world) -> {
+        List<Iota> baseStack = null;
+        if(tag.contains("base")){
+            baseStack = HextraUtils.handroll(HexIotaTypes.LIST.deserialize(tag.getList("base", NbtElement.COMPOUND_TYPE), world).getList());
         }
+
+        return new FrameIndexForEach(
+            HexIotaTypes.LIST.deserialize(tag.getList("data", NbtElement.COMPOUND_TYPE), world).getList(),
+            HexIotaTypes.LIST.deserialize(tag.getList("code", NbtElement.COMPOUND_TYPE), world).getList(),
+            baseStack,
+            tag.getInt("index"),
+            HextraUtils.handroll(HexIotaTypes.LIST.deserialize(tag.getList("accumulator", NbtElement.COMPOUND_TYPE), world).getList())
+        );
     };
 }
