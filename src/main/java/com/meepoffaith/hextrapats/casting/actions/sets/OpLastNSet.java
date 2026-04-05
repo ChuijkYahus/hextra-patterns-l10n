@@ -41,7 +41,7 @@ public class OpLastNSet extends ConstMediaActionBase{
         }else if(start instanceof EntityIota){
             out = bucketEnts(stack, yoinkCount);
         }else{
-            throw MishapInvalidIota.of(start, 2, "hextrapats:not_set_item");
+            throw MishapInvalidIota.of(start, 1, "hextrapats:not_set_item");
         }
 
         stack = stack.subList(0, stack.size() - 1 - yoinkCount);
