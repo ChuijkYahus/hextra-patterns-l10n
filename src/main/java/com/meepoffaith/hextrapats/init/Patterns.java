@@ -93,6 +93,7 @@ public class Patterns{
         register("last_n_set", "ewdwaawaqde", HexDir.SOUTH_WEST, new OpLastNSet());
         register("splat_set", "qwawddwdeaq", HexDir.NORTH_WEST, new OpSplatSet());
         register("set_to_list", "eedqddeqaaeaqq", HexDir.NORTH_WEST, new OpSetToList());
+        register("list_to_set", "qqaeaadwaddqdee", HexDir.NORTH_EAST, new OpListToSet());
 
         register("true_eval", "deaqqaaqa", HexDir.SOUTH_EAST, new OpConditionalEval(true));
         register("false_eval", "deaqqdded", HexDir.SOUTH_EAST, new OpConditionalEval(false));
