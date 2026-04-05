@@ -37,18 +37,6 @@ public class DoubleSetIota extends Iota{
         return getSet().size();
     }
 
-    public boolean contains(double key){
-        return getSet().contains(key);
-    }
-
-    public boolean add(double key){
-        return getSet().add(key);
-    }
-
-    public boolean remove(double key){
-        return getSet().remove(key);
-    }
-
     @Override
     protected boolean toleratesOther(Iota that){
         return that instanceof DoubleSetIota ds && ds.getSet().equals(getSet());
@@ -62,17 +50,6 @@ public class DoubleSetIota extends Iota{
         }
         return list;
     }
-
-    /* Likely unnecessary, handled by size()
-    @Override
-    public @Nullable Iterable<Iota> subIotas(){
-        List<Iota> list = new ArrayList<>();
-        for(double key : getSet()){
-            list.add(new DoubleIota(key));
-        }
-        return list;
-    }
-     */
 
     public static IotaType<DoubleSetIota> TYPE = new IotaType<>(){
         @Override

@@ -40,18 +40,6 @@ public class VecSetIota extends Iota{
         return getSet().size();
     }
 
-    public boolean contains(Vec3d key){
-        return getSet().contains(key);
-    }
-
-    public boolean add(Vec3d key){
-        return getSet().add(key);
-    }
-
-    public boolean remove(Vec3d key){
-        return getSet().remove(key);
-    }
-
     @Override
     protected boolean toleratesOther(Iota that){
         return that instanceof VecSetIota vs && vs.getSet().equals(getSet());
@@ -65,17 +53,6 @@ public class VecSetIota extends Iota{
         }
         return list;
     }
-
-    /* Likely unnecessary, handled by size()
-    @Override
-    public @Nullable Iterable<Iota> subIotas(){
-        List<Iota> list = new ArrayList<>();
-        for(Vec3d key : getSet()){
-            list.add(new Vec3Iota(key));
-        }
-        return list;
-    }
-     */
 
     public static IotaType<VecSetIota> TYPE = new IotaType<>(){
         @Override

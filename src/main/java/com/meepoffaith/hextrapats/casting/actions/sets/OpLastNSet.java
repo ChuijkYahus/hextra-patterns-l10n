@@ -13,16 +13,17 @@ import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota;
 import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughArgs;
 import at.petrak.hexcasting.common.lib.hex.HexEvalSounds;
 import com.meepoffaith.hextrapats.casting.bases.ConstMediaActionBase;
-import com.meepoffaith.hextrapats.casting.bases.HexIotaStack;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota;
 import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota.DoubleSet;
 import com.meepoffaith.hextrapats.casting.iota.EntitySetIota;
 import com.meepoffaith.hextrapats.casting.iota.VecSetIota;
 import com.meepoffaith.hextrapats.casting.iota.VecSetIota.VecSet;
 import com.meepoffaith.hextrapats.util.HextraUtils;
+import net.minecraft.entity.Entity;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class OpLastNSet extends ConstMediaActionBase{
     @Override
@@ -52,26 +53,26 @@ public class OpLastNSet extends ConstMediaActionBase{
     }
 
     public DoubleSetIota bucketNums(List<Iota> stack, int yoinkCount){
-        DoubleSetIota out = new DoubleSetIota(new DoubleSet());
+        DoubleSet set = new DoubleSet();
         for(int i = 0; i < yoinkCount; i++){
-            out.add(OperatorUtils.getDouble(stack, stack.size() - 2 - i, stack.size()));
+            set.add(OperatorUtils.getDouble(stack, stack.size() - 2 - i, stack.size()));
         }
-        return out;
+        return new DoubleSetIota(set);
     }
 
     public VecSetIota bucketVecs(List<Iota> stack, int yoinkCount){
-        VecSetIota out = new VecSetIota(new VecSet());
+        VecSet set = new VecSet();
         for(int i = 0; i < yoinkCount; i++){
-            out.add(OperatorUtils.getVec3(stack, stack.size() - 2 - i, stack.size()));
+            set.add(OperatorUtils.getVec3(stack, stack.size() - 2 - i, stack.size()));
         }
-        return out;
+        return new VecSetIota(set);
     }
 
     public EntitySetIota bucketEnts(List<Iota> stack, int yoinkCount){
-        EntitySetIota out = new EntitySetIota(new HashSet<>());
+        Set<Entity> set = new HashSet<>();
         for(int i = 0; i < yoinkCount; i++){
-            out.add(OperatorUtils.getEntity(stack, stack.size() - 2 - i, stack.size()));
+            set.add(OperatorUtils.getEntity(stack, stack.size() - 2 - i, stack.size()));
         }
-        return out;
+        return new EntitySetIota(set);
     }
 }

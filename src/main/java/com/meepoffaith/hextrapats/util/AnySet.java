@@ -41,7 +41,7 @@ public class AnySet{
         }else if(vecSetIota != null){
             return vecs.apply(vecSetIota.getMutableSet());
         }else if(entitySetIota != null){
-            return entitySets.apply(entitySetIota.getSet());
+            return entitySets.apply(entitySetIota.getMutableSet());
         }else{
             throw new IllegalStateException("how did we get here");
         }

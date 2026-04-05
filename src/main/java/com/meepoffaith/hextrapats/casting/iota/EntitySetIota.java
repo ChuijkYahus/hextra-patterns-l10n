@@ -47,18 +47,6 @@ public class EntitySetIota extends Iota{
         return getSet().size();
     }
 
-    public boolean contains(Entity key){
-        return getSet().contains(key);
-    }
-
-    public boolean add(Entity key){
-        return getSet().add(key);
-    }
-
-    public boolean remove(Entity key){
-        return getSet().remove(key);
-    }
-
     @Override
     protected boolean toleratesOther(Iota that){
         return that instanceof EntitySetIota es && es.getSet().equals(getSet());
