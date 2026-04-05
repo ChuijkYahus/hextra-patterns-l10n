@@ -24,27 +24,11 @@
     },
     {
       "type": "hexcasting:pattern",
-      "op_id": "hextrapats:last_n_num_set",
-      "anchor": "hextrapats:last_n_num_set",
-      "input": "many nums, num",
-      "output": "num set",
-      "text": "hextrapats.page.sets.last_n_num_set"
-    },
-    {
-      "type": "hexcasting:pattern",
       "op_id": "hextrapats:empty_vec_set",
       "anchor": "hextrapats:empty_vec_set",
       "input": "",
       "output": "vec set",
       "text": "hextrapats.page.sets.empty_vec_set"
-    },
-    {
-      "type": "hexcasting:pattern",
-      "op_id": "hextrapats:last_n_vec_set",
-      "anchor": "hextrapats:last_n_vec_set",
-      "input": "many vecs, num",
-      "output": "vec set",
-      "text": "hextrapats.page.sets.last_n_vec_set"
     },
     {
       "type": "hexcasting:pattern",
@@ -55,12 +39,7 @@
       "text": "hextrapats.page.sets.empty_entity_set"
     },
     {
-      "type": "hexcasting:pattern",
-      "op_id": "hextrapats:last_n_entity_set",
-      "anchor": "hextrapats:last_n_entity_set",
-      "input": "many entities, num",
-      "output": "entity set",
-      "text": "hextrapats.page.sets.last_n_entity_set"
+      "type": "patchouli:empty"
     },
     {
       "type": "hexcasting:pattern",
@@ -152,6 +131,14 @@
       "input": "set",
       "output": "list",
       "text": "hextrapats.page.sets.set_to_list"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:last_n_set",
+      "anchor": "hextrapats:last_n_set",
+      "input": "many, num",
+      "output": "set",
+      "text": "hextrapats.page.sets.last_n_set"
     },
     {
       "type": "hexcasting:pattern",
