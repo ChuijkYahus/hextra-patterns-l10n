@@ -23,6 +23,7 @@ import com.meepoffaith.hextrapats.casting.actions.math.OpDegRad;
 import com.meepoffaith.hextrapats.casting.actions.math.OpRadDeg;
 import com.meepoffaith.hextrapats.casting.actions.math.OpRandRange;
 import com.meepoffaith.hextrapats.casting.actions.math.OpRandZero;
+import com.meepoffaith.hextrapats.casting.actions.queryentity.OpBodyYaw;
 import com.meepoffaith.hextrapats.casting.actions.sets.*;
 import com.meepoffaith.hextrapats.casting.actions.vecmath.OpFromPolar;
 import com.meepoffaith.hextrapats.casting.actions.vecmath.OpRandVec;
@@ -102,6 +103,8 @@ public class Patterns{
         register("index_for_each", "dadaddqdq", HexDir.NORTH_EAST, new OpIndexForEach());
         register("main_for_each", "aawdadad", HexDir.WEST, new OpMainForEach(false));
         register("main_index_for_each", "aawdadaddqdq", HexDir.WEST, new OpMainForEach(true));
+
+        register("get_entity_yaw", "waa", HexDir.EAST, new OpBodyYaw());
 
         registerSpecialHandler("scaled_vec_x", SCALED_VEC_X);
         registerSpecialHandler("scaled_vec_y", SCALED_VEC_Y);

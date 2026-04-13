@@ -15,6 +15,6 @@ public class OpDegRad extends ConstMediaActionBase{
     @Override
     public List<? extends Iota> execute(HexIotaStack stack, CastingEnvironment ctx){
         double x = stack.getDouble(0);
-        return asActionResult(new DoubleIota(x * Math.PI / 180.0));
+        return asActionResult(new DoubleIota(Math.toRadians(x)));
     }
 }
