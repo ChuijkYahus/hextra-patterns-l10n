@@ -1,0 +1,66 @@
+{
+  "name": "pages.hextrapats.hextrapats_meta.title",
+  "category": "hexcasting:patterns",
+  "icon": "minecraft:dragon_egg",
+  "sortnum": 12,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:true_eval",
+      "anchor": "hextrapats:true_eval",
+      "input": "any, ([pattern] | pattern)",
+      "output": "many",
+      "text": "hextrapats.page.meta.true_eval"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:false_eval",
+      "anchor": "hextrapats:false_eval",
+      "input": "any, ([pattern] | pattern)",
+      "output": "many",
+      "text": "hextrapats.page.meta.false_eval"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:true_halt",
+      "anchor": "hextrapats:true_halt",
+      "input": "any",
+      "output": "",
+      "text": "hextrapats.page.meta.true_halt"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:false_halt",
+      "anchor": "hextrapats:false_halt",
+      "input": "any",
+      "output": "",
+      "text": "hextrapats.page.meta.false_halt"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:index_for_each",
+      "anchor": "hextrapats:index_for_each",
+      "input": "[pattern], list",
+      "output": "list",
+      "text": "hextrapats.page.meta.index_for_each"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:main_for_each",
+      "anchor": "hextrapats:main_for_each",
+      "input": "many, [pattern], list",
+      "output": "many",
+      "text": "hextrapats.page.meta.main_for_each"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hextrapats:main_index_for_each",
+      "anchor": "hextrapats:main_index_for_each",
+      "input": "many, [pattern], list",
+      "output": "many",
+      "text": "hextrapats.page.meta.main_index_for_each"
+    }
+  ]
+}
