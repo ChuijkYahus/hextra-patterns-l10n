@@ -7,7 +7,7 @@ plugins {
 	id("net.fabricmc.fabric-loom-remap")
 	`maven-publish`
 	id("org.jetbrains.kotlin.jvm") version "2.3.20"
-	id("at.petra-k.pkpcpbp.PKJson5Plugin") version properties["pkpcpbp_ver"]
+	id("at.petra-k.pkpcpbp.PKJson5Plugin") version "0.2.0-pre-95"
 }
 
 pkJson5 {
@@ -15,8 +15,8 @@ pkJson5 {
 	autoProcessJson5Flattening = true
 }
 
-version = properties["mod_version"]
-group = properties["maven_group"]
+version = providers.gradleProperty("mod_version").get()
+group = providers.gradleProperty("maven_group").get()
 
 repositories {
 	// Add repositories to retrieve artifacts from in here.
