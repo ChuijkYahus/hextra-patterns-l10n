@@ -8,6 +8,7 @@ __gradle_version__.py
 build
 .gradle
 .gradle/
+.kotlin/
 build/
 out/
 classes/
