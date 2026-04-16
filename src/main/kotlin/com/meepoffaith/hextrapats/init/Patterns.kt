@@ -1,6 +1,7 @@
 package com.meepoffaith.hextrapats.init
 
 import at.petrak.hexcasting.api.casting.ActionRegistryEntry
+import at.petrak.hexcasting.api.casting.arithmetic.Arithmetic
 import at.petrak.hexcasting.api.casting.castables.Action
 import at.petrak.hexcasting.api.casting.castables.OperationAction
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler
@@ -13,11 +14,12 @@ import com.meepoffaith.hextrapats.casting.actions.NoConsOperationAction
 import com.meepoffaith.hextrapats.casting.actions.eval.OpConditionalEval
 import com.meepoffaith.hextrapats.casting.actions.eval.OpConditionalHalt
 import com.meepoffaith.hextrapats.casting.actions.lists.*
+import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsBoolCoerce
+import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsEquality
 import net.minecraft.registry.Registry
 
 
 object Patterns {
-    /*
     val ROT_ABOUT_X = register("rot_about_x", "aaqqqqqea", HexDir.SOUTH_WEST)
     val ROT_ABOUT_Y = register("rot_about_x", "aaqqqqqew", HexDir.SOUTH_WEST)
     val ROT_ABOUT_Z = register("rot_about_x", "aaqqqqqed", HexDir.SOUTH_WEST)
@@ -37,7 +39,6 @@ object Patterns {
     val ANGLE_APPROACH = register("angle_approach", "awdaqqqqqwd", HexDir.NORTH_EAST)
     val SET_INSERT_RET = register("set_insert_ret", "edqdewd", HexDir.SOUTH_WEST )
     val SET_REMOVE_RET = register("set_remove_ret", "edqdewaqaaed", HexDir.SOUTH_WEST)
-     */
 
     fun init(){
         register("split_list", "wdedqqa", HexDir.EAST, OpSplitList())
@@ -45,6 +46,16 @@ object Patterns {
         register("del_element/all", "dedwqaeaqaw", HexDir.NORTH_EAST, OpDeleteAll())
         register("swindle_list", "dqdeqaawddea", HexDir.WEST, OpListSwindle())
         register("scronglwfijspoivjqwofklcrvewb", "ddedqdaqwdwaqawdwqaqww", HexDir.EAST, OpShuffle())
+
+        register("nocon/bool_coerce", "ddaw", HexDir.SOUTH_EAST, OpNoConsBoolCoerce())
+        registerNoConsumeOp("nocon/greater", "ddwe", HexDir.WEST, Arithmetic.GREATER, 2)
+        registerNoConsumeOp("nocon/less", "ddeq", HexDir.WEST, Arithmetic.LESS, 2)
+        registerNoConsumeOp("nocon/greater_eq", "ddwee", HexDir.WEST, Arithmetic.GREATER_EQ, 2)
+        registerNoConsumeOp("nocon/less_eq", "ddeqq", HexDir.WEST, Arithmetic.LESS_EQ, 2)
+        registerNoConsumeOp("nocon/len_eq", "ddqadqqaqw", HexDir.WEST, LEN_EQ, 2)
+        registerNoConsumeOp("nocon/len_neq", "ddqdaeedew", HexDir.WEST, LEN_NEQ, 2)
+        register("nocon/eq", "ddqad", HexDir.WEST, OpNoConsEquality(false))
+        register("nocon/neq", "ddqda", HexDir.WEST, OpNoConsEquality(true))
 
         register("true_eval", "deaqqaaqa", HexDir.SOUTH_EAST, OpConditionalEval(true))
         register("false_eval", "deaqqdded", HexDir.SOUTH_EAST, OpConditionalEval(false))
