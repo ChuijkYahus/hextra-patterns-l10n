@@ -21,8 +21,8 @@ import net.minecraft.registry.Registry
 
 object Patterns {
     val ROT_ABOUT_X = register("rot_about_x", "aaqqqqqea", HexDir.SOUTH_WEST)
-    val ROT_ABOUT_Y = register("rot_about_x", "aaqqqqqew", HexDir.SOUTH_WEST)
-    val ROT_ABOUT_Z = register("rot_about_x", "aaqqqqqed", HexDir.SOUTH_WEST)
+    val ROT_ABOUT_Y = register("rot_about_y", "aaqqqqqew", HexDir.SOUTH_WEST)
+    val ROT_ABOUT_Z = register("rot_about_z", "aaqqqqqed", HexDir.SOUTH_WEST)
     val CONSTRUCT_ABOUT_X = register("cons_about_x", "daqqqqqea", HexDir.NORTH_WEST)
     val CONSTRUCT_ABOUT_Y = register("cons_about_y", "daqqqqqew", HexDir.NORTH_WEST)
     val CONSTRUCT_ABOUT_Z = register("cons_about_z", "daqqqqqed", HexDir.NORTH_WEST)
