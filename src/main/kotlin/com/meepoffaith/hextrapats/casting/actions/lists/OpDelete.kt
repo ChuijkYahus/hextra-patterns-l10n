@@ -12,7 +12,19 @@ class OpDelete : ConstMediaAction {
     override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
         val list = args.getList(0, argc).toMutableList()
         val value = args[1]
-        val deleted = list.remove(value)
+
+        var deleted = false
+        var i = 0
+        while(i < list.size){
+            if(Iota.tolerates(list[i], value)){
+                list.removeAt(i)
+                deleted = true
+                break
+            }else{
+                i++
+            }
+        }
+
         return listOf(ListIota(list), BooleanIota(deleted))
     }
 }
