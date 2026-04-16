@@ -101,14 +101,10 @@ object Patterns {
         return pattern
     }
 
-    private fun <T : SpecialHandler> registerSpecialHandler(name: String, handler: SpecialHandler.Factory<T>){
-        Registry.register(IXplatAbstractions.INSTANCE.specialHandlerRegistry, HextraPats.modLoc(name), handler);
-    }
-
     private fun registerNoConsumeOp(name: String, signature: String, startDir: HexDir, copied: HexPattern, argc: Int){
         val pattern = HexPattern.fromAngles(signature, startDir)
         Registry.register(HexActions.REGISTRY, HextraPats.modLoc(name),
-            ActionRegistryEntry(pattern, NoConsOperationAction(pattern, argc))
+            ActionRegistryEntry(pattern, NoConsOperationAction(copied, argc))
         )
     }
 }
