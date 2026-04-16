@@ -16,7 +16,7 @@
 	"entrypoints": {
 		"main": [
 			{
-				"value": "com.meepoffaith.Hextrapats",
+				"value": "com.meepoffaith.hextrapats.HextraPats",
 				"adapter": "kotlin"
 			}
 		],
