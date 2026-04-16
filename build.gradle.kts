@@ -7,7 +7,7 @@ plugins {
 	id("net.fabricmc.fabric-loom-remap")
 	`maven-publish`
 	id("org.jetbrains.kotlin.jvm") version "2.3.20"
-	id("at.petra-k.pkpcpbp.PKJson5Plugin") version "0.2.0-pre-95"
+	id("at.petra-k.pkpcpbp.PKJson5Plugin") version properties["pkpcpbp_ver"]
 }
 
 pkJson5 {
@@ -15,8 +15,8 @@ pkJson5 {
 	autoProcessJson5Flattening = true
 }
 
-version = providers.gradleProperty("mod_version").get()
-group = providers.gradleProperty("maven_group").get()
+version = properties["mod_version"]
+group = properties["maven_group"]
 
 repositories {
 	// Add repositories to retrieve artifacts from in here.
@@ -47,24 +47,24 @@ loom {
 
 dependencies {
 	// To change the versions see the gradle.properties file
-	minecraft("com.mojang:minecraft:${providers.gradleProperty("minecraft_version").get()}")
-	mappings("net.fabricmc:yarn:${providers.gradleProperty("yarn_mappings").get()}:v2")
-	modImplementation("net.fabricmc:fabric-loader:${providers.gradleProperty("loader_version").get()}")
+	minecraft("com.mojang:minecraft:${properties["minecraft_version"]}")
+	mappings("net.fabricmc:yarn:${properties["yarn_mappings"]}:v2")
+	modImplementation("net.fabricmc:fabric-loader:${properties["loader_version"]}")
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation("net.fabricmc.fabric-api:fabric-api:${providers.gradleProperty("fabric_api_version").get()}")
-	modImplementation("net.fabricmc:fabric-language-kotlin:${providers.gradleProperty("fabric_kotlin_version").get()}")
+	modImplementation("net.fabricmc.fabric-api:fabric-api:${properties["fabric_api_version"]}")
+	modImplementation("net.fabricmc:fabric-language-kotlin:${properties["fabric_kotlin_version"]}")
 
 	// Hex casting
-	modImplementation ("at.petra-k.hexcasting:hexcasting-fabric-${providers.gradleProperty("minecraft_version").get()}:${providers.gradleProperty("hexcasting_version").get()}") {
+	modImplementation ("at.petra-k.hexcasting:hexcasting-fabric-${properties["minecraft_version"]}:${properties["hexcasting_version"]}") {
 		exclude( "phosphor")
 		exclude("lithium")
 		exclude("emi")
 	}
-	modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${providers.gradleProperty("cca_version").get()}")
-	modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${providers.gradleProperty("cca_version").get()}")
-	modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-item:${providers.gradleProperty("cca_version").get()}")
-	modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-block:${providers.gradleProperty("cca_version").get()}")
+	modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${properties["cca_version"]}")
+	modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${properties["cca_version"]}")
+	modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-item:${properties["cca_version"]}")
+	modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-block:${properties["cca_version"]}")
 	modImplementation("at.petra-k:paucal:0.6.1-pre-7+1.20.1-fabric")
 	modImplementation("vazkii.patchouli:Patchouli:1.20.1-84.1-FABRIC")
 	modImplementation("com.samsthenerd.inline:inline-fabric:1.20.1-1.2.2-12")
