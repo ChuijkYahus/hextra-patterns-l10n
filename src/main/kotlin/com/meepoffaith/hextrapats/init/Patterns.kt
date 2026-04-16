@@ -4,12 +4,10 @@ import at.petrak.hexcasting.api.casting.ActionRegistryEntry
 import at.petrak.hexcasting.api.casting.arithmetic.Arithmetic
 import at.petrak.hexcasting.api.casting.castables.Action
 import at.petrak.hexcasting.api.casting.castables.OperationAction
-import at.petrak.hexcasting.api.casting.castables.SpecialHandler
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota
 import at.petrak.hexcasting.api.casting.math.HexDir
 import at.petrak.hexcasting.api.casting.math.HexPattern
 import at.petrak.hexcasting.common.lib.hex.HexActions
-import at.petrak.hexcasting.xplat.IXplatAbstractions
 import com.meepoffaith.hextrapats.HextraPats
 import com.meepoffaith.hextrapats.casting.actions.NoConsOperationAction
 import com.meepoffaith.hextrapats.casting.actions.eval.OpConditionalEval
