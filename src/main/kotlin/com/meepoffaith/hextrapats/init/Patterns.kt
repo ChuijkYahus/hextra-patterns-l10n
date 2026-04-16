@@ -12,7 +12,9 @@ import com.meepoffaith.hextrapats.HextraPats
 import com.meepoffaith.hextrapats.casting.actions.NoConsOperationAction
 import com.meepoffaith.hextrapats.casting.actions.eval.OpConditionalEval
 import com.meepoffaith.hextrapats.casting.actions.eval.OpConditionalHalt
+import com.meepoffaith.hextrapats.casting.actions.lists.*
 import net.minecraft.registry.Registry
+
 
 object Patterns {
     /*
@@ -38,6 +40,12 @@ object Patterns {
      */
 
     fun init(){
+        register("split_list", "wdedqqa", HexDir.EAST, OpSplitList())
+        register("del_element/first", "dedwqaeaqa", HexDir.NORTH_EAST, OpDelete())
+        register("del_element/all", "dedwqaeaqaw", HexDir.NORTH_EAST, OpDeleteAll())
+        register("swindle_list", "dqdeqaawddea", HexDir.WEST, OpListSwindle())
+        register("scronglwfijspoivjqwofklcrvewb", "ddedqdaqwdwaqawdwqaqww", HexDir.EAST, OpShuffle())
+
         register("true_eval", "deaqqaaqa", HexDir.SOUTH_EAST, OpConditionalEval(true))
         register("false_eval", "deaqqdded", HexDir.SOUTH_EAST, OpConditionalEval(false))
         register("true_halt", "aqdeedded", HexDir.SOUTH_WEST, OpConditionalHalt(true))
