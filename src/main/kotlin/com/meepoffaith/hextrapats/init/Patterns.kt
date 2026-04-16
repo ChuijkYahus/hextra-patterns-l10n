@@ -5,6 +5,7 @@ import at.petrak.hexcasting.api.casting.arithmetic.Arithmetic
 import at.petrak.hexcasting.api.casting.castables.Action
 import at.petrak.hexcasting.api.casting.castables.OperationAction
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler
+import at.petrak.hexcasting.api.casting.iota.Vec3Iota
 import at.petrak.hexcasting.api.casting.math.HexDir
 import at.petrak.hexcasting.api.casting.math.HexPattern
 import at.petrak.hexcasting.common.lib.hex.HexActions
@@ -16,7 +17,16 @@ import com.meepoffaith.hextrapats.casting.actions.eval.OpConditionalHalt
 import com.meepoffaith.hextrapats.casting.actions.lists.*
 import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsBoolCoerce
 import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsEquality
+import com.meepoffaith.hextrapats.casting.actions.math.OpDegRad
+import com.meepoffaith.hextrapats.casting.actions.math.OpRadDeg
+import com.meepoffaith.hextrapats.casting.actions.math.OpRandRange
+import com.meepoffaith.hextrapats.casting.actions.math.OpRandZero
+import com.meepoffaith.hextrapats.casting.actions.vecmath.OpFromPolar
+import com.meepoffaith.hextrapats.casting.actions.vecmath.OpRandVec
+import com.meepoffaith.hextrapats.casting.actions.vecmath.OpToPolar
+import com.meepoffaith.hextrapats.casting.actions.vecmath.OpVecDist
 import net.minecraft.registry.Registry
+import net.minecraft.util.math.Vec3d
 
 
 object Patterns {
@@ -41,6 +51,20 @@ object Patterns {
     val SET_REMOVE_RET = register("set_remove_ret", "edqdewaqaaed", HexDir.SOUTH_WEST)
 
     fun init(){
+        register("deg_to_rad", "qqqqqdwdq", HexDir.WEST, OpDegRad())
+        register("rad_to_deg", "qdwdqqqqq", HexDir.NORTH_EAST, OpRadDeg())
+        register("rand_zero", "dedqeqqq", HexDir.EAST, OpRandRange())
+        register("rand_range", "eeeqeqqq", HexDir.SOUTH_WEST, OpRandZero())
+
+        register("rand_vec", "eeeeeqeqqq", HexDir.EAST, OpRandVec())
+        register("vec_dist", "aqqqqqeqeeeeed", HexDir.EAST, OpVecDist())
+        register("from_polar", "eqqadaqa", HexDir.EAST, OpFromPolar())
+        register("to_polar", "qedadeed", HexDir.EAST, OpToPolar())
+
+        //Come on, Elise!
+        register("haha_ha_one", "qqqqqeq", HexDir.NORTH_WEST, Action.makeConstantOp(Vec3Iota(Vec3d(1.0, 1.0, 1.0))))
+        register("eno_ah_ahah", "eeeeeqq", HexDir.SOUTH_WEST, Action.makeConstantOp(Vec3Iota(Vec3d(-1.0, -1.0, -1.0))))
+
         register("split_list", "wdedqqa", HexDir.EAST, OpSplitList())
         register("del_element/first", "dedwqaeaqa", HexDir.NORTH_EAST, OpDelete())
         register("del_element/all", "dedwqaeaqaw", HexDir.NORTH_EAST, OpDeleteAll())
