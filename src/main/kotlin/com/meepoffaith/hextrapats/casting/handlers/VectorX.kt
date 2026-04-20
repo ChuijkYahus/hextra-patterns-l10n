@@ -1,4 +1,4 @@
-package com.meepoffaith.hextrapats.casting.actions.handlers
+package com.meepoffaith.hextrapats.casting.handlers
 
 import at.petrak.hexcasting.api.HexAPI
 import at.petrak.hexcasting.api.casting.castables.Action
@@ -11,37 +11,37 @@ import at.petrak.hexcasting.api.casting.math.HexPattern
 import at.petrak.hexcasting.api.utils.asTranslatedComponent
 import at.petrak.hexcasting.api.utils.lightPurple
 import at.petrak.hexcasting.xplat.IXplatAbstractions
-import com.ibm.icu.impl.ValidIdentifiers
 import com.meepoffaith.hextrapats.init.SpecialHandlers
 import com.meepoffaith.hextrapats.util.HextraUtils
 import com.meepoffaith.hextrapats.util.HextraUtils.numericalReflection
+import com.sun.tools.javac.tree.TreeInfo.args
 import net.minecraft.text.Text
 import net.minecraft.util.math.Vec3d
 
-class VectorY(val y: Double) : SpecialHandler{
+class VectorX(val x: Double) : SpecialHandler{
     override fun act(): Action{
-        return InnerAction(y)
+        return InnerAction(x)
     }
 
     override fun getName(): Text{
-        val num = Action.DOUBLE_FORMATTER.format(y)
-        return HextraUtils.specialHandlerLang(SpecialHandlers.VEC_Y).asTranslatedComponent(num).lightPurple
+        val num = Action.DOUBLE_FORMATTER.format(x)
+        return HextraUtils.specialHandlerLang(SpecialHandlers.VEC_X).asTranslatedComponent(num).lightPurple
     }
 
-    class InnerAction(val y: Double) : ConstMediaAction{
+    class InnerAction(val x: Double) : ConstMediaAction{
         override val argc = 0
         override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
-            return listOf(Vec3Iota(Vec3d(0.0, y, 0.0)))
+            return listOf(Vec3Iota(Vec3d(x, 0.0, 0.0)))
         }
     }
 
-    class Factory : SpecialHandler.Factory<VectorY>{
-        override fun tryMatch(pattern: HexPattern, env: CastingEnvironment): VectorY? {
+    class Factory : SpecialHandler.Factory<VectorX>{
+        override fun tryMatch(pattern: HexPattern, env: CastingEnvironment): VectorX? {
             val sig = pattern.anglesSignature()
-            if(sig.startsWith("weaqaa") || sig.startsWith("wqdedd")){
+            if(sig.startsWith("aeaqaa") || sig.startsWith("aqdedd")){
                 val num = numericalReflection(sig.substring(6)) *
-                        (if (sig.startsWith("wqdedd")) -1.0 else 1.0)
-                return VectorY(num)
+                        (if (sig.startsWith("aqdedd")) -1.0 else 1.0)
+                return VectorX(num)
             } else {
                 return null
             }

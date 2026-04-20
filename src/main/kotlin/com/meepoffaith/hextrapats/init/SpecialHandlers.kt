@@ -3,11 +3,11 @@ package com.meepoffaith.hextrapats.init
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler
 import at.petrak.hexcasting.xplat.IXplatAbstractions
 import com.meepoffaith.hextrapats.HextraPats
-import com.meepoffaith.hextrapats.casting.actions.handlers.ScientificExponent
-import com.meepoffaith.hextrapats.casting.actions.handlers.Vector1
-import com.meepoffaith.hextrapats.casting.actions.handlers.VectorX
-import com.meepoffaith.hextrapats.casting.actions.handlers.VectorY
-import com.meepoffaith.hextrapats.casting.actions.handlers.VectorZ
+import com.meepoffaith.hextrapats.casting.handlers.ScientificExponent
+import com.meepoffaith.hextrapats.casting.handlers.Vector1
+import com.meepoffaith.hextrapats.casting.handlers.VectorX
+import com.meepoffaith.hextrapats.casting.handlers.VectorY
+import com.meepoffaith.hextrapats.casting.handlers.VectorZ
 import net.minecraft.registry.Registry
 
 object SpecialHandlers {

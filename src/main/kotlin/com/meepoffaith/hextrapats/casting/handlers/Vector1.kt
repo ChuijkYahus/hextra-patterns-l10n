@@ -1,4 +1,4 @@
-package com.meepoffaith.hextrapats.casting.actions.handlers
+package com.meepoffaith.hextrapats.casting.handlers
 
 import at.petrak.hexcasting.api.HexAPI
 import at.petrak.hexcasting.api.casting.castables.Action
@@ -18,30 +18,31 @@ import com.sun.tools.javac.tree.TreeInfo.args
 import net.minecraft.text.Text
 import net.minecraft.util.math.Vec3d
 
-class VectorX(val x: Double) : SpecialHandler{
+
+class Vector1(val x: Double) : SpecialHandler{
     override fun act(): Action{
         return InnerAction(x)
     }
 
     override fun getName(): Text{
         val num = Action.DOUBLE_FORMATTER.format(x)
-        return HextraUtils.specialHandlerLang(SpecialHandlers.VEC_X).asTranslatedComponent(num).lightPurple
+        return HextraUtils.specialHandlerLang(SpecialHandlers.VEC_1).asTranslatedComponent(num, num, num).lightPurple
     }
 
     class InnerAction(val x: Double) : ConstMediaAction{
         override val argc = 0
         override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
-            return listOf(Vec3Iota(Vec3d(x, 0.0, 0.0)))
+            return listOf(Vec3Iota(Vec3d(x, x, x)))
         }
     }
 
-    class Factory : SpecialHandler.Factory<VectorX>{
-        override fun tryMatch(pattern: HexPattern, env: CastingEnvironment): VectorX? {
+    class Factory : SpecialHandler.Factory<Vector1>{
+        override fun tryMatch(pattern: HexPattern, env: CastingEnvironment): Vector1? {
             val sig = pattern.anglesSignature()
-            if(sig.startsWith("aeaqaa") || sig.startsWith("aqdedd")){
+            if (sig.startsWith("qeaqaa") || sig.startsWith("qqdedd")){
                 val num = numericalReflection(sig.substring(6)) *
-                        (if (sig.startsWith("aqdedd")) -1.0 else 1.0)
-                return VectorX(num)
+                        (if (sig.startsWith("qqdedd")) -1.0 else 1.0)
+                return Vector1(num)
             } else {
                 return null
             }

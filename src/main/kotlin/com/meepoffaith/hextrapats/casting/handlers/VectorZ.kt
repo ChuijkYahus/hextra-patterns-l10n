@@ -1,4 +1,4 @@
-package com.meepoffaith.hextrapats.casting.actions.handlers
+package com.meepoffaith.hextrapats.casting.handlers
 
 import at.petrak.hexcasting.api.HexAPI
 import at.petrak.hexcasting.api.casting.castables.Action
