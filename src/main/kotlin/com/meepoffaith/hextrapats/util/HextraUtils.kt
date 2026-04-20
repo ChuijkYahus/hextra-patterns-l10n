@@ -4,6 +4,7 @@ import at.petrak.hexcasting.api.HexAPI
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler
 import at.petrak.hexcasting.api.casting.iota.DoubleIota
 import at.petrak.hexcasting.api.utils.asTranslatedComponent
+import at.petrak.hexcasting.api.utils.lightPurple
 import at.petrak.hexcasting.xplat.IXplatAbstractions
 import net.minecraft.registry.RegistryKey
 import net.minecraft.text.Text

@@ -65,9 +65,9 @@ dependencies {
 	modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${properties["cca_version"]}")
 	modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-item:${properties["cca_version"]}")
 	modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-block:${properties["cca_version"]}")
-	modImplementation("at.petra-k:paucal:0.6.1-pre-7+1.20.1-fabric")
+	modImplementation("at.petra-k.paucal:paucal-fabric-${properties["minecraft_version"]}:${properties["paucal_version"]}")
 	modImplementation("vazkii.patchouli:Patchouli:1.20.1-84.1-FABRIC")
-	modImplementation("com.samsthenerd.inline:inline-fabric:1.20.1-1.2.2-12")
+	modImplementation("com.samsthenerd.inline:inline-fabric:${properties["minecraft_version"]}-${properties["inline_version"]}")
 	modApi("me.shedaniel.cloth:cloth-config-fabric:11.1.136")
 	modLocalRuntime("io.github.tropheusj:serialization-hooks:0.4.99999")
 }
