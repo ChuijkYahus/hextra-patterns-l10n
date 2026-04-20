@@ -1,5 +1,6 @@
 package com.meepoffaith.hextrapats.casting.handlers
 
+import at.petrak.hexcasting.api.casting.asActionResult
 import at.petrak.hexcasting.api.casting.castables.Action
 import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler
@@ -32,10 +33,10 @@ class ScientificExponent(val exp: Int) : SpecialHandler{
         override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
             val arg = args.getNumOrVec(0, argc)
             val pow = 10.0.pow(exp)
-            return listOf(arg.map(
-                { num -> DoubleIota(num * pow) },
-                { vec -> Vec3Iota(Vec3d(vec.x * pow, vec.y * pow, vec.z * pow)) }
-            ))
+            return arg.map(
+                { num -> (num * pow).asActionResult },
+                { vec -> Vec3d(vec.x * pow, vec.y * pow, vec.z * pow).asActionResult }
+            )
         }
     }
 

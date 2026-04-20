@@ -1,6 +1,7 @@
 package com.meepoffaith.hextrapats.casting.handlers
 
 import at.petrak.hexcasting.api.HexAPI
+import at.petrak.hexcasting.api.casting.asActionResult
 import at.petrak.hexcasting.api.casting.castables.Action
 import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler
@@ -32,7 +33,7 @@ class Vector1(val x: Double) : SpecialHandler{
     class InnerAction(val x: Double) : ConstMediaAction{
         override val argc = 0
         override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
-            return listOf(Vec3Iota(Vec3d(x, x, x)))
+            return Vec3d(x, x, x).asActionResult
         }
     }
 

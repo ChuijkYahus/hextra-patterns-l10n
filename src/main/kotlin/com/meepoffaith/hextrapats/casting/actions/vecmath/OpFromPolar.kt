@@ -1,5 +1,6 @@
 package com.meepoffaith.hextrapats.casting.actions.vecmath
 
+import at.petrak.hexcasting.api.casting.asActionResult
 import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
 import at.petrak.hexcasting.api.casting.getDouble
@@ -19,6 +20,6 @@ class OpFromPolar : ConstMediaAction {
         val g = sin(yaw - Math.PI)
         val h = -cos(pitch)
         val i = sin(pitch)
-        return listOf(Vec3Iota(Vec3d(g * h, i, f * h)))
+        return Vec3d(g * h, i, f * h).asActionResult
     }
 }
