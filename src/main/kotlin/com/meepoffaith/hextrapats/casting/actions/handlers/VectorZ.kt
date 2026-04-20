@@ -9,6 +9,7 @@ import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota
 import at.petrak.hexcasting.api.casting.math.HexPattern
 import at.petrak.hexcasting.api.utils.asTranslatedComponent
+import at.petrak.hexcasting.api.utils.lightPurple
 import at.petrak.hexcasting.xplat.IXplatAbstractions
 import com.meepoffaith.hextrapats.init.SpecialHandlers
 import com.meepoffaith.hextrapats.util.HextraUtils
@@ -23,7 +24,7 @@ class VectorZ(val z: Double) : SpecialHandler{
 
     override fun getName(): Text{
         val num = Action.DOUBLE_FORMATTER.format(z)
-        return HextraUtils.specialHandlerLang(SpecialHandlers.VEC_Z, num)
+        return HextraUtils.specialHandlerLang(SpecialHandlers.VEC_Z).asTranslatedComponent(num).lightPurple
     }
 
     class InnerAction(val z: Double) : ConstMediaAction{

@@ -3,11 +3,7 @@ package com.meepoffaith.hextrapats.util
 import at.petrak.hexcasting.api.HexAPI
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler
 import at.petrak.hexcasting.api.casting.iota.DoubleIota
-import at.petrak.hexcasting.api.utils.asTranslatedComponent
-import at.petrak.hexcasting.api.utils.lightPurple
 import at.petrak.hexcasting.xplat.IXplatAbstractions
-import net.minecraft.registry.RegistryKey
-import net.minecraft.text.Text
 
 
 object HextraUtils {
@@ -36,8 +32,8 @@ object HextraUtils {
         return a <= b || DoubleIota.tolerates(a, b)
     }
 
-    fun specialHandlerLang(handler: SpecialHandler.Factory<*>, vararg args: Any): Text {
+    fun specialHandlerLang(handler: SpecialHandler.Factory<*>): String {
         val key = IXplatAbstractions.INSTANCE.specialHandlerRegistry.getKey(handler).get()
-        return HexAPI.instance().getSpecialHandlerI18nKey(key).asTranslatedComponent(args).lightPurple
+        return HexAPI.instance().getSpecialHandlerI18nKey(key)
     }
 }

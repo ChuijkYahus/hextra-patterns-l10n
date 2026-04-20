@@ -9,10 +9,12 @@ import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota
 import at.petrak.hexcasting.api.casting.math.HexPattern
 import at.petrak.hexcasting.api.utils.asTranslatedComponent
+import at.petrak.hexcasting.api.utils.lightPurple
 import at.petrak.hexcasting.xplat.IXplatAbstractions
 import com.meepoffaith.hextrapats.init.SpecialHandlers
 import com.meepoffaith.hextrapats.util.HextraUtils
 import com.meepoffaith.hextrapats.util.HextraUtils.numericalReflection
+import com.sun.tools.javac.tree.TreeInfo.args
 import net.minecraft.text.Text
 import net.minecraft.util.math.Vec3d
 
@@ -24,7 +26,7 @@ class Vector1(val x: Double) : SpecialHandler{
 
     override fun getName(): Text{
         val num = Action.DOUBLE_FORMATTER.format(x)
-        return HextraUtils.specialHandlerLang(SpecialHandlers.VEC_1, num, num, num)
+        return HextraUtils.specialHandlerLang(SpecialHandlers.VEC_1).asTranslatedComponent(num, num, num).lightPurple
     }
 
     class InnerAction(val x: Double) : ConstMediaAction{
