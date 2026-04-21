@@ -1,6 +1,7 @@
 package com.meepoffaith.hextrapats
 
 import com.meepoffaith.hextrapats.init.Arithmetics
+import com.meepoffaith.hextrapats.init.ContinuationTypes
 import com.meepoffaith.hextrapats.init.Patterns
 import com.meepoffaith.hextrapats.init.SpecialHandlers
 import net.fabricmc.api.ModInitializer
@@ -18,6 +19,7 @@ object HextraPats : ModInitializer {
 		// Proceed with mild caution.
 		LOGGER.info("Is anyone there? Hello? I'm trAPPED IN HERE AND CAN'T GET OUT H E L P !")
 
+		ContinuationTypes.init()
 		Patterns.init()
 		SpecialHandlers.init()
 		Arithmetics.init()

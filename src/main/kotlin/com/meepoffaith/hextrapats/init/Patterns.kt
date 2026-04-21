@@ -12,6 +12,7 @@ import com.meepoffaith.hextrapats.HextraPats
 import com.meepoffaith.hextrapats.casting.actions.NoConsOperationAction
 import com.meepoffaith.hextrapats.casting.actions.eval.OpConditionalEval
 import com.meepoffaith.hextrapats.casting.actions.eval.OpConditionalHalt
+import com.meepoffaith.hextrapats.casting.actions.eval.OpForEachIndex
 import com.meepoffaith.hextrapats.casting.actions.lists.*
 import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsBoolCoerce
 import com.meepoffaith.hextrapats.casting.actions.logic.OpNoConsEquality
@@ -83,6 +84,7 @@ object Patterns {
         register("false_eval", "deaqqdded", HexDir.SOUTH_EAST, OpConditionalEval(false))
         register("true_halt", "aqdeedded", HexDir.SOUTH_WEST, OpConditionalHalt(true))
         register("false_halt", "aqdeeaaqa", HexDir.SOUTH_WEST, OpConditionalHalt(false))
+        register("index_for_each", "dadaddqdq", HexDir.NORTH_EAST, OpForEachIndex())
     }
 
     private fun register(name: String, signature: String, startDir: HexDir, action: Action){
