@@ -105,7 +105,5 @@ class EntitySetIota(payload: Set<Entity>) : Iota(TYPE, payload) {
             }
             return baseName.append(Text.literal(": ")).append(inlineEnt)
         }
-
-        fun Set<Entity>.asActionResult(): List<Iota> = listOf(EntitySetIota(this))
     }
 }

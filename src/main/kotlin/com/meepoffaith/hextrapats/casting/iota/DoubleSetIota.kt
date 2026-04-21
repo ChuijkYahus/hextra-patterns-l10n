@@ -5,7 +5,6 @@ import at.petrak.hexcasting.api.casting.iota.IotaType
 import at.petrak.hexcasting.api.utils.darkGreen
 import at.petrak.hexcasting.api.utils.downcast
 import at.petrak.hexcasting.api.utils.green
-import com.meepoffaith.hextrapats.util.MathUtils
 import net.minecraft.nbt.NbtDouble
 import net.minecraft.nbt.NbtElement
 import net.minecraft.nbt.NbtList
@@ -68,25 +67,6 @@ class DoubleSetIota(payload: DoubleSet) : Iota(TYPE, payload) {
             override fun color(): Int {
                 return 0x00AA00
             }
-        }
-
-        class DoubleSet : HashSet<Double> {
-            constructor(): super()
-            constructor(set: DoubleSet) : super(set)
-
-            override fun add(e: Double): Boolean {
-                return super.add(MathUtils.roundToTolerance(e))
-            }
-
-            override fun contains(o: Double): Boolean {
-                return super.contains(MathUtils.roundToTolerance(o))
-            }
-
-            override fun remove(o: Double): Boolean {
-                return super.remove(MathUtils.roundToTolerance(o))
-            }
-
-            fun asActionResult() : List<Iota> = listOf(DoubleSetIota(this))
         }
     }
 }

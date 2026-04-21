@@ -2,9 +2,7 @@ package com.meepoffaith.hextrapats.util
 
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
-import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota
-import com.meepoffaith.hextrapats.casting.iota.EntitySetIota
-import com.meepoffaith.hextrapats.casting.iota.VecSetIota
+import com.meepoffaith.hextrapats.casting.iota.*
 import net.minecraft.entity.Entity
 import java.util.function.Function
 
@@ -23,8 +21,8 @@ class AnySet{
     }
 
     fun operate(
-        doubles: Function<DoubleSetIota.Companion.DoubleSet, List<Iota>>,
-        vecs: Function<VecSetIota.Companion.VecSet, List<Iota>>,
+        doubles: Function<DoubleSet, List<Iota>>,
+        vecs: Function<VecSet, List<Iota>>,
         entites: Function<Set<Entity>, List<Iota>>
     ) : List<Iota> {
         return if(doubleSetIota != null){

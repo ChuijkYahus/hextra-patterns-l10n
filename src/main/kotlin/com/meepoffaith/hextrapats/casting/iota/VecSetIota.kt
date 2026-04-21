@@ -4,7 +4,6 @@ import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.iota.IotaType
 import at.petrak.hexcasting.api.casting.iota.Vec3Iota
 import at.petrak.hexcasting.api.utils.*
-import com.meepoffaith.hextrapats.util.MathUtils
 import net.minecraft.nbt.NbtCompound
 import net.minecraft.nbt.NbtElement
 import net.minecraft.nbt.NbtList
@@ -72,25 +71,6 @@ class VecSetIota(payload: VecSet) : Iota(TYPE, payload) {
             vecFromNBT(tag.downcast(NbtLongArray.TYPE).asLongArray)
         }else{
             vecFromNBT(tag.downcast(NbtCompound.TYPE))
-        }
-
-        class VecSet : HashSet<Vec3d> {
-            constructor(): super()
-            constructor(set: VecSet) : super(set)
-
-            override fun add(e: Vec3d): Boolean {
-                return super.add(MathUtils.roundToTolerance(e))
-            }
-
-            override fun contains(o: Vec3d): Boolean {
-                return super.contains(MathUtils.roundToTolerance(o))
-            }
-
-            override fun remove(o: Vec3d): Boolean {
-                return super.remove(MathUtils.roundToTolerance(o))
-            }
-
-            fun asActionResult(): List<Iota> = listOf(VecSetIota(this))
         }
     }
 }
