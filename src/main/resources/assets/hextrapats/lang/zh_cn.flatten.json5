@@ -248,9 +248,11 @@
           len_neq: "留项之策略：长度不等"
         },
 
-        empty_num_set: "空无之精思：数集合",
-        empty_vec_set: "空无之精思：向量集合",
-        empty_entity_set: "空无之精思：实体集合"
+        "empty_set/": {
+          num: "空无之精思：数集合",
+          vec: "空无之精思：向量集合",
+          entity: "空无之精思：实体集合"
+        },
       }
     },
     "special.hextrapats:": {

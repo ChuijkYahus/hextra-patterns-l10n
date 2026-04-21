@@ -248,9 +248,11 @@
           len_neq: "Ret. Gambit: Len. Ineq."
         },
 
-        empty_num_set: "Vacant Refl.: Num. Set",
-        empty_vec_set: "Vacant Refl.: Vec. Set",
-        empty_entity_set: "Vacant Refl.: Ent. Set"
+        "empty_set/": {
+          num: "Vacant Refl.: Num. Set",
+          vec: "Vacant Refl.: Vec. Set",
+          entity: "Vacant Refl.: Ent. Set"
+        },
       }
     },
     "special.hextrapats:": {

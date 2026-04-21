@@ -16,27 +16,27 @@
     },
     {
       "type": "hexcasting:pattern",
-      "op_id": "hextrapats:empty_num_set",
-      "anchor": "hextrapats:empty_num_set",
+      "op_id": "hextrapats:empty_set/num",
+      "anchor": "hextrapats:empty_set/num",
       "input": "",
       "output": "num set",
-      "text": "hextrapats.page.sets.empty_num_set"
+      "text": "hextrapats.page.sets.empty_set/num"
     },
     {
       "type": "hexcasting:pattern",
-      "op_id": "hextrapats:empty_vec_set",
-      "anchor": "hextrapats:empty_vec_set",
+      "op_id": "hextrapats:empty_set/vec",
+      "anchor": "hextrapats:empty_set/vec",
       "input": "",
       "output": "vec set",
-      "text": "hextrapats.page.sets.empty_vec_set"
+      "text": "hextrapats.page.sets.empty_set/vec"
     },
     {
       "type": "hexcasting:pattern",
-      "op_id": "hextrapats:empty_entity_set",
-      "anchor": "hextrapats:empty_entity_set",
+      "op_id": "hextrapats:empty_set/entity",
+      "anchor": "hextrapats:empty_set/entity",
       "input": "",
       "output": "entity set",
-      "text": "hextrapats.page.sets.empty_entity_set"
+      "text": "hextrapats.page.sets.empty_set/entity"
     },
     {
       "type": "patchouli:empty"
