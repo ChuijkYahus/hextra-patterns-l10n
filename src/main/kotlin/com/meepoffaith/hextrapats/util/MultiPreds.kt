@@ -9,15 +9,15 @@ object MultiPreds {
         return IotaMultiPredicate.all(IotaPredicate.ofType(type))
     }
 
-    fun pair(first: IotaType<*>, second: IotaType<*>): IotaMultiPredicate? {
+    fun pair(first: IotaType<*>, second: IotaType<*>): IotaMultiPredicate{
         return IotaMultiPredicate.pair(IotaPredicate.ofType(first), IotaPredicate.ofType(second))
     }
 
-    fun pair(first: IotaType<*>, second: IotaType<*>, third: IotaType<*>): IotaMultiPredicate? {
+    fun triple(first: IotaType<*>, second: IotaType<*>, third: IotaType<*>): IotaMultiPredicate{
         return IotaMultiPredicate.triple(IotaPredicate.ofType(first), IotaPredicate.ofType(second), IotaPredicate.ofType(third))
     }
 
-    fun any(needs: IotaType<*>, fallback: IotaType<*>): IotaMultiPredicate? {
+    fun any(needs: IotaType<*>, fallback: IotaType<*>): IotaMultiPredicate{
         return IotaMultiPredicate.any(IotaPredicate.ofType(needs), IotaPredicate.ofType(fallback))
     }
 }

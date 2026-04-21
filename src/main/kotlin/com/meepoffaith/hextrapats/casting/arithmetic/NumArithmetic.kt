@@ -38,16 +38,14 @@ class NumArithmetic : Arithmetic {
 
     override fun opTypes() = OPS
 
-    override fun getOperator(pattern: HexPattern): Operator {
-        return when(pattern){
-            INVERT -> make1{ d -> -d }
-            INCREMENT -> make1{ d -> d + 1 }
-            DECREMENT -> make1{ d -> d - 1 }
-            APPROACH -> OperatorApproach()
-            ANGLE_DIST -> make2{ a, b -> MathUtils.angleDist(a, b) }
-            ANGLE_APPROACH -> OperatorTurn()
-            else -> throw InvalidOperatorException("$pattern is not a valid operator in Arithmetic $this.")
-        }
+    override fun getOperator(pattern: HexPattern): Operator = when(pattern){
+        INVERT -> make1{ d -> -d }
+        INCREMENT -> make1{ d -> d + 1 }
+        DECREMENT -> make1{ d -> d - 1 }
+        APPROACH -> OperatorApproach()
+        ANGLE_DIST -> make2{ a, b -> MathUtils.angleDist(a, b) }
+        ANGLE_APPROACH -> OperatorTurn()
+        else -> throw InvalidOperatorException("$pattern is not a valid operator in Arithmetic $this.")
     }
 
     //Directly taken from DoubleArithmetic.kt.
@@ -57,12 +55,5 @@ class NumArithmetic : Arithmetic {
     { i: Iota -> DoubleIota(op.applyAsDouble(Operator.downcast(i, DOUBLE).double)) }
 
     fun make2(op: DoubleBinaryOperator) = OperatorBinary(ACCEPTS)
-    { i: Iota, j: Iota ->
-        DoubleIota(
-            op.applyAsDouble(
-                Operator.downcast(i, DOUBLE).double,
-                Operator.downcast(j, DOUBLE).double
-            )
-        )
-    }
+    { i: Iota, j: Iota -> DoubleIota(op.applyAsDouble(Operator.downcast(i, DOUBLE).double, Operator.downcast(j, DOUBLE).double)) }
 }

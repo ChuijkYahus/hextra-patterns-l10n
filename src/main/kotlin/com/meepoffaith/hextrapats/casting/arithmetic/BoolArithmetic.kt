@@ -20,7 +20,7 @@ class BoolArithmetic : Arithmetic {
 
     override fun opTypes() = OPS
 
-    override fun getOperator(pattern: HexPattern?): Operator? = when(pattern){
+    override fun getOperator(pattern: HexPattern?): Operator = when(pattern){
         IN_RANGE -> OperatorInRange()
         OUT_RANGE -> OperatorOutRange()
         else -> throw InvalidOperatorException("$pattern is not a valid operator in Bool Arithmetic $this.")
