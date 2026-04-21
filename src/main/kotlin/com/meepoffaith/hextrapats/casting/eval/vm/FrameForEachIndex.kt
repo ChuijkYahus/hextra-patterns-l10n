@@ -19,7 +19,7 @@ import net.minecraft.nbt.NbtCompound
 import net.minecraft.nbt.NbtElement
 import net.minecraft.server.world.ServerWorld
 
-data class FrameIndexForEach(
+data class FrameForEachIndex(
     val data: SpellList,
     val code: SpellList,
     val baseStack: List<Iota>?,
@@ -60,7 +60,7 @@ data class FrameIndexForEach(
             // push the next datum to the top of the stack,
             val cont2 = continuation
                 // put the next Thoth object back on the stack for the next Thoth cycle,
-                .pushFrame(FrameIndexForEach(data.cdr, code, stack, index + 1, acc))
+                .pushFrame(FrameForEachIndex(data.cdr, code, stack, index + 1, acc))
                 // and prep the Thoth'd code block for evaluation.
                 .pushFrame(FrameEvaluate(code, true))
             tStack.add(data.car)
@@ -110,9 +110,9 @@ data class FrameIndexForEach(
 
     companion object {
         @JvmField
-        val TYPE: ContinuationFrame.Type<FrameIndexForEach> = object : ContinuationFrame.Type<FrameIndexForEach> {
-            override fun deserializeFromNBT(tag: NbtCompound, world: ServerWorld): FrameIndexForEach {
-                return FrameIndexForEach(
+        val TYPE: ContinuationFrame.Type<FrameForEachIndex> = object : ContinuationFrame.Type<FrameForEachIndex> {
+            override fun deserializeFromNBT(tag: NbtCompound, world: ServerWorld): FrameForEachIndex {
+                return FrameForEachIndex(
                     HexIotaTypes.LIST.deserialize(tag.getList("data", NbtElement.COMPOUND_TYPE), world)!!.list,
                     HexIotaTypes.LIST.deserialize(tag.getList("code", NbtElement.COMPOUND_TYPE), world)!!.list,
                     if (tag.hasList("base", NbtElement.COMPOUND_TYPE))

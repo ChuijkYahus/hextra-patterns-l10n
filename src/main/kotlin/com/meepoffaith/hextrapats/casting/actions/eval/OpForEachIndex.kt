@@ -8,7 +8,7 @@ import at.petrak.hexcasting.api.casting.eval.vm.SpellContinuation
 import at.petrak.hexcasting.api.casting.getList
 import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughArgs
 import at.petrak.hexcasting.common.lib.hex.HexEvalSounds
-import com.meepoffaith.hextrapats.casting.eval.vm.FrameIndexForEach
+import com.meepoffaith.hextrapats.casting.eval.vm.FrameForEachIndex
 
 //1:1 copy of OpForEach but it calls FrameForEachIndex instead
 class OpForEachIndex : Action {
@@ -23,7 +23,7 @@ class OpForEachIndex : Action {
         stack.removeLastOrNull()
         stack.removeLastOrNull()
 
-        val frame = FrameIndexForEach(datums, instrs)
+        val frame = FrameForEachIndex(datums, instrs)
         val image2 = image.withUsedOp().copy(stack = stack)
 
         return OperationResult(image2, listOf(), continuation.pushFrame(frame), HexEvalSounds.THOTH)
