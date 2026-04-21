@@ -25,7 +25,7 @@ class OperatorTurnVec : OperatorBasic(3, MultiPreds.triple(VEC3, VEC3, DOUBLE)) 
 
         if(theta >= angDist){
             return to.multiply(from.length() / to.length()).asActionResult
-        }else if(DoubleIota.tolerates(theta, Math.PI)){
+        }else if(DoubleIota.tolerates(angDist, Math.PI)){
             //From and To are facing directly away from each other. In this case, no axis of rotation can be determined (cross product returns the 0 vector).
             throw MishapInvalidIota.of(toI, 1, "hextrapats:opposite_vecs", fromI.display());
         }
