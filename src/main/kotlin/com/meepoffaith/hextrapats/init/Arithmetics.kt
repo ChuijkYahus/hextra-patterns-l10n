@@ -5,6 +5,7 @@ import at.petrak.hexcasting.common.lib.hex.HexArithmetics
 import com.meepoffaith.hextrapats.HextraPats
 import com.meepoffaith.hextrapats.casting.arithmetic.BoolArithmetic
 import com.meepoffaith.hextrapats.casting.arithmetic.NumArithmetic
+import com.meepoffaith.hextrapats.casting.arithmetic.SetArithmetic
 import com.meepoffaith.hextrapats.casting.arithmetic.Vec3Arithmetic
 import com.meepoffaith.hextrapats.casting.arithmetic.Vec3BoolArithmetic
 import net.minecraft.registry.Registry
@@ -15,6 +16,7 @@ object Arithmetics {
         registerArithmetic("vec3bool", Vec3BoolArithmetic())
         registerArithmetic("nummath", NumArithmetic())
         registerArithmetic("vecmath", Vec3Arithmetic())
+        registerArithmetic("setops", SetArithmetic())
     }
 
     private fun registerArithmetic(name: String, a: Arithmetic){

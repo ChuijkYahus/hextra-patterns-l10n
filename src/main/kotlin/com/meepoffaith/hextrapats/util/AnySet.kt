@@ -23,7 +23,7 @@ class AnySet{
     fun operate(
         doubles: Function<DoubleSet, List<Iota>>,
         vecs: Function<VecSet, List<Iota>>,
-        entites: Function<Set<Entity>, List<Iota>>
+        entites: Function<MutableSet<Entity>, List<Iota>>
     ) : List<Iota> {
         return if(doubleSetIota != null){
             doubles.apply(doubleSetIota!!.copySet())

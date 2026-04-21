@@ -4,8 +4,14 @@ import at.petrak.hexcasting.api.HexAPI
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler
 import at.petrak.hexcasting.api.casting.iota.DoubleIota
 import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.mishaps.MishapInvalidIota
+import at.petrak.hexcasting.api.casting.mishaps.MishapNotEnoughArgs
 import at.petrak.hexcasting.xplat.IXplatAbstractions
+import com.meepoffaith.hextrapats.casting.iota.DoubleSet
+import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota
 import com.meepoffaith.hextrapats.casting.iota.EntitySetIota
+import com.meepoffaith.hextrapats.casting.iota.VecSet
+import com.meepoffaith.hextrapats.casting.iota.VecSetIota
 import net.minecraft.entity.Entity
 
 
@@ -43,4 +49,31 @@ object HextraUtils {
     fun Set<Entity>.asActionResult(): List<Iota> = listOf(EntitySetIota(this))
 
     fun List<Iota>.getSet(index: Int, argc: Int ): AnySet = AnySet(get(index), argc - (index + 1))
+
+    fun List<Iota>.getNumSet(idx: Int, argc: Int = 0): DoubleSet {
+        val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
+        if (x is DoubleSetIota) {
+            return x.copySet()
+        } else {
+            throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "vector")
+        }
+    }
+
+    fun List<Iota>.getVecSet(idx: Int, argc: Int = 0): VecSet {
+        val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
+        if (x is VecSetIota) {
+            return x.copySet()
+        } else {
+            throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "vector")
+        }
+    }
+
+    fun List<Iota>.getEntitySet(idx: Int, argc: Int = 0): MutableSet<Entity> {
+        val x = this.getOrElse(idx) { throw MishapNotEnoughArgs(idx + 1, this.size) }
+        if (x is EntitySetIota) {
+            return x.copySet()
+        } else {
+            throw MishapInvalidIota.ofType(x, if (argc == 0) idx else argc - (idx + 1), "vector")
+        }
+    }
 }

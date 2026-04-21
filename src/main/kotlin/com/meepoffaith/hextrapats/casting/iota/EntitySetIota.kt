@@ -23,7 +23,7 @@ import net.minecraft.text.Text
 class EntitySetIota(payload: Set<Entity>) : Iota(TYPE, payload) {
     fun getSet(): Set<Entity> = payload as Set<Entity>
 
-    fun copySet(): Set<Entity> = HashSet(getSet())
+    fun copySet(): MutableSet<Entity> = HashSet(getSet())
 
     override fun isTruthy(): Boolean = getSet().isNotEmpty()
 
