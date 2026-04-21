@@ -279,7 +279,7 @@
           entity_set: "一个实体集合"
         },
         "hextrapats:": {
-          opposite_vecs: "不与起始方向（%s）正好反向的向量",
+          opposite_vecs: "不与起始方向%s正好反向的向量",
           too_short_to_swindle: "长度至少为%s的列表",
           set_item: "一个数、向量，或实体",
           set_list: "完全由数、向量、实体三者之一组成的非空列表"

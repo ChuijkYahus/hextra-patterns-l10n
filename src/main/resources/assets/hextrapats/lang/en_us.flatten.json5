@@ -279,7 +279,7 @@
           entity_set: "an entity set"
         },
         "hextrapats:": {
-          opposite_vecs: "vector not facing opposite to the start direction (%s)",
+          opposite_vecs: "vector not facing opposite to the start direction %s",
           too_short_to_swindle: "a list of at least length %s",
           set_item: "a number, vector, or entity",
           set_list: "a non-empty list of entirely numbers, vectors, or entities"
