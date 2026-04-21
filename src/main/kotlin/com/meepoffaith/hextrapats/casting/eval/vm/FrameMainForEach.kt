@@ -11,7 +11,6 @@ import at.petrak.hexcasting.api.casting.iota.DoubleIota
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.iota.ListIota
 import at.petrak.hexcasting.api.utils.getList
-import at.petrak.hexcasting.api.utils.hasList
 import at.petrak.hexcasting.api.utils.serializeToNBT
 import at.petrak.hexcasting.common.lib.hex.HexEvalSounds
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes
@@ -19,23 +18,15 @@ import net.minecraft.nbt.NbtCompound
 import net.minecraft.nbt.NbtElement
 import net.minecraft.server.world.ServerWorld
 
-data class FrameIndexForEach(
+data class FrameMainForEach(
     val data: SpellList,
     val code: SpellList,
-    val baseStack: List<Iota>?,
-    val index: Int,
-    val acc: MutableList<Iota>
+    val index: Int
 ) : ContinuationFrame {
-    constructor(data: SpellList, code: SpellList) : this(data, code, null, 0, mutableListOf())
+    constructor(data: SpellList, code: SpellList, withIndex: Boolean) : this(data, code, if(withIndex) 0 else -1)
 
-    //Directly copied from FrameForEach, except for the extra bit of logic to include the index
-
-    /** When halting, we add the stack state at halt to the stack accumulator, then return the original pre-Thoth stack, plus the accumulator. */
     override fun breakDownwards(stack: List<Iota>): Pair<Boolean, List<Iota>> {
-        val newStack = baseStack?.toMutableList() ?: mutableListOf()
-        acc.addAll(stack)
-        newStack.add(ListIota(acc))
-        return true to newStack
+        return Pair(true, stack)
     }
 
     /** Step the Thoth computation, enqueueing one code evaluation. */
@@ -44,15 +35,7 @@ data class FrameIndexForEach(
         level: ServerWorld,
         harness: CastingVM
     ): CastResult {
-        // If this isn't the very first Thoth step (i.e. no Thoth computations run yet)...
-        val stack = if (baseStack == null) {
-            // init stack to the VM stack...
-            harness.image.stack.toList()
-        } else {
-            // else save the stack to the accumulator and reuse the saved base stack.
-            acc.addAll(harness.image.stack)
-            baseStack
-        }
+        val stack = harness.image.stack.toList() //Always use the current stack.
 
         // If we still have data to process...
         val tStack = stack.toMutableList()
@@ -60,17 +43,17 @@ data class FrameIndexForEach(
             // push the next datum to the top of the stack,
             val cont2 = continuation
                 // put the next Thoth object back on the stack for the next Thoth cycle,
-                .pushFrame(FrameIndexForEach(data.cdr, code, stack, index + 1, acc))
+                .pushFrame(FrameMainForEach(data.cdr, code, if(index == -1) -1 else index))
                 // and prep the Thoth'd code block for evaluation.
                 .pushFrame(FrameEvaluate(code, true))
             tStack.add(data.car)
-            tStack.add(DoubleIota(index.toDouble()))
+            if(index != -1) tStack.add(DoubleIota(index.toDouble()))
             Pair(harness.image.withUsedOp(), cont2)
         } else {
             // Else, dump our final list onto the stack.
-            tStack.add(ListIota(acc))
-            Pair( harness.image, continuation)
+            Pair(harness.image, continuation)
         }
+
         return CastResult(
             ListIota(code),
             newCont,
@@ -82,48 +65,26 @@ data class FrameIndexForEach(
         )
     }
 
-    /*
-    override fun serializeToNBT() = NBTBuilder {
-        "data" %= data.serializeToNBT()
-        "code" %= code.serializeToNBT()
-        if (baseStack != null)
-            "base" %= baseStack.serializeToNBT()
-        "index" %= index
-        "accumulator" %= acc.serializeToNBT()
-    }
-     */
-
     override fun serializeToNBT(): NbtCompound {
         val tag = NbtCompound()
         tag.put("data", data.serializeToNBT())
         tag.put("code", code.serializeToNBT())
-        if(baseStack != null)
-            tag.put("base", baseStack.serializeToNBT())
         tag.putInt("index", index)
-        tag.put("accumulator", acc.serializeToNBT())
         return tag
     }
 
-    override fun size() = data.size() + code.size() + acc.size + (baseStack?.size ?: 0)
+    override fun size() = data.size() + code.size()
 
     override val type: ContinuationFrame.Type<*> = TYPE
 
     companion object {
         @JvmField
-        val TYPE: ContinuationFrame.Type<FrameIndexForEach> = object : ContinuationFrame.Type<FrameIndexForEach> {
-            override fun deserializeFromNBT(tag: NbtCompound, world: ServerWorld): FrameIndexForEach {
-                return FrameIndexForEach(
+        val TYPE: ContinuationFrame.Type<FrameMainForEach> = object : ContinuationFrame.Type<FrameMainForEach> {
+            override fun deserializeFromNBT(tag: NbtCompound, world: ServerWorld): FrameMainForEach {
+                return FrameMainForEach(
                     HexIotaTypes.LIST.deserialize(tag.getList("data", NbtElement.COMPOUND_TYPE), world)!!.list,
                     HexIotaTypes.LIST.deserialize(tag.getList("code", NbtElement.COMPOUND_TYPE), world)!!.list,
-                    if (tag.hasList("base", NbtElement.COMPOUND_TYPE))
-                        HexIotaTypes.LIST.deserialize(tag.getList("base", NbtElement.COMPOUND_TYPE), world)!!.list.toList()
-                    else
-                        null,
-                    tag.getInt("index"),
-                    HexIotaTypes.LIST.deserialize(
-                        tag.getList("accumulator", NbtElement.COMPOUND_TYPE),
-                        world
-                    )!!.list.toMutableList()
+                    tag.getInt("index")
                 )
             }
 

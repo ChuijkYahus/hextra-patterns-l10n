@@ -1,14 +1,15 @@
 package com.meepoffaith.hextrapats.init
 
-import at.petrak.hexcasting.api.casting.castables.SpecialHandler
 import at.petrak.hexcasting.api.casting.eval.vm.ContinuationFrame
 import at.petrak.hexcasting.xplat.IXplatAbstractions
 import com.meepoffaith.hextrapats.HextraPats
 import com.meepoffaith.hextrapats.casting.eval.vm.FrameIndexForEach
+import com.meepoffaith.hextrapats.casting.eval.vm.FrameMainForEach
 import net.minecraft.registry.Registry
 
 object ContinuationTypes {
     val FOREACH_INDEX = registerContinuation("foreach_index", FrameIndexForEach.TYPE)
+    val MAIN_FOREACH = registerContinuation("main_foreach", FrameMainForEach.TYPE)
 
     fun init(){}
 
