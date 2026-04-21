@@ -2,6 +2,7 @@ package com.meepoffaith.hextrapats
 
 import com.meepoffaith.hextrapats.init.Arithmetics
 import com.meepoffaith.hextrapats.init.ContinuationTypes
+import com.meepoffaith.hextrapats.init.IotaTypes
 import com.meepoffaith.hextrapats.init.Patterns
 import com.meepoffaith.hextrapats.init.SpecialHandlers
 import net.fabricmc.api.ModInitializer
@@ -17,8 +18,9 @@ object HextraPats : ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
-		LOGGER.info("Is anyone there? Hello? I'm trAPPED IN HERE AND CAN'T GET OUT H E L P !")
+		LOGGER.info("Is anyone there? Hello? I'm trAPPED IN HERE AND CAN'T GET OUT H E L P ! (Now in Kotlin)")
 
+		IotaTypes.init()
 		ContinuationTypes.init()
 		Patterns.init()
 		SpecialHandlers.init()

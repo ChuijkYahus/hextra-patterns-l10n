@@ -100,9 +100,11 @@
       sets: {
         intro: "哈希集合的各元素无顺序且不重复，很适合用于记录某物存在与否。<br>由于所谓的“$(thing)哈希/$”之魔法过程，访问其中元素的操作接近于 O(1)，能减轻自然的负担。",
         tolerance: "不过，这种“$(thing)哈希/$”似乎会给自然带去另一种负担，虽然轻微，但确实存在。数和向量在插入集合时会丢失精度，舍入至 4 位小数。这应当是与$(l:patterns/logic#hexcasting:equals)$(thing)自然理解$(action)相等/$的方式有关。",
-        empty_num_set: "压入一个可包含数的空集合。",
-        empty_vec_set: "压入一个可包含向量的空集合。",
-        empty_entity_set: "压入一个可包含实体的空集合。",
+        "empty_set/": {
+          num: "压入一个可包含数的空集合。",
+          vec: "压入一个可包含向量的空集合。",
+          entity: "压入一个可包含实体的空集合。"
+        },
         insert: {
           name: "入集合之馏化",
           "": "移除栈顶元素，将其插入栈顶集合。该 iota 的类型必须符合集合类型。"
@@ -199,9 +201,11 @@
         swindle_list: "骗徒之馏化",
         scronglwfijspoivjqwofklcrvewb: "打乱之纯化",
 
-        empty_num_set: "空无之精思：数集合",
-        empty_vec_set: "空无之精思：向量集合",
-        empty_entity_set: "空无之精思：实体集合",
+        "empty_set/": {
+          num: "空无之精思：数集合",
+          vec: "空无之精思：向量集合",
+          entity: "空无之精思：实体集合"
+        },
         last_n_set: "桶之策略",
         splat_set: "泼洒之拆解",
         set_insert_ret: "入集合之策略",
