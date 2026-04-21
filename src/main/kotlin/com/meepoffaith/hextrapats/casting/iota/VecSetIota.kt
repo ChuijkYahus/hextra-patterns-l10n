@@ -89,6 +89,8 @@ class VecSetIota(payload: VecSet) : Iota(TYPE, payload) {
             override fun remove(o: Vec3d): Boolean {
                 return super.remove(MathUtils.roundToTolerance(o))
             }
+
+            fun asActionResult(): List<Iota> = listOf(VecSetIota(this))
         }
     }
 }

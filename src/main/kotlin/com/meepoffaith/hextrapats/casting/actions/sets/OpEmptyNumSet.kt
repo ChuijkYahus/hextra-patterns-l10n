@@ -8,6 +8,6 @@ import com.meepoffaith.hextrapats.casting.iota.DoubleSetIota
 class OpEmptyNumSet : ConstMediaAction {
     override val argc = 0
     override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
-        return listOf(DoubleSetIota(DoubleSetIota.Companion.DoubleSet()))
+        return DoubleSetIota.Companion.DoubleSet().asActionResult()
     }
 }

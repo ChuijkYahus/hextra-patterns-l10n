@@ -8,6 +8,6 @@ import com.meepoffaith.hextrapats.casting.iota.VecSetIota
 class OpEmptyVecSet : ConstMediaAction {
     override val argc = 0
     override fun execute(args: List<Iota>, env: CastingEnvironment): List<Iota> {
-        return listOf(VecSetIota(VecSetIota.Companion.VecSet()))
+        return VecSetIota.Companion.VecSet().asActionResult()
     }
 }

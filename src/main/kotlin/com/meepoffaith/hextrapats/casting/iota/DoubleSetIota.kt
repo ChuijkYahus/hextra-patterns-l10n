@@ -85,6 +85,8 @@ class DoubleSetIota(payload: DoubleSet) : Iota(TYPE, payload) {
             override fun remove(o: Double): Boolean {
                 return super.remove(MathUtils.roundToTolerance(o))
             }
+
+            fun asActionResult() : List<Iota> = listOf(DoubleSetIota(this))
         }
     }
 }

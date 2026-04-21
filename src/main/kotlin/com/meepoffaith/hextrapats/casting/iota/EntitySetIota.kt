@@ -1,5 +1,6 @@
 package com.meepoffaith.hextrapats.casting.iota
 
+import at.petrak.hexcasting.api.casting.iota.EntityIota
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.iota.IotaType
 import at.petrak.hexcasting.api.utils.darkAqua
@@ -30,7 +31,14 @@ class EntitySetIota(payload: Set<Entity>) : Iota(TYPE, payload) {
         return that is EntitySetIota && that.getSet() == getSet()
     }
 
-    override fun size(): Int = getSet().size
+    //For transgress others mishap
+    override fun subIotas(): Iterable<Iota> {
+        val list = mutableListOf<Iota>();
+        for(entity in getSet()){
+            list.add(EntityIota(entity))
+        }
+        return list
+    }
 
     override fun serialize(): NbtElement {
         val list = NbtList()
@@ -97,5 +105,7 @@ class EntitySetIota(payload: Set<Entity>) : Iota(TYPE, payload) {
             }
             return baseName.append(Text.literal(": ")).append(inlineEnt)
         }
+
+        fun Set<Entity>.asActionResult(): List<Iota> = listOf(EntitySetIota(this))
     }
 }
