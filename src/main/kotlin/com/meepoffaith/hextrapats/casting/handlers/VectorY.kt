@@ -1,18 +1,14 @@
 package com.meepoffaith.hextrapats.casting.handlers
 
-import at.petrak.hexcasting.api.HexAPI
 import at.petrak.hexcasting.api.casting.asActionResult
 import at.petrak.hexcasting.api.casting.castables.Action
 import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
 import at.petrak.hexcasting.api.casting.castables.SpecialHandler
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
 import at.petrak.hexcasting.api.casting.iota.Iota
-import at.petrak.hexcasting.api.casting.iota.Vec3Iota
 import at.petrak.hexcasting.api.casting.math.HexPattern
 import at.petrak.hexcasting.api.utils.asTranslatedComponent
 import at.petrak.hexcasting.api.utils.lightPurple
-import at.petrak.hexcasting.xplat.IXplatAbstractions
-import com.ibm.icu.impl.ValidIdentifiers
 import com.meepoffaith.hextrapats.init.SpecialHandlers
 import com.meepoffaith.hextrapats.util.HextraUtils
 import com.meepoffaith.hextrapats.util.HextraUtils.numericalReflection

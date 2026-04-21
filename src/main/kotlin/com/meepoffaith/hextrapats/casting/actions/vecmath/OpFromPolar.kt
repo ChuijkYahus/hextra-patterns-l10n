@@ -5,7 +5,6 @@ import at.petrak.hexcasting.api.casting.castables.ConstMediaAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
 import at.petrak.hexcasting.api.casting.getDouble
 import at.petrak.hexcasting.api.casting.iota.Iota
-import at.petrak.hexcasting.api.casting.iota.Vec3Iota
 import net.minecraft.util.math.Vec3d
 import kotlin.math.cos
 import kotlin.math.sin

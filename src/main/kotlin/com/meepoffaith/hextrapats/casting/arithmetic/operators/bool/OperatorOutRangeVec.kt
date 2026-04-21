@@ -1,6 +1,5 @@
 package com.meepoffaith.hextrapats.casting.arithmetic.operators.bool
 
-import at.petrak.hexcasting.api.casting.arithmetic.operator.Operator.Companion.downcast
 import at.petrak.hexcasting.api.casting.arithmetic.operator.OperatorBasic
 import at.petrak.hexcasting.api.casting.asActionResult
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
