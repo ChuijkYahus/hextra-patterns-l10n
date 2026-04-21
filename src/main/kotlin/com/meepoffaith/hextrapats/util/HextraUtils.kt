@@ -41,4 +41,6 @@ object HextraUtils {
     }
 
     fun Set<Entity>.asActionResult(): List<Iota> = listOf(EntitySetIota(this))
+
+    fun List<Iota>.getSet(index: Int, argc: Int ): AnySet = AnySet(get(index), argc - (index + 1))
 }

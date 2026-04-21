@@ -21,9 +21,7 @@ import com.meepoffaith.hextrapats.casting.actions.math.OpDegRad
 import com.meepoffaith.hextrapats.casting.actions.math.OpRadDeg
 import com.meepoffaith.hextrapats.casting.actions.math.OpRandRange
 import com.meepoffaith.hextrapats.casting.actions.math.OpRandZero
-import com.meepoffaith.hextrapats.casting.actions.sets.OpEmptyEntitySet
-import com.meepoffaith.hextrapats.casting.actions.sets.OpEmptyNumSet
-import com.meepoffaith.hextrapats.casting.actions.sets.OpEmptyVecSet
+import com.meepoffaith.hextrapats.casting.actions.sets.*
 import com.meepoffaith.hextrapats.casting.actions.vecmath.OpFromPolar
 import com.meepoffaith.hextrapats.casting.actions.vecmath.OpRandVec
 import com.meepoffaith.hextrapats.casting.actions.vecmath.OpToPolar
@@ -87,6 +85,10 @@ object Patterns {
         register("empty_set/num", "eedqddeeaqaa", HexDir.NORTH_WEST, OpEmptyNumSet())
         register("empty_set/vec", "eedqddeeqqqqq", HexDir.NORTH_WEST, OpEmptyVecSet())
         register("empty_set/entity", "eedqddeweaqa", HexDir.NORTH_WEST, OpEmptyEntitySet())
+        register("last_n_set", "ewdwaawaqde", HexDir.SOUTH_WEST, OpLastNToSet())
+        register("splat_set", "qwawddwdeaq", HexDir.NORTH_WEST, OpSplatSet())
+        register("set_to_list", "eedqddeqaaeaqq", HexDir.NORTH_WEST, OpSetToList())
+        register("list_to_set", "qqaeaadwaddqdee", HexDir.NORTH_EAST, OpListToSet())
 
         register("true_eval", "deaqqaaqa", HexDir.SOUTH_EAST, OpConditionalEval(true))
         register("false_eval", "deaqqdded", HexDir.SOUTH_EAST, OpConditionalEval(false))
