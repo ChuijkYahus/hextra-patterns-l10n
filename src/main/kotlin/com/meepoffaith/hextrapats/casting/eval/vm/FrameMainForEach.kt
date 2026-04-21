@@ -43,7 +43,7 @@ data class FrameMainForEach(
             // push the next datum to the top of the stack,
             val cont2 = continuation
                 // put the next Thoth object back on the stack for the next Thoth cycle,
-                .pushFrame(FrameMainForEach(data.cdr, code, if(index == -1) -1 else index))
+                .pushFrame(FrameMainForEach(data.cdr, code, if(index == -1) -1 else (index + 1)))
                 // and prep the Thoth'd code block for evaluation.
                 .pushFrame(FrameEvaluate(code, true))
             tStack.add(data.car)
