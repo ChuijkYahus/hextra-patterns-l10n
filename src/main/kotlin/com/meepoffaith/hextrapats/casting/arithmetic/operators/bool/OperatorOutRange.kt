@@ -19,12 +19,16 @@ class OperatorOutRange : OperatorBasic(4, MultiPreds.all(DOUBLE)) {
         val op = it.nextPositiveIntUnderInclusive(3, 4)
         val min = a.coerceAtMost(b)
         val max = a.coerceAtLeast(b)
-        return when(op){
+        return outRange(min, max, num, op).asActionResult
+    }
+
+    companion object{
+        fun outRange(min: Double, max: Double, num: Double, op: Int) : Boolean = when(op){
             0 -> num !in min..max
             1 -> HextraUtils.lessEq(num, min) || max < num
             2 -> num < min || HextraUtils.lessEq(max, num)
             3 -> HextraUtils.lessEq(num, min) || HextraUtils.lessEq(max, num)
             else -> throw IllegalStateException("How the fuck")
-        }.asActionResult
+        }
     }
 }
