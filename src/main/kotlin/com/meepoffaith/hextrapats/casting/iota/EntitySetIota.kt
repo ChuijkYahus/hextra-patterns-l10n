@@ -3,15 +3,11 @@ package com.meepoffaith.hextrapats.casting.iota
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.iota.IotaType
 import at.petrak.hexcasting.api.utils.darkAqua
-import at.petrak.hexcasting.api.utils.darkGreen
 import at.petrak.hexcasting.api.utils.downcast
-import at.petrak.hexcasting.api.utils.green
 import at.petrak.hexcasting.common.lib.hex.HexIotaTypes
-import com.meepoffaith.hextrapats.init.IotaTypes
 import com.samsthenerd.inline.api.InlineAPI
 import com.samsthenerd.inline.api.data.EntityInlineData
 import com.samsthenerd.inline.api.data.PlayerHeadData
-import kotlinx.serialization.builtins.serializer
 import net.minecraft.entity.Entity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.nbt.NbtCompound
@@ -21,11 +17,12 @@ import net.minecraft.nbt.NbtList
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.text.MutableText
 import net.minecraft.text.Text
-import kotlin.toString
 
 
 class EntitySetIota(payload: Set<Entity>) : Iota(TYPE, payload) {
     fun getSet(): Set<Entity> = payload as Set<Entity>
+
+    fun copySet(): Set<Entity> = HashSet(getSet())
 
     override fun isTruthy(): Boolean = getSet().isNotEmpty()
 

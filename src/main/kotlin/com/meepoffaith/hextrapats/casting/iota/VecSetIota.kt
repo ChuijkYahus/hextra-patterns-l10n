@@ -16,6 +16,8 @@ import net.minecraft.util.math.Vec3d
 class VecSetIota(payload: VecSet) : Iota(TYPE, payload) {
     fun getSet(): VecSet = payload as VecSet
 
+    fun copySet(): VecSet = VecSet(getSet())
+
     override fun isTruthy(): Boolean = getSet().isNotEmpty()
 
     override fun toleratesOther(that: Iota?): Boolean {

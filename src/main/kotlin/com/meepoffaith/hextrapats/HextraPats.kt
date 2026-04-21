@@ -1,10 +1,6 @@
 package com.meepoffaith.hextrapats
 
-import com.meepoffaith.hextrapats.init.Arithmetics
-import com.meepoffaith.hextrapats.init.ContinuationTypes
-import com.meepoffaith.hextrapats.init.IotaTypes
-import com.meepoffaith.hextrapats.init.Patterns
-import com.meepoffaith.hextrapats.init.SpecialHandlers
+import com.meepoffaith.hextrapats.init.*
 import net.fabricmc.api.ModInitializer
 import net.minecraft.util.Identifier
 import org.slf4j.Logger

@@ -17,6 +17,8 @@ import net.minecraft.text.Text
 class DoubleSetIota(payload: DoubleSet) : Iota(TYPE, payload) {
     fun getSet(): DoubleSet = payload as DoubleSet
 
+    fun copySet(): DoubleSet = DoubleSet(getSet())
+
     override fun isTruthy(): Boolean = getSet().isNotEmpty()
 
     override fun toleratesOther(that: Iota?): Boolean {
