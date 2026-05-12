@@ -54,8 +54,8 @@ object Patterns {
     fun init(){
         register("deg_to_rad", "qqqqqdwdq", HexDir.WEST, OpDegRad())
         register("rad_to_deg", "qdwdqqqqq", HexDir.NORTH_EAST, OpRadDeg())
-        register("rand_zero", "dedqeqqq", HexDir.EAST, OpRandRange())
-        register("rand_range", "eeeqeqqq", HexDir.SOUTH_WEST, OpRandZero())
+        register("rand_zero", "dedqeqqq", HexDir.EAST, OpRandZero())
+        register("rand_range", "eeeqeqqq", HexDir.SOUTH_WEST, OpRandRange())
 
         register("rand_vec", "eeeeeqeqqq", HexDir.EAST, OpRandVec())
         register("vec_dist", "aqqqqqeqeeeeed", HexDir.EAST, OpVecDist())
